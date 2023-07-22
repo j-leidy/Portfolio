@@ -1,9 +1,9 @@
-import { styled } from "styled-components";
-
-const MainPageBody = styled.div`
-    color: black;
-`;
+import { MobileMenu } from "../Components/Nav/NavBar";
 
 export const MainPage = () => {
-    return <MainPageBody>test</MainPageBody>;
+    return (
+        <>
+            <MobileMenu />
+        </>
+    );
 };
