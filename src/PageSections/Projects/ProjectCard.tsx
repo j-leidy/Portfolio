@@ -1,93 +1,16 @@
-import { keyframes, styled } from "styled-components";
-
-const ProjectCardWithtitle = styled.div`
-    margin-top: 10%;
-    caret-color: transparent;
-    overflow: hidden;
-`;
-
-const ProjectCardContainer = styled.a`
-    display: flex;
-    flex-direction: row;
-    border: 1px solid ${(props) => props.theme.colors.accentMain};
-    justify-content: space-around;
-    padding: 20px;
-    border-radius: 10px;
-    background: ${(props) => props.theme.colors.background};
-    overflow: hidden;
-    @media screen and (max-width: ${(props) => props.theme.breakpoint}px) {
-        padding: 10px;
-        align-items: center;
-        flex-direction: column;
-    }
-`;
-
-const ProjectCardImage = styled.img`
-    height: 400px;
-    @media screen and (max-width: ${(props) => props.theme.breakpoint}px) {
-        width: 100%;
-        height: 100%;
-    }
-`;
-const ProjectCardTitleDesktop = styled.div`
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    font-size: 30px;
-    text-transform: uppercase;
-    font-weight: 600;
-    padding-left: 10px;
-    color: ${(props) => props.theme.colors.accentOne};
-    @media screen and (max-width: ${(props) => props.theme.breakpoint}px) {
-        font-size: 20px;
-    }
-`;
-
-const ProjectCardSkills = styled.div`
-    display: flex;
-    flex-direction: row-reverse;
-    align-items: center;
-    flex-wrap: nowrap;
-    overflow: hidden;
-    padding-top: 10px;
-    height: 48px;
-    @media screen and (max-width: ${(props) => props.theme.breakpoint}px) {
-        justify-content: space-evenly;
-        height: 30px;
-    }
-`;
-const SkillIconKeyframes = keyframes`
-  0%{
-    opacity: 0;
-  }
-  65%{
-    opacity: 0;
-  }
-  100%{
-    opacity: 1;
-  } 
-`;
-interface ProjectCardSkillIconProps {
-    $index: number;
-}
-const ProjectCardSkillIcon = styled.img<ProjectCardSkillIconProps>`
-    animation: ${SkillIconKeyframes} ${(props) => props.$index * 0.4}s;
-    animation-fill-mode: forwards;
-    animation-iteration-count: 1;
-    width: 40px;
-    height: 40px;
-    padding: 5px;
-    @media screen and (max-width: ${(props) => props.theme.breakpoint}px) {
-        width: 20px;
-        height: 20px;
-        padding: 0;
-    }
-`;
+import { useEffect, useRef, useState } from "react";
+import {
+    ProjectCardContainer,
+    ProjectCardImage,
+    ProjectCardSkillIcon,
+    ProjectCardSkills,
+    ProjectCardTitle,
+    ProjectCardWithtitle,
+} from "./ProjectCardStyle";
 
 interface ProjectCardProps {
     title: string;
     image: string;
-    bullets: string[];
     skills: string[];
     linkToProject: string;
 }
@@ -95,23 +18,55 @@ interface ProjectCardProps {
 export const ProjectCard = ({
     title,
     image,
-    bullets,
     skills,
     linkToProject,
 }: ProjectCardProps) => {
+    const cardRef = useRef<HTMLAnchorElement>(null);
+    const titleRef = useRef<HTMLDivElement>(null);
+    const [cardIsInView, setCardIsInView] = useState<boolean>(false);
+    const [titleIsInView, setTitleIsInView] = useState<boolean>(false);
+    useEffect(() => {
+        const observer: IntersectionObserver = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (titleRef.current && cardRef.current) {
+                        titleRef.current.className === entry.target.className &&
+                            setTitleIsInView(entry.isIntersecting);
+                        cardRef.current.className === entry.target.className &&
+                            setCardIsInView(entry.isIntersecting);
+                    }
+                });
+            },
+            { threshold: 0.05 }
+        );
+        if (cardRef.current && titleRef.current) {
+            const refs = [cardRef.current, titleRef.current];
+            refs.forEach((ref) => observer.observe(ref));
+        }
+        return () => observer.disconnect();
+    }, [cardRef, titleRef]);
     return (
         <ProjectCardWithtitle>
-            <ProjectCardTitleDesktop>
+            <ProjectCardTitle $inView={titleIsInView} ref={titleRef}>
                 {title}
                 <ProjectCardSkills>
                     {skills.map((skill, idx) => {
                         return (
-                            <ProjectCardSkillIcon $index={idx} src={skill} />
+                            <ProjectCardSkillIcon
+                                $inView={titleIsInView}
+                                $index={idx}
+                                src={skill}
+                            />
                         );
                     })}
                 </ProjectCardSkills>
-            </ProjectCardTitleDesktop>
-            <ProjectCardContainer href={linkToProject} target="_blank">
+            </ProjectCardTitle>
+            <ProjectCardContainer
+                href={linkToProject}
+                target="_blank"
+                $inView={cardIsInView}
+                ref={cardRef}
+            >
                 <ProjectCardImage src={image} />
             </ProjectCardContainer>
         </ProjectCardWithtitle>

@@ -12,14 +12,11 @@ export const Projects = () => {
                 includeSubText={true}
                 subText="Click or tap a card for more information"
             />
-            {Object.keys(ProjectsData).map((key) => {
+            {Object.keys(ProjectsData).map((key, idx) => {
                 return (
                     <ProjectCard
                         title={key}
-                        bullets={
-                            ProjectsData[key as keyof typeof ProjectsData]
-                                .bullets
-                        }
+                        key={idx}
                         image={
                             ProjectsData[key as keyof typeof ProjectsData].image
                         }

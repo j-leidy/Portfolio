@@ -18,6 +18,7 @@ const MainPageContainer = styled.div`
     z-index: 1;
     top: 0;
     left: 0;
+    caret-color: transparent;
 `;
 
 export const MainPage = () => {
