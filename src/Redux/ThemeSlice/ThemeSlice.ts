@@ -2,6 +2,7 @@ import {createSlice} from "@reduxjs/toolkit"
 import { RootState } from "../PortfolioStore"
 import { DarkTheme, LightTheme } from "styled-components"
 import { darkTheme,lightTheme } from "../../Theme/Theme"
+import { customOptions } from "../../Components/Particles/config/ParticlesConfig"
 
 interface ThemeState {
     theme: LightTheme | DarkTheme
@@ -17,9 +18,33 @@ export const ThemeSlice = createSlice({
     reducers : {
         swapTheme: (state) => {
             if(state.theme.colors.background === darkTheme.colors.background){
-                state.theme = {...lightTheme}
+                state.theme = {
+                    ...lightTheme,
+                    particlesOptions: {
+                        ...customOptions,
+                        background:{
+                            color:{value:lightTheme.colors.background},
+                            image: "",
+                            position: "50% 50%",
+                            repeat: "no-repeat",
+                            size: "cover"
+                        }
+                    }
+                }
             }else if(state.theme.colors.background === lightTheme.colors.background){
-                state.theme = {...darkTheme}
+                state.theme = {
+                    ...darkTheme,
+                    particlesOptions: {
+                        ...customOptions,
+                        background:{
+                            color: {value:darkTheme.colors.background},
+                            image: "",
+                            position: "50% 50%",
+                            repeat: "no-repeat",
+                            size: "cover"
+                        }
+                    }
+                }
             }
         }
     }

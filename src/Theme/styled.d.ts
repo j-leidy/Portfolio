@@ -1,4 +1,5 @@
 import 'styled-components'
+import { CustomISourceOptions } from '../Components/Particles/config/ParticlesConfig';
 
 interface IBackground {
     color: string;
@@ -36,7 +37,7 @@ declare module 'styled-components' {
             long: number
         }
         breakpoint: number,
-        particlesBackground : IBackground
+        particlesOptions: CustomISourceOptions
     }
 }
 
@@ -67,7 +68,8 @@ declare module 'styled-components' {
             long: number
         }
         breakpoint: number,
-        particlesBackground: IBackground
+        particlesOptions: CustomISourceOptions
+
     }
 }
 

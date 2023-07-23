@@ -1,8 +1,9 @@
 import {ISourceOptions} from "tsparticles-engine"
-import { defaultGradientEnd, defaultGradientStart } from "../../../Theme/ColorPallete";
+import { blackAccent, greenAccent, purpleGreenGradientStart } from "../../../Theme/ColorPallete";
 
+export type CustomISourceOptions = Omit<ISourceOptions,"style">
 
-const customOptions: ISourceOptions = {
+export const customOptions: CustomISourceOptions = {
     name: "custom options",
     particles: {
         number: {
@@ -13,7 +14,7 @@ const customOptions: ISourceOptions = {
             },
         },
         color: {
-            value: [defaultGradientStart,defaultGradientEnd],
+            value: [greenAccent],
         },
         shape: {
             type: "triangle",
@@ -30,9 +31,9 @@ const customOptions: ISourceOptions = {
         links: {
             enable: true,
             distance: 70,
-            color: "#ffa600",
+            color: purpleGreenGradientStart,
             opacity: 1,
-            width: 0.3,
+            width: 1,
         },
         move: {
             enable: true,
@@ -54,8 +55,14 @@ const customOptions: ISourceOptions = {
         },
     },
     smooth: true,
-    fullScreen: true,
-    zLayers: 1,
+    fullScreen: {
+        enable: true
+    },
+    background: {
+        color: blackAccent,
+        image: "",
+        position: "50% 50%",
+        repeat: "no-repeat",
+        size: "cover"
+    }
 };
-
-export default customOptions;

@@ -1,5 +1,6 @@
 import { DarkTheme, LightTheme } from "styled-components";
 import {  blackAccent, defaultGradient, defaultGradientEnd, defaultGradientStart, defaultGradientVerticle, goldAccent, navBarDarkTheme, navBarLightTheme, offWhite, purpleGreenGradient, secondaryGradient } from "./ColorPallete";
+import {customOptions} from "../Components/Particles/config/ParticlesConfig";
 
 
 const lightTheme : LightTheme = {
@@ -28,13 +29,7 @@ const lightTheme : LightTheme = {
         long: 3,
     },
     breakpoint : 900,
-    particlesBackground : {
-        color: '#fff',
-        image: "",
-        position: "50% 50%",
-        repeat: "no-repeat",
-        size: "cover",
-    },
+    particlesOptions: customOptions
 }
 
 const darkTheme : DarkTheme = {
@@ -63,13 +58,7 @@ const darkTheme : DarkTheme = {
         long: 3,
     },
     breakpoint: 900,
-    particlesBackground : {
-        color: '#000',
-        image: "",
-        position: "50% 50%",
-        repeat: "no-repeat",
-        size: "cover",
-    },
+    particlesOptions: customOptions
 }
 
 
