@@ -1,6 +1,14 @@
 import { css, styled } from "styled-components";
+
 const SectionTitleText = styled.div``;
 
+interface SubTextProps {
+    $fontSize: number;
+}
+const SectionTitleSubText = styled.div<SubTextProps>`
+    font-size: ${(props) => props.$fontSize * 0.4}px;
+    font-weight: normal;
+`;
 interface ContainerProps {
     $showBorder: boolean;
     $useThemeColors: boolean;
@@ -11,6 +19,7 @@ interface ContainerProps {
 }
 const SectionTitleContainer = styled.div<ContainerProps>`
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     font-size: ${(props) => props.$fontSize}px;
@@ -18,6 +27,8 @@ const SectionTitleContainer = styled.div<ContainerProps>`
     width: 80%;
     padding-bottom: 20px;
     padding-top: 50px;
+    text-transform: uppercase;
+    font-weight: 600;
     ${({
         $useThemeColors,
         $borderThickness,
@@ -48,6 +59,8 @@ const defaultSectionTitleProps = {
     useThemeColors: true,
     textColor: "#ffffff",
     borderColor: "#ffffff",
+    includeSubText: false,
+    subText: "sub text",
 };
 
 interface SectionTitleProps {
@@ -58,6 +71,8 @@ interface SectionTitleProps {
     useThemeColors?: boolean;
     textColor?: string;
     borderColor?: string;
+    includeSubText?: boolean;
+    subText?: string;
 }
 
 export const SectionTitle = ({
@@ -68,6 +83,8 @@ export const SectionTitle = ({
     useThemeColors = defaultSectionTitleProps.useThemeColors,
     textColor = defaultSectionTitleProps.textColor,
     borderColor = defaultSectionTitleProps.borderColor,
+    includeSubText = defaultSectionTitleProps.includeSubText,
+    subText = defaultSectionTitleProps.subText,
 }: SectionTitleProps) => {
     return (
         <SectionTitleContainer
@@ -79,6 +96,11 @@ export const SectionTitle = ({
             $fontSize={fontSize}
         >
             <SectionTitleText>{titleText}</SectionTitleText>
+            {includeSubText && (
+                <SectionTitleSubText $fontSize={fontSize}>
+                    {subText}
+                </SectionTitleSubText>
+            )}
         </SectionTitleContainer>
     );
 };

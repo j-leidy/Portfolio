@@ -28,7 +28,7 @@ const lightTheme : LightTheme = {
         medium: 2,
         long: 3,
     },
-    breakpoint : 900,
+    breakpoint : 1000,
     particlesOptions: customOptions
 }
 
@@ -57,7 +57,7 @@ const darkTheme : DarkTheme = {
         medium: 2,
         long: 3,
     },
-    breakpoint: 900,
+    breakpoint: 1000,
     particlesOptions: customOptions
 }
 

@@ -7,10 +7,9 @@ export const customOptions: CustomISourceOptions = {
     name: "custom options",
     particles: {
         number: {
-            value: 100,
+            value: 200,
             density: {
                 enable: true,
-                area: 500
             },
         },
         color: {
@@ -30,10 +29,10 @@ export const customOptions: CustomISourceOptions = {
         },
         links: {
             enable: true,
-            distance: 70,
+            distance: 200,
             color: purpleGreenGradientStart,
             opacity: 1,
-            width: 1,
+            width: 0.3,
         },
         move: {
             enable: true,

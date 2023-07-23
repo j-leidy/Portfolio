@@ -5,7 +5,7 @@ import LIBW from "../Icons/LIBW.png";
 import TWITBW from "../Icons/TWITBW.png";
 import { offWhite } from "./ColorPallete";
 
-export const allIcons = [FBBW, GHBW, IGBW, LIBW, TWITBW];
+export const allSocialIcons = [FBBW, GHBW, IGBW, LIBW, TWITBW];
 
 export const WelcomeParticlesBackground = {
     color: {offWhite},

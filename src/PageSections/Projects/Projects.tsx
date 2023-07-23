@@ -6,7 +6,12 @@ import { ProjectsData } from "./ProjectsData";
 export const Projects = () => {
     return (
         <PageSectionContainer>
-            <SectionTitle titleText="Projects" useThemeColors={true} />
+            <SectionTitle
+                titleText="Projects"
+                useThemeColors={true}
+                includeSubText={true}
+                subText="Click or tap a card for more information"
+            />
             {Object.keys(ProjectsData).map((key) => {
                 return (
                     <ProjectCard

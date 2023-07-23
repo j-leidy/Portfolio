@@ -1,7 +1,7 @@
-import { styled } from "styled-components";
+import { keyframes, styled } from "styled-components";
 import { useAppDispatch } from "../../Hooks/Hooks";
 import { setShowMainPage } from "../../Redux/PageSlice/PageSlice";
-import { allIcons } from "../../Theme/ExtraConstants";
+import { allSocialIcons } from "../../Theme/ExtraConstants";
 import { MoonIcon } from "../Nav/MoonIcon";
 import { offWhite } from "../../Theme/ColorPallete";
 
@@ -40,9 +40,24 @@ const ClickOrTapToEnterButton = styled.div`
     border: 1px solid ${(props) => props.theme.colors.textOpposite};
 `;
 
+const TextAnimation = keyframes`
+    0%{
+        opacity: 0;
+    }50%{
+        opacity: 1;
+    }100%{
+        opacity: 0;
+    }
+`;
+
 const ClickOrTapToEnterText = styled.div`
     transition: ${(props) => props.theme.animationTime.short}s all ease;
     color: ${(props) => props.theme.colors.textOpposite};
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 30px;
+    animation: ${TextAnimation} 4s;
+    animation-iteration-count: infinite;
 `;
 
 const SocialIconsContainer = styled.div`
@@ -53,8 +68,9 @@ const SocialIconsContainer = styled.div`
     background: ${offWhite};
     border-radius: 10px;
     padding: 10px;
+    box-shadow: 0px 25px 20px -20px ${(props) => (props.theme.colors.text === offWhite ? props.theme.colors.accentOne : props.theme.colors.text)};
     @media screen and (max-width: ${(props) => props.theme.breakpoint}px) {
-        width: 100%;
+        width: 90%;
     }
 `;
 
@@ -77,7 +93,7 @@ export const WelcomeScreen = () => {
                     </ClickOrTapToEnterText>
                 </ClickOrTapToEnterButton>
                 <SocialIconsContainer>
-                    {allIcons.map((Icon) => {
+                    {allSocialIcons.map((Icon) => {
                         return <SocialIcon src={Icon} />;
                     })}
                 </SocialIconsContainer>

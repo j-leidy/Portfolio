@@ -18,7 +18,7 @@ export const allProjectImages = [LiquiDashImage,LiquiBotImage,LiquiBotWebsiteIma
 export const ProjectsData = {
     "LiquiDash" : {
         image: LiquiDashImage,
-        bullets: ['Built with React', 'Written in Typescript'],
+        bullets: ['Utilizes a custom REST API shared with Liquibot', 'Performs ETL operations to display useful data', 'Uses live data stored on MongoDB from Liquibot', 'Proprietary analytic charts', 'User leaderboards','Redux for state storage'],
         skillsUsed: [TypescriptIcon,FlaskIcon,MongoDBIcon,ReactIcon, GithubIcon],
         linkToProject: "https://liquidash.netlify.app/"
     },
@@ -34,7 +34,7 @@ export const ProjectsData = {
         skillsUsed: [TypescriptIcon,ReactIcon, GithubIcon],
         linkToProject: "https://liquibot.netlify.app/"
     },
-    "C++ Database Explorer" : {
+    "C++ DB Explorer" : {
         image: CPPDBExplorerImage,
         bullets: ["Allows execution of sql commands from the command line.", "Commands are simplified to provide ease of use for users."],
         skillsUsed: [CPPIcon,SQLIcon,GithubIcon],
