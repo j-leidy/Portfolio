@@ -1,5 +1,5 @@
 import {ISourceOptions} from "tsparticles-engine"
-import { blackAccent, greenAccent, purpleGreenGradientStart } from "../../../Theme/ColorPallete";
+import { blackAccent, goldAccent, purpleGreenGradientStart} from "../../../Theme/ColorPallete";
 
 export type CustomISourceOptions = Omit<ISourceOptions,"style">
 
@@ -13,7 +13,7 @@ export const customOptions: CustomISourceOptions = {
             },
         },
         color: {
-            value: [greenAccent],
+            value: [purpleGreenGradientStart],
         },
         shape: {
             type: "triangle",
@@ -29,28 +29,15 @@ export const customOptions: CustomISourceOptions = {
         },
         links: {
             enable: true,
-            distance: 200,
-            color: purpleGreenGradientStart,
+            distance: 100,
+            color: goldAccent,
             opacity: 1,
-            width: 0.3,
+            width: 0.5,
         },
         move: {
             enable: true,
             speed: 0.2,
             random: true
-        },
-    },
-    interactivity: {
-        events: {
-            onClick: {
-                enable: true,
-                mode: "grab"
-            }
-        },
-        modes: {
-            push: {
-                quantity: 4,
-            },
         },
     },
     smooth: true,

@@ -93,8 +93,8 @@ export const WelcomeScreen = () => {
                     </ClickOrTapToEnterText>
                 </ClickOrTapToEnterButton>
                 <SocialIconsContainer>
-                    {allSocialIcons.map((Icon) => {
-                        return <SocialIcon src={Icon} />;
+                    {allSocialIcons.map((Icon, idx) => {
+                        return <SocialIcon key={idx} src={Icon} />;
                     })}
                 </SocialIconsContainer>
             </WelcomeContentContainer>

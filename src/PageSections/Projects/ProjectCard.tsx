@@ -8,6 +8,10 @@ import {
     ProjectCardWithtitle,
 } from "./ProjectCardStyle";
 
+const observerOptions: IntersectionObserverInit = {
+    threshold: 0.15,
+};
+
 interface ProjectCardProps {
     title: string;
     image: string;
@@ -23,12 +27,14 @@ export const ProjectCard = ({
 }: ProjectCardProps) => {
     const cardRef = useRef<HTMLAnchorElement>(null);
     const titleRef = useRef<HTMLDivElement>(null);
+
     const [cardIsInView, setCardIsInView] = useState<boolean>(false);
     const [titleIsInView, setTitleIsInView] = useState<boolean>(false);
+
     useEffect(() => {
         const observer: IntersectionObserver = new IntersectionObserver(
-            (entries) => {
-                entries.forEach((entry) => {
+            (entries: IntersectionObserverEntry[]) => {
+                entries.forEach((entry: IntersectionObserverEntry) => {
                     if (titleRef.current && cardRef.current) {
                         titleRef.current.className === entry.target.className &&
                             setTitleIsInView(entry.isIntersecting);
@@ -37,7 +43,7 @@ export const ProjectCard = ({
                     }
                 });
             },
-            { threshold: 0.05 }
+            observerOptions
         );
         if (cardRef.current && titleRef.current) {
             const refs = [cardRef.current, titleRef.current];
@@ -45,6 +51,7 @@ export const ProjectCard = ({
         }
         return () => observer.disconnect();
     }, [cardRef, titleRef]);
+
     return (
         <ProjectCardWithtitle>
             <ProjectCardTitle $inView={titleIsInView} ref={titleRef}>
@@ -56,6 +63,7 @@ export const ProjectCard = ({
                                 $inView={titleIsInView}
                                 $index={idx}
                                 src={skill}
+                                key={idx}
                             />
                         );
                     })}

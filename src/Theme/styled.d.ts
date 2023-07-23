@@ -20,6 +20,7 @@ declare module 'styled-components' {
             accentMain:string
             accentOne: string
             accentTwo: string
+            accentThree: string
             navBackground: string
             navBackgroundOpposite: string
         }
@@ -51,6 +52,7 @@ declare module 'styled-components' {
             accentMain:string
             accentOne: string
             accentTwo: string
+            accentThree: string
             navBackground: string
             navBackgroundOpposite: string
         }

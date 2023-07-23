@@ -1,5 +1,5 @@
 import { DarkTheme, LightTheme } from "styled-components";
-import {  blackAccent, defaultGradient, defaultGradientEnd, defaultGradientStart, defaultGradientVerticle, greenAccent, navBarDarkTheme, navBarLightTheme, offWhite, purpleGreenGradient, secondaryGradient } from "./ColorPallete";
+import {  blackAccent, defaultGradient, defaultGradientEnd, defaultGradientStart, defaultGradientVerticle, goldAccent, greenAccent, navBarDarkTheme, navBarLightTheme, offWhite, purpleGreenGradient, secondaryGradient } from "./ColorPallete";
 import {customOptions} from "../Components/Particles/config/ParticlesConfig";
 
 
@@ -12,6 +12,7 @@ const lightTheme : LightTheme = {
         accentMain:greenAccent,
         accentOne:defaultGradientStart,
         accentTwo:defaultGradientEnd,
+        accentThree: goldAccent,
         navBackground:navBarLightTheme,
         navBackgroundOpposite:navBarDarkTheme
     },
@@ -41,6 +42,7 @@ const darkTheme : DarkTheme = {
         accentMain:greenAccent,
         accentOne:defaultGradientStart,
         accentTwo:defaultGradientEnd,
+        accentThree: goldAccent,
         navBackground:navBarDarkTheme,
         navBackgroundOpposite: navBarLightTheme
     },

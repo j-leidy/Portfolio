@@ -13,21 +13,14 @@ export const Projects = () => {
                 subText="Click or tap a card for more information"
             />
             {Object.keys(ProjectsData).map((key, idx) => {
+                const Project = ProjectsData[key];
                 return (
                     <ProjectCard
                         title={key}
                         key={idx}
-                        image={
-                            ProjectsData[key as keyof typeof ProjectsData].image
-                        }
-                        skills={
-                            ProjectsData[key as keyof typeof ProjectsData]
-                                .skillsUsed
-                        }
-                        linkToProject={
-                            ProjectsData[key as keyof typeof ProjectsData]
-                                .linkToProject
-                        }
+                        image={Project.image}
+                        skills={Project.skillsUsed}
+                        linkToProject={Project.linkToProject}
                     />
                 );
             })}

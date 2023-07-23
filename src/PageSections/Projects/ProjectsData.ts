@@ -12,10 +12,21 @@ import PythonIcon from "../../Icons/Languages/PythonIcon.png";
 import TypescriptIcon from "../../Icons/Languages/TypescriptIcon.png";
 import GithubIcon from "../../Icons/Languages/GithubIcon.png";
 import SQLIcon from "../../Icons/Languages/SQLIcon.png";
+import ActiveDeveloperBadge from "../../Icons/Languages/ActiveDeveloperBadge.png";
+
+type Projects = {
+    [key:string]: Project
+}
+type Project = {
+    image: string,
+    bullets: string[],
+    skillsUsed: string[],
+    linkToProject: string
+}
 
 
-export const allProjectImages = [LiquiDashImage,LiquiBotImage,LiquiBotWebsiteImage,CPPDBExplorerImage];
-export const ProjectsData = {
+export const allProjectImages : string[] = [LiquiDashImage,LiquiBotImage,LiquiBotWebsiteImage,CPPDBExplorerImage];
+export const ProjectsData : Projects = {
     "LiquiDash" : {
         image: LiquiDashImage,
         bullets: ['Utilizes a custom REST API shared with Liquibot', 'Performs ETL operations to display useful data', 'Uses live data stored on MongoDB from Liquibot', 'Proprietary analytic charts', 'User leaderboards','Redux for state storage'],
@@ -25,7 +36,7 @@ export const ProjectsData = {
     "LiquiBot" : {
         image: LiquiBotImage,
         bullets: ['Utilizes the Discord.py framework.', "Over 20 commands", "verified active developer badge"],
-        skillsUsed: [PythonIcon,FlaskIcon,DiscordIcon,MongoDBIcon,LinuxIcon, GithubIcon],
+        skillsUsed: [PythonIcon,FlaskIcon,DiscordIcon,MongoDBIcon,LinuxIcon, GithubIcon, ActiveDeveloperBadge],
         linkToProject: "https://discord.com/oauth2/authorize?client_id=1074436572172259500&permissions=8&scope=bot"
     },
     "LiquiBot Website" : {

@@ -118,13 +118,13 @@ export const Card = styled.div<Props>`
     top: ${(props) => (props.$active ? "0" : "-2000px")};
     right: 0;
     width: 100vw;
-    height: 30vh;
+    height: 50vh;
     background: ${(props) => props.theme.colors.backgroundOpposite};
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-evenly;
-    @media screen and (max-width: 800px) {
+    @media screen and (max-width: ${(props) => props.theme.breakpoint}px) {
         height: 100vh;
     }
 `;

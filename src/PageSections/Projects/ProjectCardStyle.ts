@@ -14,11 +14,9 @@ interface ProjectCardSkillIconProps {
 const ProjectCardContainerKeyframes = keyframes`
   0%{
     opacity: 0;
-  }
-  50%{
+  }50%{
     opacity: 1;
-  }
-  100%{
+  }100%{
     opacity: 1;
   } 
 `;
@@ -27,12 +25,12 @@ export const SkillIconKeyframes = keyframes`
   0%{
     opacity: 0;
     transform: translateX(100%);
-  }
-  40%{
+  }85%{
     opacity: 0;
     transform: translateX(100%);
-  }
-  100%{
+  }90%{
+    opacity: 0;
+  }100%{
     opacity: 1;
     transform: translateX(0);
   } 
@@ -49,7 +47,7 @@ export const ProjectCardContainer = styled.a<InViewProps>`
         $inView
             ? css`
                   animation: ${ProjectCardContainerKeyframes}
-                      ${theme.animationTime.long*0.6}s;
+                      ${theme.animationTime.long}s;
                   animation-iteration-count: 1;
                   animation-fill-mode: forwards;
                   animation-timing-function: ease-in;
@@ -115,7 +113,7 @@ export const ProjectCardSkillIcon = styled.img<ProjectCardSkillIconProps>`
         $inView
             ? css`
                   animation: ${SkillIconKeyframes}
-                      ${$index * theme.animationTime.short}s;
+                      ${$index+1 * theme.animationTime.short*1.1}s;
                   animation-fill-mode: forwards;
                   animation-iteration-count: 1;
               `

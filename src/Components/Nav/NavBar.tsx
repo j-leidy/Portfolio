@@ -17,7 +17,7 @@ import { MoonIcon } from "./MoonIcon";
 const menuOptions = ["Home", "About Me", "Projects", "Experience"];
 
 export const MobileMenu = () => {
-    const [clicked, setClicked] = useState(false);
+    const [clicked, setClicked] = useState<boolean>(false);
     return (
         <NavContainer>
             <IconTextMoonContainer>
@@ -35,9 +35,10 @@ export const MobileMenu = () => {
                 <SpanThree $active={clicked} />
             </BurgerCheckHolder>
             <Card $active={clicked}>
-                {menuOptions.map((option) => {
+                {menuOptions.map((option, idx) => {
                     return (
                         <CardItem
+                            key={idx}
                             onClick={() => {
                                 // add scroll to here
                                 setClicked(!clicked);
