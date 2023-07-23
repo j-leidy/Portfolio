@@ -29,7 +29,7 @@ export const IconTextMoonContainer = styled.div`
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-    width: 150px;
+    width: 10vw;
     height: 100%;
     @media screen and (max-width: ${(props) => props.theme.breakpoint}px) {
         width: 100px;
@@ -51,10 +51,14 @@ export const MobileMenuText = styled.div`
 
 export const FakeCheckBox = styled.input<Props>`
     position: relative;
-    height: 4vh;
-    width: 4vh;
+    top: 0;
+    left: 0;
+    width: 50px;
+    height: 50px;
     z-index: ${(props) => (props.$active ? "5" : "3")};
     opacity: 0;
+    padding: 0;
+    margin: 0;
 `;
 
 export const BurgerCheckHolder = styled.div`
@@ -72,7 +76,7 @@ export const BurgerCheckHolder = styled.div`
 export const SpanOne = styled.div<Props>`
     transition: 0.3s all ease;
     position: relative;
-    top: ${(props) => (props.$active ? "-20px" : "-28px")};
+    top: ${(props) => (props.$active ? "-30px" : "-40px")};
     z-index: 2;
     background: ${(props) =>
         props.$active
@@ -87,7 +91,7 @@ export const SpanOne = styled.div<Props>`
 export const SpanTwo = styled.div<Props>`
     transition: 0.3s all ease;
     position: relative;
-    top: -24px;
+    top: -34px;
     background: ${(props) => props.theme.colors.backgroundOpposite};
     height: 4px;
     width: 30px;
@@ -98,7 +102,7 @@ export const SpanTwo = styled.div<Props>`
 export const SpanThree = styled.div<Props>`
     transition: 0.3s all ease;
     position: relative;
-    top: ${(props) => (props.$active ? "-28px" : "-20px")};
+    top: ${(props) => (props.$active ? "-38px" : "-28px")};
     z-index: 2;
     background: ${(props) =>
         props.$active

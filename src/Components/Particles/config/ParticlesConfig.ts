@@ -64,5 +64,8 @@ export const customOptions: CustomISourceOptions = {
         position: "50% 50%",
         repeat: "no-repeat",
         size: "cover"
+    },
+    style: {
+        transition: `${0.5}s all ease`
     }
 };
