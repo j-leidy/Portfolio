@@ -68,9 +68,6 @@ export const BurgerCheckHolder = styled.div`
     margin-bottom: auto;
     z-index: 2;
     caret-color: transparent;
-    @media screen and (max-width: ${(props) => props.theme.breakpoint}px) {
-        margin-right: 7vw;
-    }
 `;
 
 export const SpanOne = styled.div<Props>`

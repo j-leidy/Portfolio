@@ -14,9 +14,10 @@ import { useState } from "react";
 import JLICON from "../../Icons/JLICON.png";
 import { MoonIcon } from "./MoonIcon";
 
+const menuOptions = ["Home", "About Me", "Projects", "Experience"];
+
 export const MobileMenu = () => {
     const [clicked, setClicked] = useState(false);
-
     return (
         <NavContainer>
             <IconTextMoonContainer>
@@ -34,30 +35,18 @@ export const MobileMenu = () => {
                 <SpanThree $active={clicked} />
             </BurgerCheckHolder>
             <Card $active={clicked}>
-                <CardItem
-                    onClick={() => {
-                        // add scroll to here
-                        setClicked(!clicked);
-                    }}
-                >
-                    Command Usage
-                </CardItem>
-                <CardItem
-                    onClick={() => {
-                        // add scroll to here
-                        setClicked(!clicked);
-                    }}
-                >
-                    Activity Metrics
-                </CardItem>
-                <CardItem
-                    onClick={() => {
-                        // add scroll to here
-                        setClicked(!clicked);
-                    }}
-                >
-                    Leaderboards
-                </CardItem>
+                {menuOptions.map((option) => {
+                    return (
+                        <CardItem
+                            onClick={() => {
+                                // add scroll to here
+                                setClicked(!clicked);
+                            }}
+                        >
+                            {option}
+                        </CardItem>
+                    );
+                })}
             </Card>
         </NavContainer>
     );

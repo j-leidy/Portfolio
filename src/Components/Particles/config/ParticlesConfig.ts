@@ -66,6 +66,7 @@ export const customOptions: CustomISourceOptions = {
         size: "cover"
     },
     style: {
-        transition: `${0.5}s all ease`
-    }
+        transition: `${0.5}s all ease`,
+        zIndex: -1
+    },
 };
