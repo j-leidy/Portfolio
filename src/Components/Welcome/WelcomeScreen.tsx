@@ -46,7 +46,7 @@ const ClickOrTapToEnterText = styled.div`
 `;
 
 const SocialIconsContainer = styled.div`
-    width: 50%;
+    min-width: 30%;
     display: flex;
     align-items: center;
     justify-content: space-around;
@@ -59,8 +59,8 @@ const SocialIconsContainer = styled.div`
 `;
 
 const SocialIcon = styled.img`
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
 `;
 
 export const WelcomeScreen = () => {

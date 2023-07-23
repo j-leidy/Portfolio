@@ -12,7 +12,7 @@ export const NavContainer = styled.div`
     transition: 0.3s all ease;
     position: fixed;
     top: 0;
-    box-shadow: 0px 0px 20px -4px ${(props) => props.theme.colors.accentMain};
+    box-shadow: 0px 0px 10px -4px ${(props) => props.theme.colors.accentMain};
     height: 52px;
     width: 100%;
     color: white;

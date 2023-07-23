@@ -17,6 +17,7 @@ const SectionTitleContainer = styled.div<ContainerProps>`
     transition: ${(props) => props.theme.animationTime.short}s all ease;
     width: 80%;
     padding-bottom: 20px;
+    padding-top: 50px;
     ${({
         $useThemeColors,
         $borderThickness,
