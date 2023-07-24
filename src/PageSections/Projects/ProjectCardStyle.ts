@@ -55,6 +55,7 @@ export const ProjectCardContainer = styled.a<InViewProps>`
             : css`
                   opacity: 0;
               `}
+    transition: background ${props=>props.theme.animationTime.short}s;
     display: flex;
     flex-direction: row;
     border: 1px solid ${(props) => props.theme.colors.accentMain};
@@ -71,7 +72,7 @@ export const ProjectCardContainer = styled.a<InViewProps>`
 `;
 
 export const ProjectCardImage = styled.img`
-    height: 400px;
+    height: 500px;
     @media screen and (max-width: ${(props) => props.theme.breakpoint}px) {
         width: 100%;
         height: 100%;

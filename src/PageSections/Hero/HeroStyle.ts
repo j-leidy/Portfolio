@@ -4,7 +4,7 @@ export const HeroContainer = styled.div`
     display: flex;
     justify-content: space-around;
     color: ${(props) => props.theme.colors.text};
-    padding-top: 10vh;
+    padding-top: 200px;
     width: 100%;
     @media screen and (max-width: ${(props) => props.theme.breakpoint}px) {
         flex-direction: column-reverse;

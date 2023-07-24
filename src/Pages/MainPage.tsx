@@ -5,8 +5,9 @@ import { useAppSelector } from "../Hooks/Hooks";
 import { selectShowMainPageState } from "../Redux/PageSlice/PageSlice";
 import { ParticlesComponent } from "../Components/Particles/ParticlesComponent";
 import { Hero } from "../PageSections/Hero/Hero";
-import { AboutMe } from "../PageSections/AboutMe/AboutMe";
 import { Projects } from "../PageSections/Projects/Projects";
+import { Experiences } from "../PageSections/Experience/Experiences";
+import { Degrees } from "../PageSections/Education/Degrees";
 
 const MainPageContainer = styled.div`
     position: absolute;
@@ -31,7 +32,8 @@ export const MainPage = () => {
                     <MobileMenu />
                     <Hero />
                     <Projects />
-                    <AboutMe />
+                    <Experiences />
+                    <Degrees />
                 </MainPageContainer>
             ) : (
                 <WelcomeScreen />

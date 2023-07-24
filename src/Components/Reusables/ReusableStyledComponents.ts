@@ -6,7 +6,7 @@ export const PageSectionContainer = styled.div`
     align-items: center;
     justify-content: center;
     color: ${props=>props.theme.colors.text};
-    width: 60%;
+    width: 70%;
     transition: ${props=>props.theme.animationTime.short}s all ease;
     @media screen and (max-width: ${props=>props.theme.breakpoint}px){
         width: 90%;
