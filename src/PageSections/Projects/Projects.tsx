@@ -1,7 +1,6 @@
 import { CardComponent } from "../../Components/Reusables/CardComponent";
 import { PageSectionContainer } from "../../Components/Reusables/ReusableStyledComponents";
 import { SectionTitle } from "../../Components/Reusables/SectionTitle";
-import { ProjectCard } from "./ProjectCard";
 import { ProjectCardImage } from "./ProjectCardStyle";
 import { ProjectsData } from "./ProjectsData";
 
@@ -18,18 +17,6 @@ export const Projects = () => {
                 includeSubText={true}
                 subText="Click or tap a card for more information"
             />
-            {Object.keys(ProjectsData).map((key, idx) => {
-                const Project = ProjectsData[key];
-                return (
-                    <ProjectCard
-                        title={key}
-                        key={idx}
-                        image={Project.image}
-                        skills={Project.skillsUsed}
-                        linkToProject={Project.linkToProject}
-                    />
-                );
-            })}
             {Object.keys(ProjectsData).map((key, idx) => {
                 const Project = ProjectsData[key];
                 return (

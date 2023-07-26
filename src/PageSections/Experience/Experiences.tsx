@@ -1,7 +1,7 @@
 import { CardComponent } from "../../Components/Reusables/CardComponent";
 import { PageSectionContainer } from "../../Components/Reusables/ReusableStyledComponents";
 import { SectionTitle } from "../../Components/Reusables/SectionTitle";
-import { Experience } from "./Experience";
+import { Experience } from "../../Components/RefactoredToOne/Experience";
 import { ExperiencesData } from "./ExperiencesData";
 import { useState } from "react";
 import { styled, css, keyframes } from "styled-components";
@@ -144,26 +144,12 @@ export const Experiences = () => {
                 includeSubText={true}
                 subText="Click or tap a card for more information!"
             />
-            {Object.keys(ExperiencesData).map((key) => {
-                const experienceObj =
-                    ExperiencesData[key as keyof typeof ExperiencesData];
-                return (
-                    <Experience
-                        name={key}
-                        dates={experienceObj.dates}
-                        bodyText={experienceObj.bodyText}
-                        title={experienceObj.jobTitle}
-                        logo={experienceObj.logo}
-                        skills={experienceObj.skills}
-                        accentText={experienceObj.accentText}
-                    />
-                );
-            })}
             {Object.keys(ExperiencesData).map((key, idx) => {
                 const experienceObj =
                     ExperiencesData[key as keyof typeof ExperiencesData];
                 return (
                     <CardComponent
+                        showCardTitle={false}
                         ComponentToWrap={ExperienceInternal}
                         internalComponentProps={{
                             name: key,

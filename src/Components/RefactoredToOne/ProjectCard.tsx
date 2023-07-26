@@ -4,11 +4,11 @@ import {
     ProjectCardImage,
     ProjectCardTitle,
     ProjectCardWithtitle,
-} from "./ProjectCardStyle";
+} from "../../PageSections/Projects/ProjectCardStyle";
 import {
     SkillIcon,
     SkillsContainer,
-} from "../../Components/Reusables/ReusableStyledComponents";
+} from "../Reusables/ReusableStyledComponents";
 
 export const observerOptions: IntersectionObserverInit = {
     threshold: 0.15,

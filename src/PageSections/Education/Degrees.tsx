@@ -1,6 +1,6 @@
 import { PageSectionContainer } from "../../Components/Reusables/ReusableStyledComponents";
 import { SectionTitle } from "../../Components/Reusables/SectionTitle";
-import { Experience } from "../Experience/Experience";
+import { Experience } from "../../Components/RefactoredToOne/Experience";
 import { DegreesData } from "./DegreesData";
 
 export const Degrees = () => {
