@@ -55,7 +55,6 @@ export const customOptions: CustomISourceOptions = {
         transition: `${0.5}s all ease`,
         zIndex: -1,
         position: "fixed",
-        height: "100vh !important",
         minHeight: "120vh !important",
         top: "inherit",
         width: "100%"
