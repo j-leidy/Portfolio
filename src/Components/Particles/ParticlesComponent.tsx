@@ -14,7 +14,7 @@ export const ParticlesComponent = () => {
             id="tsparticles"
             init={customInit}
             width="100vw"
-            height="100vh"
+            height="100%"
             options={theme.particlesOptions}
         />
     );

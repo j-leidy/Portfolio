@@ -22,11 +22,14 @@ const MainPageContainer = styled.div`
     left: 0;
     caret-color: transparent;
 `;
+const Darken = styled.div`
+    background: ${(props) => props.theme.colors.background};
+`;
 
 export const MainPage = () => {
     const showMainPage = useAppSelector(selectShowMainPageState);
     return (
-        <>
+        <Darken>
             <ParticlesComponent />
             {showMainPage ? (
                 <MainPageContainer>
@@ -40,6 +43,6 @@ export const MainPage = () => {
             ) : (
                 <WelcomeScreen />
             )}
-        </>
+        </Darken>
     );
 };

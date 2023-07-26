@@ -53,6 +53,6 @@ export const customOptions: CustomISourceOptions = {
     },
     style: {
         transition: `${0.5}s all ease`,
-        zIndex: -1
+        zIndex: -1,
     },
 };
