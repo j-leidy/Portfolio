@@ -56,6 +56,7 @@ export const customOptions: CustomISourceOptions = {
         zIndex: -1,
         position: "fixed",
         height: "100vh !important",
+        minHeight: "120vh !important",
         top: "inherit",
         width: "100%"
     },
