@@ -13,8 +13,6 @@ export const ParticlesComponent = () => {
         <Particles
             id="tsparticles"
             init={customInit}
-            width="100vw"
-            height={`${window.outerHeight}px`}
             options={theme.particlesOptions}
         />
     );
