@@ -6,8 +6,19 @@ import {
 } from "./ReusableStyledComponents";
 import { useEffect, useRef, useState } from "react";
 
-const CardContainer = styled.div`
-    z-index: 10;
+interface CardContainerProps {
+    $width: number;
+    $usePercent: boolean;
+}
+
+const CardContainer = styled.div<CardContainerProps>`
+    padding-top: 5%;
+    ${({ $width, $usePercent }) =>
+        $usePercent
+            ? css`
+                  width: ${$width}%;
+              `
+            : css``}
 `;
 
 const CardTitle = styled.div<InViewProps>`
@@ -17,13 +28,6 @@ const CardTitle = styled.div<InViewProps>`
     align-items: center;
     justify-content: space-between;
     font-size: 30px;
-    text-transform: uppercase;
-    font-weight: 600;
-    padding-left: 10px;
-    color: ${(props) => props.theme.colors.accentOne};
-    @media screen and (max-width: ${(props) => props.theme.breakpoint}px) {
-        font-size: 20px;
-    }
 `;
 
 const CardInViewKeyframes = keyframes`
@@ -42,19 +46,23 @@ const InternalCardStyles = css`
     flex-direction: row;
     border: 1px solid ${(props) => props.theme.colors.accentMain};
     justify-content: space-around;
-    padding: 20px;
     border-radius: 10px;
     background: ${(props) => props.theme.colors.background};
     color: ${(props) => props.theme.colors.text};
     overflow: hidden;
     @media screen and (max-width: ${(props) => props.theme.breakpoint}px) {
-        padding: 10px;
         align-items: center;
         flex-direction: column;
     }
 `;
 
-const InternalCardContainerWithLink = styled.a<InViewProps>`
+interface InternalCardProps {
+    $inView: boolean;
+    $paddInternal: boolean;
+    $padAmount: number;
+}
+
+const InternalCardContainerWithLink = styled.a<InternalCardProps>`
     ${({ $inView, theme }) =>
         $inView
             ? css`
@@ -67,9 +75,20 @@ const InternalCardContainerWithLink = styled.a<InViewProps>`
                   opacity: 0;
               `}
     ${InternalCardStyles}
+    ${({ $paddInternal, $padAmount, theme }) =>
+        $paddInternal
+            ? css`
+                  padding: ${$padAmount}px;
+                  @media screen and (max-width: ${theme.breakpoing}px) {
+                      padding: ${$padAmount / 2}px;
+                  }
+              `
+            : css`
+                  padding: 0;
+              `}
 `;
 
-const InternalWithoutLink = styled.div<InViewProps>`
+const InternalWithoutLink = styled.div<InternalCardProps>`
     ${({ $inView, theme }) =>
         $inView
             ? css`
@@ -82,6 +101,30 @@ const InternalWithoutLink = styled.div<InViewProps>`
                   opacity: 0;
               `}
     ${InternalCardStyles}
+    ${({ $paddInternal, $padAmount, theme }) =>
+        $paddInternal
+            ? css`
+                  padding: ${$padAmount}px;
+                  @media screen and (max-width: ${theme.breakpoing}px) {
+                      padding: ${$padAmount / 2}px;
+                  }
+              `
+            : css`
+                  padding: 0;
+              `}
+`;
+interface CardTitleTextProps {
+    $fontSize: number;
+}
+const CardTitleText = styled.div<CardTitleTextProps>`
+    font-size: ${(props) => props.$fontSize}px;
+    text-transform: uppercase;
+    font-weight: 600;
+    padding-left: 10px;
+    color: ${(props) => props.theme.colors.accentOne};
+    @media screen and (max-width: ${(props) => props.theme.breakpoint}px) {
+        font-size: ${(props) => props.$fontSize * 0.7}px;
+    }
 `;
 
 const BaseInternalElement = () => {
@@ -93,6 +136,7 @@ const BaseInternalElement = () => {
 };
 
 const DefaultCardProps = {
+    useWidthPercent: false,
     widthPercent: 100,
     showCardTitle: true,
     cardTitleText: "Title",
@@ -102,9 +146,12 @@ const DefaultCardProps = {
     internalComponentProps: { test: "testing" },
     wrapInternalWithLink: true,
     internalLink: "https://google.com",
+    paddInternalCard: true,
+    internalCardPadding: 20,
 };
 
 interface CardComponentProps {
+    useWidthPercent?: boolean;
     widthPercent?: number;
     showCardTitle?: boolean;
     cardTitleText?: string;
@@ -114,6 +161,8 @@ interface CardComponentProps {
     internalComponentProps?: {};
     wrapInternalWithLink?: boolean;
     internalLink?: string;
+    paddInternalCard?: boolean;
+    internalCardPadding?: number;
 }
 
 const observerOptions: IntersectionObserverInit = {
@@ -121,6 +170,7 @@ const observerOptions: IntersectionObserverInit = {
 };
 
 export const CardComponent = ({
+    useWidthPercent = DefaultCardProps.useWidthPercent,
     widthPercent = DefaultCardProps.widthPercent,
     showCardTitle = DefaultCardProps.showCardTitle,
     cardTitleSize = DefaultCardProps.cardTitleSize,
@@ -130,6 +180,8 @@ export const CardComponent = ({
     internalComponentProps = DefaultCardProps.internalComponentProps,
     wrapInternalWithLink = DefaultCardProps.wrapInternalWithLink,
     internalLink = DefaultCardProps.internalLink,
+    paddInternalCard = DefaultCardProps.paddInternalCard,
+    internalCardPadding = DefaultCardProps.internalCardPadding,
 }: CardComponentProps) => {
     const cardRef = useRef<HTMLAnchorElement>(null);
     const cardRefNoLink = useRef<HTMLDivElement>(null);
@@ -181,9 +233,11 @@ export const CardComponent = ({
         return () => observer.disconnect();
     }, [cardRef, titleRef, cardRefNoLink, wrapInternalWithLink]);
     return (
-        <CardContainer>
+        <CardContainer $width={widthPercent} $usePercent={useWidthPercent}>
             <CardTitle $inView={titleIsInView} ref={titleRef}>
-                {showCardTitle && cardTitleText}
+                <CardTitleText $fontSize={cardTitleSize}>
+                    {showCardTitle && cardTitleText}
+                </CardTitleText>
                 <SkillsContainer>
                     {cardSkillsArr.map((skill, idx) => {
                         return (
@@ -198,6 +252,8 @@ export const CardComponent = ({
             </CardTitle>
             {wrapInternalWithLink ? (
                 <InternalCardContainerWithLink
+                    $paddInternal={paddInternalCard}
+                    $padAmount={internalCardPadding}
                     href={internalLink}
                     target="_blank"
                     $inView={cardIsInView}
@@ -207,10 +263,11 @@ export const CardComponent = ({
                 </InternalCardContainerWithLink>
             ) : (
                 <InternalWithoutLink
+                    $paddInternal={paddInternalCard}
+                    $padAmount={internalCardPadding}
                     $inView={cardNoLinkInView}
                     ref={cardRefNoLink}
                 >
-                    kk
                     <ComponentToWrap {...internalComponentProps} />
                 </InternalWithoutLink>
             )}

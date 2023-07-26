@@ -28,7 +28,6 @@ export const SkillsContainer = styled.div`
     align-items: center;
     flex-wrap: nowrap;
     overflow: hidden;
-    padding-top: 10px;
     height: 48px;
     @media screen and (max-width: ${(props) => props.theme.breakpoint}px) {
         height: 30px;
