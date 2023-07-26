@@ -1,8 +1,16 @@
 import { CardComponent } from "../../Components/Reusables/CardComponent";
 import { PageSectionContainer } from "../../Components/Reusables/ReusableStyledComponents";
 import { SectionTitle } from "../../Components/Reusables/SectionTitle";
-import { ProjectCardImage } from "./ProjectCardStyle";
 import { ProjectsData } from "./ProjectsData";
+import { styled } from "styled-components";
+
+const ProjectCardImage = styled.img`
+    height: 500px;
+    @media screen and (max-width: ${(props) => props.theme.breakpoint}px) {
+        width: 100%;
+        height: 100%;
+    }
+`;
 
 const ProjectImageTest = (props: { image: string }) => {
     return <ProjectCardImage src={props.image} />;

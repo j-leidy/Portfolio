@@ -1,10 +1,10 @@
 import { useEffect, useRef, useState } from "react";
 import {
     ProjectCardContainer,
-    ProjectCardImage,
+    ProjectCardImageOld,
     ProjectCardTitle,
     ProjectCardWithtitle,
-} from "../../PageSections/Projects/ProjectCardStyle";
+} from "./ProjectCardStyle";
 import {
     SkillIcon,
     SkillsContainer,
@@ -77,7 +77,7 @@ export const ProjectCard = ({
                 $inView={cardIsInView}
                 ref={cardRef}
             >
-                <ProjectCardImage src={image} />
+                <ProjectCardImageOld src={image} />
             </ProjectCardContainer>
         </ProjectCardWithtitle>
     );

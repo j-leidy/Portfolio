@@ -13,10 +13,13 @@ interface CardContainerProps {
 
 const CardContainer = styled.div<CardContainerProps>`
     padding-top: 5%;
-    ${({ $width, $usePercent }) =>
+    ${({ $width, $usePercent, theme }) =>
         $usePercent
             ? css`
                   width: ${$width}%;
+                  @media screen and (max-width: ${theme.breakpoint}px) {
+                      width: 100%;
+                  }
               `
             : css``}
 `;
@@ -145,7 +148,7 @@ const DefaultCardProps = {
     ComponentToWrap: BaseInternalElement,
     internalComponentProps: { test: "testing" },
     wrapInternalWithLink: true,
-    internalLink: "https://google.com",
+    internalLink: "",
     paddInternalCard: true,
     internalCardPadding: 20,
 };

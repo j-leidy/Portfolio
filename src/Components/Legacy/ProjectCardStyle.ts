@@ -1,5 +1,5 @@
 import { keyframes, styled, css } from "styled-components";
-import { InViewProps } from "../../Components/Reusables/ReusableStyledComponents";
+import { InViewProps } from "../Reusables/ReusableStyledComponents";
 
 
 const ProjectCardContainerKeyframes = keyframes`
@@ -47,7 +47,7 @@ export const ProjectCardContainer = styled.a<InViewProps>`
     }
 `;
 
-export const ProjectCardImage = styled.img`
+export const ProjectCardImageOld = styled.img`
     height: 500px;
     @media screen and (max-width: ${(props) => props.theme.breakpoint}px) {
         width: 100%;

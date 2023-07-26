@@ -9,7 +9,6 @@ import { Projects } from "../PageSections/Projects/Projects";
 import { Experiences } from "../PageSections/Experience/Experiences";
 import { Degrees } from "../PageSections/Education/Degrees";
 import { Footer } from "../Components/Footer/Footer";
-import { CardComponent } from "../Components/Reusables/CardComponent";
 
 const MainPageContainer = styled.div`
     position: absolute;
@@ -24,10 +23,6 @@ const MainPageContainer = styled.div`
     caret-color: transparent;
 `;
 
-const TestComponent = (props: { test: string }) => {
-    return <>{props.test}</>;
-};
-
 export const MainPage = () => {
     const showMainPage = useAppSelector(selectShowMainPageState);
     return (
@@ -40,10 +35,6 @@ export const MainPage = () => {
                     <Projects />
                     <Experiences />
                     <Degrees />
-                    <CardComponent
-                        ComponentToWrap={TestComponent}
-                        wrapInternalWithLink={false}
-                    />
                     <Footer />
                 </MainPageContainer>
             ) : (
