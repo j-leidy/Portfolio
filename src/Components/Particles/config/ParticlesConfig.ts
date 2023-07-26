@@ -42,7 +42,7 @@ export const customOptions: CustomISourceOptions = {
     },
     smooth: true,
     fullScreen: {
-        enable: true
+        enable: false
     },
     background: {
         color: offWhite,
@@ -54,5 +54,9 @@ export const customOptions: CustomISourceOptions = {
     style: {
         transition: `${0.5}s all ease`,
         zIndex: -1,
+        position: "fixed",
+        height: "100% !important",
+        top: "inherit",
+        width: "100%"
     },
 };
