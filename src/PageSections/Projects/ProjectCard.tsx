@@ -2,13 +2,15 @@ import { useEffect, useRef, useState } from "react";
 import {
     ProjectCardContainer,
     ProjectCardImage,
-    ProjectCardSkillIcon,
-    ProjectCardSkills,
     ProjectCardTitle,
     ProjectCardWithtitle,
 } from "./ProjectCardStyle";
+import {
+    SkillIcon,
+    SkillsContainer,
+} from "../../Components/Reusables/ReusableStyledComponents";
 
-const observerOptions: IntersectionObserverInit = {
+export const observerOptions: IntersectionObserverInit = {
     threshold: 0.15,
 };
 
@@ -56,10 +58,10 @@ export const ProjectCard = ({
         <ProjectCardWithtitle>
             <ProjectCardTitle $inView={titleIsInView} ref={titleRef}>
                 {title}
-                <ProjectCardSkills>
+                <SkillsContainer>
                     {skills.map((skill, idx) => {
                         return (
-                            <ProjectCardSkillIcon
+                            <SkillIcon
                                 $inView={titleIsInView}
                                 $index={idx}
                                 src={skill}
@@ -67,7 +69,7 @@ export const ProjectCard = ({
                             />
                         );
                     })}
-                </ProjectCardSkills>
+                </SkillsContainer>
             </ProjectCardTitle>
             <ProjectCardContainer
                 href={linkToProject}

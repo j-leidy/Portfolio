@@ -22,6 +22,8 @@ export const Experiences = () => {
                         bodyText={experienceObj.bodyText}
                         title={experienceObj.jobTitle}
                         logo={experienceObj.logo}
+                        skills={experienceObj.skills}
+                        accentText={experienceObj.accentText}
                     />
                 );
             })}

@@ -1,14 +1,20 @@
 import { keyframes, styled, css } from "styled-components";
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
+import { observerOptions } from "../Projects/ProjectCard";
+import {
+    InViewProps,
+    SkillIcon,
+    SkillsContainer,
+} from "../../Components/Reusables/ReusableStyledComponents";
+
 const ExperienceContainer = styled.div`
     display: flex;
-    padding-top: 10%;
-    width: 80%;
+    width: 100%;
     @media screen and (max-width: ${(props) => props.theme.breakpoint}px) {
         width: 100%;
     }
 `;
-const ExperienceContentContainer = styled.div`
+const ExperienceContentContainer = styled.div<InViewProps>`
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -16,9 +22,10 @@ const ExperienceContentContainer = styled.div`
     border: 1px solid ${(props) => props.theme.colors.accentMain};
     background: ${(props) => props.theme.colors.background};
     transition: background ${(props) => props.theme.animationTime.short}s;
-    padding-top: 10px;
     padding-bottom: 10px;
     border-radius: 10px;
+    transition: opacity ${(props) => props.theme.animationTime.medium}s;
+    opacity: ${(props) => (props.$inView ? 1 : 0)};
 `;
 const ExperienceName = styled.div`
     text-transform: uppercase;
@@ -104,7 +111,25 @@ const DefaultExperienceProps = {
     dates: "Aug. 2018 - Sept. 2023",
     bodyText: ["Worked on things and kept working on things."],
     logo: "",
+    skills: [],
+    accentText: "",
 };
+
+const ExperienceWrap = styled.div`
+    padding-top: 10%;
+    width: 100%;
+`;
+
+const ExperienceEntryAccentContainer = styled.div`
+    color: ${(props) => props.theme.colors.accentOne};
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+`;
+
+const ExperienceAccentText = styled.div`
+    font-weight: 600;
+`;
 
 interface ExperienceProps {
     name?: string;
@@ -112,6 +137,8 @@ interface ExperienceProps {
     dates?: string;
     bodyText?: string[];
     logo?: string;
+    skills?: string[];
+    accentText?: string;
 }
 
 export const Experience = ({
@@ -120,29 +147,85 @@ export const Experience = ({
     dates = DefaultExperienceProps.dates,
     bodyText = DefaultExperienceProps.bodyText,
     logo = DefaultExperienceProps.logo,
+    skills = DefaultExperienceProps.skills,
+    accentText = DefaultExperienceProps.accentText,
 }: ExperienceProps) => {
     const [showMore, setShowMore] = useState<boolean>(false);
+
+    const experienceRef = useRef<HTMLDivElement>(null);
+    const experienceAccentRef = useRef<HTMLDivElement>(null);
+
+    const [experienceIsInView, setExperienceIsInView] =
+        useState<boolean>(false);
+    const [experienceAccentIsInView, setExperienceAccentIsInView] =
+        useState<boolean>(false);
+
+    useEffect(() => {
+        const observer: IntersectionObserver = new IntersectionObserver(
+            (entries: IntersectionObserverEntry[]) => {
+                entries.forEach((entry: IntersectionObserverEntry) => {
+                    if (experienceAccentRef.current && experienceRef.current) {
+                        experienceAccentRef.current.className ===
+                            entry.target.className &&
+                            setExperienceAccentIsInView(entry.isIntersecting);
+                        experienceRef.current.className ===
+                            entry.target.className &&
+                            setExperienceIsInView(entry.isIntersecting);
+                    }
+                });
+            },
+            observerOptions
+        );
+        if (experienceRef.current && experienceAccentRef.current) {
+            const refs = [experienceRef.current, experienceAccentRef.current];
+            refs.forEach((ref) => observer.observe(ref));
+        }
+        return () => observer.disconnect();
+    }, [experienceRef, experienceAccentRef]);
+
     return (
-        <ExperienceContainer onClick={() => setShowMore(!showMore)}>
-            <ExperienceContentContainer>
-                <ExperienceHeader>
-                    <ExperienceTitleNameLogoContainer>
-                        <ExperienceLogo src={logo} />
-                        <ExperienceNameAndTitle>
-                            <ExperienceName>{name}</ExperienceName>
-                            <ExperienceTitle>{title}</ExperienceTitle>
-                        </ExperienceNameAndTitle>
-                    </ExperienceTitleNameLogoContainer>
-                    <ExperienceDate>{dates}</ExperienceDate>
-                </ExperienceHeader>
-                <ExperienceBody $showBody={showMore}>
-                    {bodyText.map((item) => {
+        <ExperienceWrap>
+            <ExperienceEntryAccentContainer ref={experienceAccentRef}>
+                <ExperienceAccentText>{accentText}</ExperienceAccentText>
+                <SkillsContainer>
+                    {skills.map((skill, idx) => {
                         return (
-                            <ExperienceBodyItem>◦ {item}</ExperienceBodyItem>
+                            <SkillIcon
+                                $inView={experienceAccentIsInView}
+                                $index={idx}
+                                src={skill}
+                                key={idx}
+                            />
                         );
                     })}
-                </ExperienceBody>
-            </ExperienceContentContainer>
-        </ExperienceContainer>
+                </SkillsContainer>
+            </ExperienceEntryAccentContainer>
+            <ExperienceContainer
+                onClick={() => setShowMore(!showMore)}
+                ref={experienceRef}
+            >
+                <ExperienceContentContainer $inView={experienceIsInView}>
+                    <ExperienceHeader>
+                        <ExperienceTitleNameLogoContainer>
+                            <ExperienceLogo src={logo} />
+                            <ExperienceNameAndTitle>
+                                <ExperienceName>{name}</ExperienceName>
+                                <ExperienceTitle>{title}</ExperienceTitle>
+                            </ExperienceNameAndTitle>
+                        </ExperienceTitleNameLogoContainer>
+                        <ExperienceDate>{dates}</ExperienceDate>
+                    </ExperienceHeader>
+                    <ExperienceBody $showBody={showMore}>
+                        {bodyText.map((item) => {
+                            return (
+                                <ExperienceBodyItem>
+                                    ◦ {item}
+                                </ExperienceBodyItem>
+                            );
+                        })}
+                    </ExperienceBody>
+                </ExperienceContentContainer>
+            </ExperienceContainer>
+        </ExperienceWrap>
     );
 };

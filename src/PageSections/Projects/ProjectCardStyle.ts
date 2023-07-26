@@ -1,15 +1,6 @@
 import { keyframes, styled, css } from "styled-components";
+import { InViewProps } from "../../Components/Reusables/ReusableStyledComponents";
 
-interface InViewProps {
-    $inView: boolean;
-}
-
-
-
-interface ProjectCardSkillIconProps {
-    $index: number;
-    $inView: boolean;
-}
 
 const ProjectCardContainerKeyframes = keyframes`
   0%{
@@ -18,21 +9,6 @@ const ProjectCardContainerKeyframes = keyframes`
     opacity: 1;
   }100%{
     opacity: 1;
-  } 
-`;
-
-export const SkillIconKeyframes = keyframes`
-  0%{
-    opacity: 0;
-    transform: translateX(100%);
-  }85%{
-    opacity: 0;
-    transform: translateX(100%);
-  }90%{
-    opacity: 0;
-  }100%{
-    opacity: 1;
-    transform: translateX(0);
   } 
 `;
 
@@ -95,38 +71,3 @@ export const ProjectCardTitle = styled.div<InViewProps>`
     }
 `;
 
-export const ProjectCardSkills = styled.div`
-    display: flex;
-    flex-direction: row-reverse;
-    align-items: center;
-    flex-wrap: nowrap;
-    overflow: hidden;
-    padding-top: 10px;
-    height: 48px;
-    @media screen and (max-width: ${(props) => props.theme.breakpoint}px) {
-        justify-content: space-evenly;
-        height: 30px;
-    }
-`;
-
-export const ProjectCardSkillIcon = styled.img<ProjectCardSkillIconProps>`
-    ${({ $inView, $index, theme }) =>
-        $inView
-            ? css`
-                  animation: ${SkillIconKeyframes}
-                      ${$index+1 * theme.animationTime.short*1.1}s;
-                  animation-fill-mode: forwards;
-                  animation-iteration-count: 1;
-              `
-            : css`
-                  opacity: 0;
-              `}
-    width: 40px;
-    height: 40px;
-    padding: 5px;
-    @media screen and (max-width: ${(props) => props.theme.breakpoint}px) {
-        width: 20px;
-        height: 20px;
-        padding: 0;
-    }
-`;

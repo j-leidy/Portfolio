@@ -4,6 +4,7 @@ import { setShowMainPage } from "../../Redux/PageSlice/PageSlice";
 import { allSocialIcons } from "../../Theme/ExtraConstants";
 import { MoonIcon } from "../Nav/MoonIcon";
 import { offWhite } from "../../Theme/ColorPallete";
+import { swapTheme } from "../../Redux/ThemeSlice/ThemeSlice";
 
 const WelcomeContentContainer = styled.div`
     display: flex;
@@ -81,14 +82,16 @@ const SocialIcon = styled.img`
 
 export const WelcomeScreen = () => {
     const dispatch = useAppDispatch();
+    const handleEnterClick = () => {
+        dispatch(setShowMainPage(true));
+        dispatch(swapTheme());
+    };
     return (
         <WelcomeScreenContainer>
             <WelcomeContentContainer>
                 <MoonIcon />
                 <ClickOrTapToEnterButton>
-                    <ClickOrTapToEnterText
-                        onClick={() => dispatch(setShowMainPage(true))}
-                    >
+                    <ClickOrTapToEnterText onClick={() => handleEnterClick()}>
                         Enter
                     </ClickOrTapToEnterText>
                 </ClickOrTapToEnterButton>

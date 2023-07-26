@@ -1,5 +1,5 @@
 import {ISourceOptions} from "tsparticles-engine"
-import { blackAccent, goldAccent, purpleGreenGradientStart} from "../../../Theme/ColorPallete";
+import { goldAccent, offWhite, purpleGreenGradientStart} from "../../../Theme/ColorPallete";
 
 export type CustomISourceOptions = Omit<ISourceOptions,"style">
 
@@ -45,7 +45,7 @@ export const customOptions: CustomISourceOptions = {
         enable: true
     },
     background: {
-        color: blackAccent,
+        color: offWhite,
         image: "",
         position: "50% 50%",
         repeat: "no-repeat",

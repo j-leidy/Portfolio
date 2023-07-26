@@ -8,6 +8,7 @@ import { Hero } from "../PageSections/Hero/Hero";
 import { Projects } from "../PageSections/Projects/Projects";
 import { Experiences } from "../PageSections/Experience/Experiences";
 import { Degrees } from "../PageSections/Education/Degrees";
+import { Footer } from "../Components/Footer/Footer";
 
 const MainPageContainer = styled.div`
     position: absolute;
@@ -34,6 +35,7 @@ export const MainPage = () => {
                     <Projects />
                     <Experiences />
                     <Degrees />
+                    <Footer />
                 </MainPageContainer>
             ) : (
                 <WelcomeScreen />

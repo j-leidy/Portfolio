@@ -16,6 +16,8 @@ export const Degrees = () => {
                         dates={degreeObj.dates}
                         logo={degreeObj.logo}
                         bodyText={degreeObj.bodyText}
+                        skills={degreeObj.skills}
+                        accentText={degreeObj.accentText}
                     />
                 );
             })}
