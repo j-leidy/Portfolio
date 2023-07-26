@@ -21,10 +21,10 @@ const ExperienceContentContainer = styled.div<InViewProps>`
     align-items: center;
     border: 1px solid ${(props) => props.theme.colors.accentMain};
     background: ${(props) => props.theme.colors.background};
-    transition: background ${(props) => props.theme.animationTime.short}s;
     padding-bottom: 10px;
     border-radius: 10px;
-    transition: opacity ${(props) => props.theme.animationTime.medium}s;
+    transition: opacity,
+        background ${(props) => props.theme.animationTime.short}s;
     opacity: ${(props) => (props.$inView ? 1 : 0)};
 `;
 const ExperienceName = styled.div`
