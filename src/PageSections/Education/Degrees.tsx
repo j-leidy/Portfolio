@@ -22,6 +22,7 @@ export const Degrees = () => {
                         }}
                         cardSkillsArr={degreeObj.skills}
                         cardTitleText={degreeObj.accentText}
+                        cardTitleSize={20}
                         wrapInternalWithLink={false}
                         internalCardPadding={5}
                         widthPercent={70}

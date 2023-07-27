@@ -2,6 +2,7 @@ import { styled, css, keyframes } from "styled-components";
 import {
     InViewProps,
     SkillIcon,
+    SkillIconKeyframes,
     SkillsContainer,
 } from "./ReusableStyledComponents";
 import { useEffect, useRef, useState } from "react";
@@ -168,7 +169,7 @@ interface CardComponentProps {
     internalCardPadding?: number;
 }
 
-const observerOptions: IntersectionObserverInit = {
+export const observerOptions: IntersectionObserverInit = {
     threshold: 0.15,
 };
 
@@ -248,6 +249,11 @@ export const CardComponent = ({
                                 src={skill}
                                 $index={idx}
                                 $inView={titleIsInView}
+                                $customKeyframes={SkillIconKeyframes}
+                                $loopInfinitely={false}
+                                $useIndex
+                                $useThemeTiming
+                                $customTiming={0}
                             />
                         );
                     })}

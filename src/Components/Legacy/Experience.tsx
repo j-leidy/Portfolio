@@ -4,6 +4,7 @@ import { observerOptions } from "./ProjectCard";
 import {
     InViewProps,
     SkillIcon,
+    SkillIconKeyframes,
     SkillsContainer,
 } from "../Reusables/ReusableStyledComponents";
 
@@ -195,6 +196,11 @@ export const Experience = ({
                                 $index={idx}
                                 src={skill}
                                 key={idx}
+                                $customKeyframes={SkillIconKeyframes}
+                                $customTiming={0}
+                                $useThemeTiming
+                                $loopInfinitely
+                                $useIndex
                             />
                         );
                     })}

@@ -16,5 +16,7 @@ import DatabasesIcon from "../../Icons/Languages/DatabasesIcon.png";
 import RISCV from  "../../Icons/Languages/RiscV.png";
 
 export const footerData = {
-    skills : [CPPIcon,JIRAIcon,DiscordIcon,FlaskIcon,ReactIcon,LinuxIcon,MongoDBIcon,PythonIcon,TypescriptIcon,BinaryIcon,GithubIcon,SQLIcon,ActiveDeveloperBadge,GraphQLIcon, DatabasesIcon, RISCV]
+    skills : [CPPIcon,JIRAIcon,DiscordIcon,FlaskIcon,ReactIcon,LinuxIcon,MongoDBIcon,PythonIcon,TypescriptIcon,BinaryIcon,GithubIcon,SQLIcon,ActiveDeveloperBadge,GraphQLIcon, DatabasesIcon, RISCV],
+    name: "John Leidy II",
+    websiteTitle: "JL Portfolio",
 }

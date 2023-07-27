@@ -61,7 +61,7 @@ const ClickOrTapToEnterText = styled.div`
     animation-iteration-count: infinite;
 `;
 
-const SocialIconsContainer = styled.div`
+export const SocialIconsContainer = styled.div`
     min-width: 30%;
     display: flex;
     align-items: center;
@@ -75,7 +75,7 @@ const SocialIconsContainer = styled.div`
     }
 `;
 
-const SocialIcon = styled.img`
+export const SocialIcon = styled.img`
     width: 40px;
     height: 40px;
 `;
@@ -95,6 +95,7 @@ export const WelcomeScreen = () => {
                         Enter
                     </ClickOrTapToEnterText>
                 </ClickOrTapToEnterButton>
+
                 <SocialIconsContainer>
                     {allSocialIcons.map((Icon, idx) => {
                         return <SocialIcon key={idx} src={Icon} />;

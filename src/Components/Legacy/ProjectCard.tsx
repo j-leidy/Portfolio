@@ -7,6 +7,7 @@ import {
 } from "./ProjectCardStyle";
 import {
     SkillIcon,
+    SkillIconKeyframes,
     SkillsContainer,
 } from "../Reusables/ReusableStyledComponents";
 
@@ -66,6 +67,11 @@ export const ProjectCard = ({
                                 $index={idx}
                                 src={skill}
                                 key={idx}
+                                $customKeyframes={SkillIconKeyframes}
+                                $customTiming={0}
+                                $useThemeTiming
+                                $loopInfinitely
+                                $useIndex
                             />
                         );
                     })}

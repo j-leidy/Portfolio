@@ -1,4 +1,5 @@
 import { styled, keyframes, css } from "styled-components";
+import Keyframes from "styled-components/dist/models/Keyframes";
 
 export interface InViewProps {
     $inView: boolean;
@@ -49,20 +50,40 @@ export const SkillIconKeyframes = keyframes`
   } 
 `;
 
+export const FooterSkillIconKeyframes = keyframes`
+     0%{
+    opacity: 0;
+    transform: translateX(-100%);
+  }85%{
+    opacity: 0;
+    transform: translateX(-100%);
+  }90%{
+    opacity: 0;
+  }100%{
+    opacity: 1;
+    transform: translateX(0);
+  } 
+`;
+
 export interface SkillIconProps {
     $index: number;
     $inView: boolean;
     $pxSize?: number;
+    $customKeyframes: Keyframes;
+    $loopInfinitely: boolean;
+    $useIndex: boolean;
+    $useThemeTiming: boolean;
+    $customTiming: number;
+
 }
 
 export const SkillIcon = styled.img<SkillIconProps>`
-    ${({ $inView, $index, theme }) =>
+    ${({ $inView, $index, $customKeyframes, $loopInfinitely, $useThemeTiming, $customTiming, $useIndex, theme }) =>
         $inView
             ? css`
-                  animation: ${SkillIconKeyframes}
-                      ${$index+1 * theme.animationTime.short*1.1}s;
+                  animation: ${$customKeyframes} ${$useIndex ? ($index+1 * ($useThemeTiming ? theme.animationTime.short : $customTiming )*1.1) : ($useThemeTiming ? theme.animationTime.short : $customTiming )}s;
                   animation-fill-mode: forwards;
-                  animation-iteration-count: 1;
+                  animation-iteration-count: ${$loopInfinitely ? 'infinite' : '1'};
               `
             : css`
                   opacity: 0;
