@@ -4,6 +4,7 @@ export const ExperienceContentContainer = styled.div`
     display: flex;
     flex-direction: column;
     width: 100%;
+    padding: 2%;
     align-items: center;
 `;
 export const ExperienceName = styled.div`
@@ -73,6 +74,7 @@ export const ExperienceBody = styled.div<ExperienceBodyProps>`
     ${({ $showBody }) =>
         $showBody &&
         css`
+            padding-top: 5%;
             animation: ${ExperienceBodyKeyframes} 1s;
             animation-fill-mode: forwards;
             animation-iteration-count: 1;

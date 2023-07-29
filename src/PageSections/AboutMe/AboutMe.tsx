@@ -1,4 +1,4 @@
-import { SectionTitle } from "../../Components/Reusables/SectionTitle";
+import { SectionTitle } from "../../Components/SectionTitleComponent/SectionTitle";
 import { PageSectionContainer } from "../../Components/Reusables/ReusableStyledComponents";
 import { styled } from "styled-components";
 

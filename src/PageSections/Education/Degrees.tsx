@@ -1,7 +1,7 @@
 import { PageSectionContainer } from "../../Components/Reusables/ReusableStyledComponents";
-import { SectionTitle } from "../../Components/Reusables/SectionTitle";
+import { SectionTitle } from "../../Components/SectionTitleComponent/SectionTitle";
 import { DegreesData } from "./DegreesData";
-import { CardComponent } from "../../Components/Reusables/CardComponent";
+import { CardComponent } from "../../Components/CardWrapperComponent/CardComponent";
 import { DegreeExperienceInternal } from "../../Components/DegreeExperienceComponent/DegreeExperienceComponent";
 
 export const Degrees = () => {
@@ -26,6 +26,7 @@ export const Degrees = () => {
                         wrapInternalWithLink={false}
                         internalCardPadding={5}
                         widthPercent={70}
+                        key={idx}
                         useWidthPercent
                         paddInternalCard
                     />

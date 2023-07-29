@@ -1,7 +1,7 @@
 import { DegreeExperienceInternal } from "../../Components/DegreeExperienceComponent/DegreeExperienceComponent";
-import { CardComponent } from "../../Components/Reusables/CardComponent";
+import { CardComponent } from "../../Components/CardWrapperComponent/CardComponent";
 import { PageSectionContainer } from "../../Components/Reusables/ReusableStyledComponents";
-import { SectionTitle } from "../../Components/Reusables/SectionTitle";
+import { SectionTitle } from "../../Components/SectionTitleComponent/SectionTitle";
 import { ExperiencesData } from "./ExperiencesData";
 
 export const Experiences = () => {
@@ -29,8 +29,9 @@ export const Experiences = () => {
                         }}
                         cardSkillsArr={experienceObj.skills}
                         wrapInternalWithLink={false}
-                        widthPercent={80}
+                        widthPercent={70}
                         internalCardPadding={5}
+                        key={idx}
                         useWidthPercent
                         paddInternalCard
                     />

@@ -1,6 +1,6 @@
-import { CardComponent } from "../../Components/Reusables/CardComponent";
+import { CardComponent } from "../../Components/CardWrapperComponent/CardComponent";
 import { PageSectionContainer } from "../../Components/Reusables/ReusableStyledComponents";
-import { SectionTitle } from "../../Components/Reusables/SectionTitle";
+import { SectionTitle } from "../../Components/SectionTitleComponent/SectionTitle";
 import { ProjectsData } from "./ProjectsData";
 import { styled } from "styled-components";
 
@@ -34,6 +34,7 @@ export const Projects = () => {
                         cardSkillsArr={Project.skillsUsed}
                         cardTitleText={key}
                         internalLink={Project.linkToProject}
+                        key={idx}
                         wrapInternalWithLink
                     />
                 );

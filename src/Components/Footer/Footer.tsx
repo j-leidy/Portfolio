@@ -5,7 +5,7 @@ import {
 } from "../Reusables/ReusableStyledComponents";
 import { footerData } from "./FooterData";
 import { useState, useRef, useEffect } from "react";
-import { observerOptions } from "../Reusables/CardComponent";
+import { observerOptions } from "../CardWrapperComponent/CardComponent";
 import { SocialIcon, SocialIconsContainer } from "../Welcome/WelcomeScreen";
 import { allSocialIcons } from "../../Theme/ExtraConstants";
 
@@ -17,6 +17,7 @@ const FooterContainer = styled.div`
     align-items: center;
     ${({ theme }) => css`
         color: ${theme.colors.text};
+        background: ${theme.colors.background};
     `}
 `;
 

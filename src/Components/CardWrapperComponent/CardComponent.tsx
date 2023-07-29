@@ -4,7 +4,7 @@ import {
     SkillIcon,
     SkillIconKeyframes,
     SkillsContainer,
-} from "./ReusableStyledComponents";
+} from "../Reusables/ReusableStyledComponents";
 import { useEffect, useRef, useState } from "react";
 
 interface CardContainerProps {
@@ -254,6 +254,7 @@ export const CardComponent = ({
                                 $useIndex
                                 $useThemeTiming
                                 $customTiming={0}
+                                $pxSize={35}
                             />
                         );
                     })}

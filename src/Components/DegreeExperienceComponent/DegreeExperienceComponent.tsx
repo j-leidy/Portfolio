@@ -49,8 +49,12 @@ export const DegreeExperienceInternal = ({
                 <ExperienceDate>{dates}</ExperienceDate>
             </ExperienceHeader>
             <ExperienceBody $showBody={showMore}>
-                {bodyText.map((item) => {
-                    return <ExperienceBodyItem>◦ {item}</ExperienceBodyItem>;
+                {bodyText.map((item, idx) => {
+                    return (
+                        <ExperienceBodyItem key={idx}>
+                            ◦ {item}
+                        </ExperienceBodyItem>
+                    );
                 })}
             </ExperienceBody>
         </ExperienceContentContainer>
