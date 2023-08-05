@@ -17,6 +17,7 @@ const FooterContainer = styled.div`
     justify-content: space-around;
     padding: 100px 50px;
     margin-top: 20%;
+    box-shadow: 0px 0px 10px -4px ${(props) => props.theme.colors.accentMain};
     ${({ theme }) => css`
         color: ${theme.colors.text};
         background: ${theme.colors.background};
