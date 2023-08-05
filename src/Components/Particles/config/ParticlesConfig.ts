@@ -7,16 +7,12 @@ export const customOptions: CustomISourceOptions = {
     name: "custom options",
     particles: {
         number: {
-            value: 200,
-            density: {
-                enable: true,
-            },
-        },
+            value:  100,        },
         color: {
             value: [purpleGreenGradientStart],
         },
         shape: {
-            type: "triangle",
+            type: "circle",
         },
         opacity: {
             value: 1,
@@ -36,8 +32,9 @@ export const customOptions: CustomISourceOptions = {
         },
         move: {
             enable: true,
-            speed: 0.2,
-            random: true
+            speed: 1,
+            random: false,
+            direction: "down"
         },
     },
     smooth: true,
@@ -52,7 +49,7 @@ export const customOptions: CustomISourceOptions = {
         size: "cover"
     },
     style: {
-        transition: `${0.5}s all ease`,
+        transition: `${0.5}s background-color ease`,
         zIndex: -1,
         top: "inherit",
         width: "100%",
