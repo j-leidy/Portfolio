@@ -12,7 +12,7 @@ export const DegreesData = {
     "IUPUI" : {
         degree: "B.S. Computer Science",
         dates: "June 2022 - Dec. 2024",
-        bodyText: ["4.0 GPA"],
+        bodyText: ["Multithreading in C++", "Data concurrency and atomic operations"],
         logo: IUPUILogo,
         skills: [BinaryIcon,CPPIcon,RISCV],
         accentText: "4.0 GPA"
@@ -20,7 +20,7 @@ export const DegreesData = {
     "IVY Tech" : {
         degree: "A.S. Computer Science",
         dates: "Jan. 2019 - May. 2022",
-        bodyText: ["3.80 GPA"],
+        bodyText: ["Collaborated in projects with classmates." , "Data structures and algorithms in c++."],
         logo: IVYLogo,
         skills: [CPPIcon,SQLIcon,DatabasesIcon, PythonIcon],
         accentText: "3.80 GPA"

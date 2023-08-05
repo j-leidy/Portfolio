@@ -38,7 +38,8 @@ declare module 'styled-components' {
             long: number
         }
         breakpoint: number,
-        particlesOptions: CustomISourceOptions
+        particlesOptions: CustomISourceOptions,
+        socialIcons: string[]
     }
 }
 
@@ -71,6 +72,7 @@ declare module 'styled-components' {
         }
         breakpoint: number,
         particlesOptions: CustomISourceOptions
+        socialIcons: string[]
 
     }
 }

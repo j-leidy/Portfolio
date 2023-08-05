@@ -1,7 +1,16 @@
 import { DarkTheme, LightTheme } from "styled-components";
 import {  blackAccent, defaultGradient, defaultGradientEnd, defaultGradientStart, defaultGradientVerticle, goldAccent, greenAccent, navBarDarkTheme, navBarLightTheme, offWhite, purpleGreenGradient, secondaryGradient } from "./ColorPallete";
 import {customOptions} from "../Components/Particles/config/ParticlesConfig";
-
+import TWITWhite from "../Icons/SetBW/TWITSETWhite.png";
+import TWITBlack from "../Icons/SetBW/TWITSETBlack.png";
+import IGWhite from "../Icons/SetBW/IGSETWhite.png";
+import IGBlack from "../Icons/SetBW/IGSETBlack.png";
+import LIWhite from "../Icons/SetBW/LISETWhite.png";
+import LIBlack from "../Icons/SetBW/LISETBlack.png";
+import GHWhite from "../Icons/SetBW/GHSETWhite.png";
+import GHBlack from "../Icons/SetBW/GHSETBlack.png";
+import FBWhite from "../Icons/SetBW/FBSETWhite.png";
+import FBBlack from "../Icons/SetBW/FBSETBlack.png";
 
 const lightTheme : LightTheme = {
     colors : {
@@ -30,7 +39,8 @@ const lightTheme : LightTheme = {
         long: 3,
     },
     breakpoint : 1000,
-    particlesOptions: customOptions
+    particlesOptions: customOptions,
+    socialIcons:[FBBlack,GHBlack,IGBlack,LIBlack,TWITBlack]
 }
 
 const darkTheme : DarkTheme = {
@@ -60,7 +70,8 @@ const darkTheme : DarkTheme = {
         long: 3,
     },
     breakpoint: 1000,
-    particlesOptions: customOptions
+    particlesOptions: customOptions,
+    socialIcons: [FBWhite,GHWhite,IGWhite,LIWhite,TWITWhite]
 }
 
 

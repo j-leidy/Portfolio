@@ -17,6 +17,7 @@ const MainPageContainer = styled.div`
     align-items: center;
     justify-content: space-around;
     width: 100vw;
+    overflow: hidden;
     z-index: 1;
     top: 0;
     left: 0;

@@ -1,4 +1,4 @@
-import { css, styled } from "styled-components";
+import { css, styled, useTheme } from "styled-components";
 import {
     FooterSkillIconKeyframes,
     SkillIcon,
@@ -8,25 +8,23 @@ import { useState, useRef, useEffect } from "react";
 import { observerOptions } from "../CardWrapperComponent/CardComponent";
 import { SocialIcon, SocialIconsContainer } from "../Welcome/WelcomeScreen";
 import { allSocialIcons } from "../../Theme/ExtraConstants";
+import Portrait from "../../Images/PortraitFlip.jpg";
 
 const FooterContainer = styled.div`
     width: 100%;
-    z-index: 2;
     display: flex;
-    flex-direction: column;
     align-items: center;
+    justify-content: space-around;
+    padding: 100px 50px;
+    margin-top: 20%;
     ${({ theme }) => css`
         color: ${theme.colors.text};
         background: ${theme.colors.background};
     `}
-`;
-
-const FooterWrap = styled.div`
-    width: 100%;
-    padding-top: 20%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    @media screen and (max-width: ${(props) => props.theme.breakpoint}px) {
+        flex-direction: column;
+        padding: 50px 50px;
+    }
 `;
 
 interface FooterTextItemProps {
@@ -43,11 +41,22 @@ const FooterTextItem = styled.div<FooterTextItemProps>`
     `}
 `;
 
-const FooterSkillsContainer = styled.div`
-    width: 320px;
+const FooterIconAndText = styled.div`
     display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
+    align-items: center;
+    gap: 2rem;
+`;
+
+const FooterIcon = styled.img`
+    height: 70px;
+    width: 70px;
+    border-radius: 50%;
+`;
+
+const FooterTextItems = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 `;
 
 export const Footer = () => {
@@ -68,21 +77,23 @@ export const Footer = () => {
         }
     }, [footerRef]);
 
+    const theme = useTheme();
+
     return (
-        <FooterWrap ref={footerRef}>
-            <FooterContainer>
-                <FooterTextItem $fontSize={30} $fontWeight={600}>
-                    {footerData.name}
-                </FooterTextItem>
-                <FooterTextItem $fontSize={20} $fontWeight={600}>
-                    {footerData.websiteTitle}
-                </FooterTextItem>
-                <SocialIconsContainer>
-                    {allSocialIcons.map((icon, idx) => {
-                        return <SocialIcon src={icon} key={idx} />;
-                    })}
-                </SocialIconsContainer>
-            </FooterContainer>
-        </FooterWrap>
+        <FooterContainer ref={footerRef}>
+            <FooterTextItems>
+                <FooterIconAndText>
+                    <FooterIcon src={Portrait} />
+                    <FooterTextItem $fontSize={28} $fontWeight={600}>
+                        {footerData.name}
+                    </FooterTextItem>
+                </FooterIconAndText>
+            </FooterTextItems>
+            <SocialIconsContainer $shadow={false} $useThemeBackground>
+                {[...theme.socialIcons].map((icon, idx) => {
+                    return <SocialIcon src={icon} key={idx} />;
+                })}
+            </SocialIconsContainer>
+        </FooterContainer>
     );
 };

@@ -1,4 +1,4 @@
-import { keyframes, styled } from "styled-components";
+import { css, keyframes, styled } from "styled-components";
 import { useAppDispatch } from "../../Hooks/Hooks";
 import { setShowMainPage } from "../../Redux/PageSlice/PageSlice";
 import { allSocialIcons } from "../../Theme/ExtraConstants";
@@ -61,15 +61,31 @@ const ClickOrTapToEnterText = styled.div`
     animation-iteration-count: infinite;
 `;
 
-export const SocialIconsContainer = styled.div`
+interface SocialIconsContainerProps {
+    $shadow?: boolean;
+    $useThemeBackground?: boolean;
+}
+
+export const SocialIconsContainer = styled.div<SocialIconsContainerProps>`
     min-width: 30%;
     display: flex;
     align-items: center;
     justify-content: space-around;
-    background: ${offWhite};
     border-radius: 10px;
     padding: 10px;
-    box-shadow: 0px 25px 20px -20px ${(props) => (props.theme.colors.text === offWhite ? props.theme.colors.accentOne : props.theme.colors.text)};
+    ${({ theme, $shadow, $useThemeBackground }) => css`
+        box-shadow: ${$shadow
+            ? `0px 25px 20px -20px ${
+                  theme.colors.text === offWhite
+                      ? theme.colors.accentOne
+                      : theme.colors.text
+              }`
+            : ""};
+        background: ${$useThemeBackground ? theme.colors.background : offWhite};
+        @media screen and (max-width: ${theme.breakpoint}px) {
+            width: 90%;
+        }
+    `}
     @media screen and (max-width: ${(props) => props.theme.breakpoint}px) {
         width: 90%;
     }
@@ -96,7 +112,7 @@ export const WelcomeScreen = () => {
                     </ClickOrTapToEnterText>
                 </ClickOrTapToEnterButton>
 
-                <SocialIconsContainer>
+                <SocialIconsContainer $shadow>
                     {allSocialIcons.map((Icon, idx) => {
                         return <SocialIcon key={idx} src={Icon} />;
                     })}
