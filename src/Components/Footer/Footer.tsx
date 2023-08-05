@@ -4,8 +4,9 @@ import { useState, useRef, useEffect } from "react";
 import { observerOptions } from "../CardWrapperComponent/CardComponent";
 import { SocialIcon, SocialIconsContainer } from "../Welcome/WelcomeScreen";
 import Portrait from "../../Images/PortraitFlip.jpg";
+import { InViewProps } from "../Reusables/ReusableStyledComponents";
 
-const FooterContainer = styled.div`
+const FooterContainer = styled.div<InViewProps>`
     width: 100%;
     display: flex;
     align-items: center;
@@ -76,7 +77,7 @@ export const Footer = () => {
     const theme = useTheme();
 
     return (
-        <FooterContainer ref={footerRef}>
+        <FooterContainer ref={footerRef} $inView={footerInView}>
             <FooterTextItems>
                 <FooterIconAndText>
                     <FooterIcon src={Portrait} />
