@@ -2,4 +2,4 @@
 
 ### WIP
 
-[Live Preview](https://genuine-duckanoo-e5d9fc.netlify.app/)
+[Live Preview](https://johnleidyii.netlify.app/)
