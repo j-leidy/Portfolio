@@ -1,10 +1,10 @@
 import { styled, css, keyframes } from "styled-components";
 import {
-    InViewProps,
     SkillIcon,
     SkillIconKeyframes,
     SkillsContainer,
-} from "../Reusables/ReusableStyledComponents";
+} from "../Reusables/SkillIconsStyled";
+import { InViewProps } from "../Reusables/CommonStyledProps";
 import { useEffect, useRef, useState } from "react";
 
 interface CardContainerProps {

@@ -9,7 +9,7 @@ import {
     FakeCheckBox,
     Card,
     CardItem,
-} from "./MobileMenuStyle";
+} from "./NavStyled";
 import { useState } from "react";
 import JLICON from "../../Icons/JLICON.png";
 import { MoonIcon } from "./MoonIcon";

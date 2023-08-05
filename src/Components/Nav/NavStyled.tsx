@@ -22,7 +22,7 @@ export const NavContainer = styled.div`
     z-index: 10;
     opacity: 1;
     caret-color: transparent;
-    background: ${(props) => props.theme.colors.background};
+    background: ${(props) => props.theme.colors.accentMain};
 `;
 
 export const IconTextMoonContainer = styled.div`
@@ -40,6 +40,7 @@ export const MobileIcon = styled.img`
     width: 40px;
     height: 40px;
     border-radius: 50%;
+    background: ${(props) => props.theme.colors.text};
 `;
 
 export const MobileMenuText = styled.div`

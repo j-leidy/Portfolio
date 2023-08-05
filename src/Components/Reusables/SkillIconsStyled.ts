@@ -1,23 +1,6 @@
 import { styled, keyframes, css } from "styled-components";
 import Keyframes from "styled-components/dist/models/Keyframes";
 
-export interface InViewProps {
-    $inView: boolean;
-}
-
-export const PageSectionContainer = styled.div`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    color: ${props=>props.theme.colors.text};
-    width: 70%;
-    transition: ${props=>props.theme.animationTime.short}s all ease;
-    @media screen and (max-width: ${props=>props.theme.breakpoint}px){
-        width: 90%;
-    }
-`;
-
 export interface SkillsContainerProps {
     $centerItems: boolean;
 }

@@ -1,10 +1,13 @@
-import { css, keyframes, styled } from "styled-components";
+import { keyframes, styled } from "styled-components";
 import { useAppDispatch } from "../../Hooks/Hooks";
 import { setShowMainPage } from "../../Redux/PageSlice/PageSlice";
 import { allSocialIcons } from "../../Theme/ExtraConstants";
 import { MoonIcon } from "../Nav/MoonIcon";
-import { offWhite } from "../../Theme/ColorPallete";
 import { swapTheme } from "../../Redux/ThemeSlice/ThemeSlice";
+import {
+    SocialIcon,
+    SocialIconsContainer,
+} from "../Reusables/SocialIconsStyled";
 
 const WelcomeContentContainer = styled.div`
     display: flex;
@@ -59,41 +62,6 @@ const ClickOrTapToEnterText = styled.div`
     font-size: 30px;
     animation: ${TextAnimation} 4s;
     animation-iteration-count: infinite;
-`;
-
-interface SocialIconsContainerProps {
-    $shadow?: boolean;
-    $useThemeBackground?: boolean;
-}
-
-export const SocialIconsContainer = styled.div<SocialIconsContainerProps>`
-    min-width: 30%;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    border-radius: 10px;
-    padding: 10px;
-    ${({ theme, $shadow, $useThemeBackground }) => css`
-        box-shadow: ${$shadow
-            ? `0px 25px 20px -20px ${
-                  theme.colors.text === offWhite
-                      ? theme.colors.accentOne
-                      : theme.colors.text
-              }`
-            : ""};
-        background: ${$useThemeBackground ? theme.colors.background : offWhite};
-        @media screen and (max-width: ${theme.breakpoint}px) {
-            width: 90%;
-        }
-    `}
-    @media screen and (max-width: ${(props) => props.theme.breakpoint}px) {
-        width: 90%;
-    }
-`;
-
-export const SocialIcon = styled.img`
-    width: 40px;
-    height: 40px;
 `;
 
 export const WelcomeScreen = () => {

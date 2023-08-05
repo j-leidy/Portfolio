@@ -1,5 +1,5 @@
 import { SectionTitle } from "../../Components/SectionTitleComponent/SectionTitle";
-import { PageSectionContainer } from "../../Components/Reusables/ReusableStyledComponents";
+import { PageSectionContainer } from "../../Components/Reusables/PageSection";
 import { styled } from "styled-components";
 
 const AboutMeText = styled.div`

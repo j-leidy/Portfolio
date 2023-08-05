@@ -2,9 +2,12 @@ import { css, styled, useTheme } from "styled-components";
 import { footerData } from "./FooterData";
 import { useState, useRef, useEffect } from "react";
 import { observerOptions } from "../CardWrapperComponent/CardComponent";
-import { SocialIcon, SocialIconsContainer } from "../Welcome/WelcomeScreen";
+import {
+    SocialIcon,
+    SocialIconsContainer,
+} from "../Reusables/SocialIconsStyled";
 import Portrait from "../../Images/PortraitFlip.jpg";
-import { InViewProps } from "../Reusables/ReusableStyledComponents";
+import { InViewProps } from "../Reusables/CommonStyledProps";
 
 const FooterContainer = styled.div<InViewProps>`
     width: 100%;
@@ -16,7 +19,7 @@ const FooterContainer = styled.div<InViewProps>`
     box-shadow: 0px 0px 10px -4px ${(props) => props.theme.colors.accentMain};
     ${({ theme }) => css`
         color: ${theme.colors.text};
-        background: ${theme.colors.background};
+        background: ${theme.colors.accentMain};
     `}
     @media screen and (max-width: ${(props) => props.theme.breakpoint}px) {
         flex-direction: column;
@@ -86,7 +89,10 @@ export const Footer = () => {
                     </FooterTextItem>
                 </FooterIconAndText>
             </FooterTextItems>
-            <SocialIconsContainer $shadow={false} $useThemeBackground>
+            <SocialIconsContainer
+                $shadow={false}
+                $userBackground={theme.colors.accentMain}
+            >
                 {[...theme.socialIcons].map((icon, idx) => {
                     return <SocialIcon src={icon} key={idx} />;
                 })}

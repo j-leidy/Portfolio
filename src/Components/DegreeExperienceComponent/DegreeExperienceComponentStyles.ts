@@ -10,8 +10,15 @@ export const ExperienceContentContainer = styled.div`
 export const ExperienceName = styled.div`
     text-transform: uppercase;
     font-weight: 600;
+    @media screen and (max-width: ${props=>props.theme.breakpoint}px){
+        text-align: center;
+    }
 `;
-export const ExperienceTitle = styled.div``;
+export const ExperienceTitle = styled.div`
+    @media screen and (max-width: ${props=>props.theme.breakpoint}px){
+        text-align: center;
+    }
+`;
 export const ExperienceDate = styled.div`
     width: auto;
     white-space: nowrap;
@@ -19,12 +26,12 @@ export const ExperienceDate = styled.div`
         white-space: pre-wrap;
         font-size: 12px;
         width: auto;
-        padding-right: 5px;
+        text-align: center;
     }
 `;
 export const ExperienceLogo = styled.img`
-    width: 48px;
-    height: 48px;
+    width: 100px;
+    height: 100px;
     border-radius: 50%;
     padding-right: 5px;
 `;
@@ -34,6 +41,7 @@ export const ExperienceTitleNameLogoContainer = styled.div`
     width: 100%;
     @media screen and (max-width: ${(props) => props.theme.breakpoint}px) {
         width: auto;
+        flex-direction: column;
     }
 `;
 export const ExperienceNameAndTitle = styled.div``;
@@ -48,6 +56,7 @@ export const ExperienceHeader = styled.div`
     @media screen and (max-width: ${(props) => props.theme.breakpoint}px) {
         width: 100%;
         padding: 0;
+        flex-direction: column;
     }
 `;
 

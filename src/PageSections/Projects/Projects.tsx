@@ -1,5 +1,5 @@
 import { CardComponent } from "../../Components/CardWrapperComponent/CardComponent";
-import { PageSectionContainer } from "../../Components/Reusables/ReusableStyledComponents";
+import { PageSectionContainer } from "../../Components/Reusables/PageSection";
 import { SectionTitle } from "../../Components/SectionTitleComponent/SectionTitle";
 import { ProjectsData } from "./ProjectsData";
 import { styled } from "styled-components";

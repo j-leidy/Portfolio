@@ -2,11 +2,11 @@ import { keyframes, styled, css } from "styled-components";
 import { useState, useRef, useEffect } from "react";
 import { observerOptions } from "./ProjectCard";
 import {
-    InViewProps,
     SkillIcon,
     SkillIconKeyframes,
     SkillsContainer,
-} from "../Reusables/ReusableStyledComponents";
+} from "../Reusables/SkillIconsStyled";
+import { InViewProps } from "../Reusables/CommonStyledProps";
 
 const ExperienceContainer = styled.div`
     display: flex;
