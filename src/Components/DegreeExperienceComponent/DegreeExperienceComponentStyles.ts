@@ -4,7 +4,7 @@ export const ExperienceContentContainer = styled.div`
     display: flex;
     flex-direction: column;
     width: 100%;
-    padding: 2%;
+    padding: 30px 5px;
     align-items: center;
 `;
 export const ExperienceName = styled.div`
