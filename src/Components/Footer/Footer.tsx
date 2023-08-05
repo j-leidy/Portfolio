@@ -1,13 +1,8 @@
 import { css, styled, useTheme } from "styled-components";
-import {
-    FooterSkillIconKeyframes,
-    SkillIcon,
-} from "../Reusables/ReusableStyledComponents";
 import { footerData } from "./FooterData";
 import { useState, useRef, useEffect } from "react";
 import { observerOptions } from "../CardWrapperComponent/CardComponent";
 import { SocialIcon, SocialIconsContainer } from "../Welcome/WelcomeScreen";
-import { allSocialIcons } from "../../Theme/ExtraConstants";
 import Portrait from "../../Images/PortraitFlip.jpg";
 
 const FooterContainer = styled.div`
