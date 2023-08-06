@@ -6,6 +6,8 @@ import ReactIcon from "../../Icons/Languages/icons8-react-100.png";
 import TypescriptIcon from "../../Icons/Languages/TypescriptIcon.png";
 import GithubIcon from "../../Icons/Languages/GithubIcon.png";
 import JIRAIcon from "../../Icons/Languages/JIRAIcon.png";
+import HTMLIcon from "../../Icons/Languages/HTMLIcon.png";
+import CSSIcon from "../../Icons/Languages/CSSIcon.png";
 
 export const ExperiencesData = {
     "Headstorm" : {
@@ -13,7 +15,7 @@ export const ExperiencesData = {
         dates: "May 2023 - Aug. 2023",
         bodyText: ["Successfully implemented features for production.", "Excelled in an Agile environment.", "Worked on a large team with version control through Git.", "Wrote tests for new features to improve code coverage by over 12%", "Worked on their open-source UI Library to improve existing components."],
         logo: HeadstormLogo,
-        skills: [TypescriptIcon,ReactIcon,GraphQLIcon,GithubIcon,JIRAIcon],
+        skills: [TypescriptIcon,HTMLIcon,CSSIcon,ReactIcon,GraphQLIcon,GithubIcon,JIRAIcon],
         accentText: ""
     },
     "Jimmy Johns" : {
