@@ -1,5 +1,5 @@
 import { DarkTheme, LightTheme } from "styled-components";
-import {  blackAccent, blueAccent, darkBlueAccent, defaultGradient, defaultGradientEnd, defaultGradientStart, defaultGradientVerticle, goldAccent, greenAccent, navBarDarkTheme, navBarLightTheme, offWhite, purpleGreenGradient, secondaryGradient } from "./ColorPallete";
+import {  blackAccent, darkBlueAccent, defaultGradient, defaultGradientEnd, defaultGradientStart, defaultGradientVerticle, goldAccent, greenAccent, navBarDarkTheme, navBarLightTheme, offWhite, purpleGreenGradient, secondaryGradient } from "./ColorPallete";
 import {customOptions} from "../Components/Particles/config/ParticlesConfig";
 import { BlackSocials, WhiteSocials } from "./ExtraConstants";
 

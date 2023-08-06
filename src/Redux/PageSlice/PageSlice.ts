@@ -1,11 +1,11 @@
 import {createSlice} from "@reduxjs/toolkit"
 import { RootState } from "../PortfolioStore"
 
-interface ThemeState {
+interface PageState {
     showMainPage: boolean
 }
 
-const initialState: ThemeState = {
+const initialState: PageState = {
     showMainPage: false
 }
 

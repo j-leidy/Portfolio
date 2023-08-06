@@ -1,12 +1,14 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { ThemeSlice } from "./ThemeSlice/ThemeSlice";
-import PageSlice from "./PageSlice/PageSlice";
+import {PageSlice} from "./PageSlice/PageSlice";
+import { ScrollSlice } from "./ScrollSlice/ScrollSlice";
 
 
 export const PortfolioStore = configureStore({
     reducer : {
         theme: ThemeSlice.reducer,
-        page: PageSlice
+        page: PageSlice.reducer,
+        scroll: ScrollSlice.reducer
     }
 })
 

@@ -1,5 +1,5 @@
 import {ISourceOptions} from "tsparticles-engine"
-import { goldAccent, offWhite, purpleGreenGradientStart} from "../../../Theme/ColorPallete";
+import { darkBlueAccent, greenAccent, offWhite} from "../../../Theme/ColorPallete";
 
 export type CustomISourceOptions = Omit<ISourceOptions,"style">
 
@@ -7,9 +7,14 @@ export const customOptions: CustomISourceOptions = {
     name: "custom options",
     particles: {
         number: {
-            value:  100,        },
+            value:  50,   
+            density: {
+                enable: true,
+                value_area: 400
+            }     
+        },
         color: {
-            value: [purpleGreenGradientStart],
+            value: [greenAccent],
         },
         shape: {
             type: "circle",
@@ -26,15 +31,14 @@ export const customOptions: CustomISourceOptions = {
         links: {
             enable: true,
             distance: 100,
-            color: goldAccent,
+            color: darkBlueAccent,
             opacity: 1,
-            width: 0.5,
+            width: 0.75,
         },
         move: {
             enable: true,
-            speed: 1,
-            random: false,
-            direction: "down"
+            speed: 0.3,
+            random: true
         },
     },
     smooth: true,

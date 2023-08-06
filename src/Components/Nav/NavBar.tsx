@@ -14,7 +14,7 @@ import { useState } from "react";
 import JLICON from "../../Icons/JLICON.png";
 import { MoonIcon } from "./MoonIcon";
 
-const menuOptions = ["Home", "About Me", "Projects", "Experience"];
+const menuOptions = ["Home", "Projects", "Experience", "Degrees"];
 
 export const MobileMenu = () => {
     const [clicked, setClicked] = useState<boolean>(false);
