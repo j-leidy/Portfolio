@@ -2,12 +2,9 @@ import { css, styled, useTheme } from "styled-components";
 import { footerData } from "./FooterData";
 import { useState, useRef, useEffect } from "react";
 import { observerOptions } from "../CardWrapperComponent/CardComponent";
-import {
-    SocialIcon,
-    SocialIconsContainer,
-} from "../CommonStyled/SocialIconsStyled";
 import Portrait from "../../Images/CompressedPortrait.jpg";
 import { InViewProps } from "../CommonStyled/CommonStyledProps";
+import { SocialIconsComponent } from "../SocialIcons/SocialIconsComponent";
 
 const FooterContainer = styled.div<InViewProps>`
     width: 100%;
@@ -15,10 +12,10 @@ const FooterContainer = styled.div<InViewProps>`
     justify-content: space-around;
     padding: 70px 50px;
     margin-top: 20%;
-    box-shadow: 0px 0px 10px -4px ${(props) => props.theme.colors.accentMain};
+    box-shadow: 0px 0px 10px -4px ${(props) => props.theme.colors.UIAccent};
     ${({ theme }) => css`
         color: ${theme.colors.text};
-        background: ${theme.colors.accentMain};
+        background: ${theme.colors.UIAccent};
     `}
     @media screen and (max-width: ${(props) => props.theme.breakpoint}px) {
         flex-direction: column;
@@ -46,10 +43,11 @@ const FooterTextItem = styled.div<FooterTextItemProps>`
         font-size: ${$fontSize}px;
         font-weight: ${$fontWeight};
         text-transform: ${$capitalize ? "uppercase" : "none"};
-        @media screen and (max-width: ${theme.breapoint}px) {
+        @media screen and (max-width: ${theme.breakpoint}px) {
             font-size: ${$mobileFontSizeModifier
                 ? $fontSize * $mobileFontSizeModifier
                 : $fontSize}px;
+            text-align: center;
         }
     `}
 `;
@@ -73,7 +71,9 @@ const FooterIcon = styled.img`
 const FooterTextItems = styled.div`
     display: flex;
     flex-direction: column;
-    align-items: center;
+    @media screen and (max-width: ${(props) => props.theme.breakpoint}px) {
+        padding-bottom: 50px;
+    }
 `;
 
 export const Footer = () => {
@@ -98,9 +98,9 @@ export const Footer = () => {
 
     return (
         <FooterContainer ref={footerRef} $inView={footerInView}>
-            <FooterTextItems>
-                <FooterIconAndText>
-                    <FooterIcon src={Portrait} />
+            <FooterIconAndText>
+                <FooterIcon src={Portrait} />
+                <FooterTextItems>
                     <FooterTextItem
                         $fontSize={30}
                         $fontWeight={600}
@@ -108,29 +108,18 @@ export const Footer = () => {
                     >
                         {footerData.name}
                     </FooterTextItem>
-                </FooterIconAndText>
-                <FooterTextItem $fontSize={14} $fontWeight={500}>
-                    Built using React
-                </FooterTextItem>
-                <FooterTextItem $fontSize={14} $fontWeight={500}>
-                    Written in Typescript
-                </FooterTextItem>
-            </FooterTextItems>
-            <SocialIconsContainer
-                $shadow={false}
-                $userBackground={theme.colors.accentMain}
-            >
-                {[...theme.socialIcons].map((icon, idx) => {
-                    return (
-                        <SocialIcon
-                            src={icon}
-                            key={idx}
-                            $mobileModifier={0.8}
-                            $changeMobileSize
-                        />
-                    );
-                })}
-            </SocialIconsContainer>
+                    <FooterTextItem $fontSize={14} $fontWeight={500}>
+                        A portfolio website, built with React.
+                    </FooterTextItem>
+                    <FooterTextItem $fontSize={14} $fontWeight={500}>
+                        Written in Typescript.
+                    </FooterTextItem>
+                </FooterTextItems>
+            </FooterIconAndText>
+            <SocialIconsComponent
+                customBackground={theme.colors.UIAccent}
+                iconsObject={theme.socialIcons}
+            />
         </FooterContainer>
     );
 };

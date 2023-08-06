@@ -16,7 +16,8 @@ export const navBarDarkTheme = '#151c1e';
 export const navBarLightTheme = '#fffbf2';
 
 export const greenAccent = '#32de84';
-export const blueAccent = '#00E5FF';
+export const blueAccent = '#00e2ff';
+export const darkBlueAccent= '#00a9c7';
 export const blueGreenGradient =`linear-gradient(90deg,${blueAccent} 0%,${greenAccent} 100%)`
 export const goldAccent = '#ffa600';
 

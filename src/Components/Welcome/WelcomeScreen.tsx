@@ -1,13 +1,9 @@
 import { keyframes, styled } from "styled-components";
 import { useAppDispatch } from "../../Hooks/Hooks";
 import { setShowMainPage } from "../../Redux/PageSlice/PageSlice";
-import { allSocialIcons } from "../../Theme/ExtraConstants";
 import { MoonIcon } from "../Nav/MoonIcon";
 import { swapTheme } from "../../Redux/ThemeSlice/ThemeSlice";
-import {
-    SocialIcon,
-    SocialIconsContainer,
-} from "../CommonStyled/SocialIconsStyled";
+import { SocialIconsComponent } from "../SocialIcons/SocialIconsComponent";
 
 const WelcomeContentContainer = styled.div`
     display: flex;
@@ -80,11 +76,7 @@ export const WelcomeScreen = () => {
                     </ClickOrTapToEnterText>
                 </ClickOrTapToEnterButton>
 
-                <SocialIconsContainer $shadow>
-                    {allSocialIcons.map((Icon, idx) => {
-                        return <SocialIcon key={idx} src={Icon} />;
-                    })}
-                </SocialIconsContainer>
+                <SocialIconsComponent giveShadow />
             </WelcomeContentContainer>
         </WelcomeScreenContainer>
     );

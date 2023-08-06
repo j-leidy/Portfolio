@@ -1,5 +1,6 @@
 import 'styled-components'
 import { CustomISourceOptions } from '../Components/Particles/config/ParticlesConfig';
+import { SocialIconsObject } from './ExtraConstants';
 
 interface IBackground {
     color: string;
@@ -22,7 +23,8 @@ declare module 'styled-components' {
             accentTwo: string
             accentThree: string
             navBackground: string
-            navBackgroundOpposite: string
+            navBackgroundOpposite: string,
+            UIAccent: string
         }
         gradient : {
             default : string
@@ -39,7 +41,7 @@ declare module 'styled-components' {
         }
         breakpoint: number,
         particlesOptions: CustomISourceOptions,
-        socialIcons: string[]
+        socialIcons: SocialIconsObject
     }
 }
 
@@ -56,6 +58,7 @@ declare module 'styled-components' {
             accentThree: string
             navBackground: string
             navBackgroundOpposite: string
+            UIAccent: string
         }
         gradient : {
             default : string
@@ -72,7 +75,7 @@ declare module 'styled-components' {
         }
         breakpoint: number,
         particlesOptions: CustomISourceOptions
-        socialIcons: string[]
+        socialIcons: SocialIconsObject
 
     }
 }

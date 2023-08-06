@@ -1,16 +1,7 @@
 import { DarkTheme, LightTheme } from "styled-components";
-import {  blackAccent, defaultGradient, defaultGradientEnd, defaultGradientStart, defaultGradientVerticle, goldAccent, greenAccent, navBarDarkTheme, navBarLightTheme, offWhite, purpleGreenGradient, secondaryGradient } from "./ColorPallete";
+import {  blackAccent, blueAccent, darkBlueAccent, defaultGradient, defaultGradientEnd, defaultGradientStart, defaultGradientVerticle, goldAccent, greenAccent, navBarDarkTheme, navBarLightTheme, offWhite, purpleGreenGradient, secondaryGradient } from "./ColorPallete";
 import {customOptions} from "../Components/Particles/config/ParticlesConfig";
-import TWITWhite from "../Icons/SetBW/TWITSETWhite.png";
-import TWITBlack from "../Icons/SetBW/TWITSETBlack.png";
-import IGWhite from "../Icons/SetBW/IGSETWhite.png";
-import IGBlack from "../Icons/SetBW/IGSETBlack.png";
-import LIWhite from "../Icons/SetBW/LISETWhite.png";
-import LIBlack from "../Icons/SetBW/LISETBlack.png";
-import GHWhite from "../Icons/SetBW/GHSETWhite.png";
-import GHBlack from "../Icons/SetBW/GHSETBlack.png";
-import FBWhite from "../Icons/SetBW/FBSETWhite.png";
-import FBBlack from "../Icons/SetBW/FBSETBlack.png";
+import { BlackSocials, WhiteSocials } from "./ExtraConstants";
 
 const lightTheme : LightTheme = {
     colors : {
@@ -18,12 +9,13 @@ const lightTheme : LightTheme = {
         background:offWhite,
         backgroundOpposite: blackAccent,
         textOpposite:offWhite,
-        accentMain:greenAccent,
-        accentOne:defaultGradientStart,
-        accentTwo:defaultGradientEnd,
+        accentMain:darkBlueAccent,
+        accentOne:greenAccent,
+        accentTwo:darkBlueAccent,
         accentThree: goldAccent,
         navBackground:navBarLightTheme,
-        navBackgroundOpposite:navBarDarkTheme
+        navBackgroundOpposite:navBarDarkTheme,
+        UIAccent: darkBlueAccent
     },
     gradient : {
         default:defaultGradient,
@@ -40,7 +32,7 @@ const lightTheme : LightTheme = {
     },
     breakpoint : 1000,
     particlesOptions: customOptions,
-    socialIcons:[FBBlack,GHBlack,IGBlack,LIBlack,TWITBlack]
+    socialIcons:BlackSocials
 }
 
 const darkTheme : DarkTheme = {
@@ -49,12 +41,13 @@ const darkTheme : DarkTheme = {
         background: blackAccent,
         backgroundOpposite: offWhite,
         textOpposite: blackAccent,
-        accentMain:greenAccent,
-        accentOne:defaultGradientStart,
+        accentMain:darkBlueAccent,
+        accentOne:greenAccent,
         accentTwo:defaultGradientEnd,
         accentThree: goldAccent,
         navBackground:navBarDarkTheme,
-        navBackgroundOpposite: navBarLightTheme
+        navBackgroundOpposite: navBarLightTheme,
+        UIAccent: darkBlueAccent
     },
     gradient : {
         default:defaultGradient,
@@ -71,7 +64,7 @@ const darkTheme : DarkTheme = {
     },
     breakpoint: 1000,
     particlesOptions: customOptions,
-    socialIcons: [FBWhite,GHWhite,IGWhite,LIWhite,TWITWhite]
+    socialIcons: WhiteSocials
 }
 
 

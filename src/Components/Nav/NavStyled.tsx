@@ -12,7 +12,7 @@ export const NavContainer = styled.div`
     transition: 0.3s all ease;
     position: fixed;
     top: 0;
-    box-shadow: 0px 0px 10px -4px ${(props) => props.theme.colors.accentMain};
+    box-shadow: 0px 0px 10px -4px ${(props) => props.theme.colors.UIAccent};
     height: 52px;
     width: 100%;
     color: white;
@@ -22,7 +22,7 @@ export const NavContainer = styled.div`
     z-index: 10;
     opacity: 1;
     caret-color: transparent;
-    background: ${(props) => props.theme.colors.accentMain};
+    background: ${(props) => props.theme.colors.UIAccent};
 `;
 
 export const IconTextMoonContainer = styled.div`
@@ -40,7 +40,6 @@ export const MobileIcon = styled.img`
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    background: ${(props) => props.theme.colors.text};
 `;
 
 export const MobileMenuText = styled.div`
