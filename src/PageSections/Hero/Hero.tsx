@@ -11,10 +11,18 @@ import {
     TypeWriterStaticAndComponent,
     TypeWriterStatictext,
 } from "./HeroStyle";
+import { useEffect, useRef } from "react";
+import { storeSectionLocation } from "../../Functions/storeSectionLocation";
+import { useDispatch } from "react-redux";
 
 export const Hero = () => {
+    const HeroRef = useRef<HTMLDivElement>(null);
+    const dispatch = useDispatch();
+    useEffect(() => {
+        storeSectionLocation(HeroRef.current, dispatch);
+    }, [HeroRef, dispatch]);
     return (
-        <HeroContainer>
+        <HeroContainer ref={HeroRef} id="Hero">
             <HeroText>
                 <HeroColoredText>Hello!</HeroColoredText>
                 <HeroNameAndNormalContainer>

@@ -1,4 +1,3 @@
-import { useTheme } from "styled-components";
 import { BlackSocials, SocialIconsObject } from "../../Theme/ExtraConstants";
 import { styled, css } from "styled-components";
 import { offWhite } from "../../Theme/ColorPallete";
@@ -80,8 +79,6 @@ export const SocialIconsComponent = ({
     iconsObject = SocialIconsComponentDefault.iconsObject,
     giveShadow = SocialIconsComponentDefault.giveShadow,
 }: SocialIconsComponentProps) => {
-    const theme = useTheme();
-    console.log(theme.socialIcons);
     return (
         <SocialIconsContainer
             $shadow={giveShadow}
@@ -90,9 +87,12 @@ export const SocialIconsComponent = ({
         >
             {Object.keys(iconsObject).map((Social, idx) => {
                 const socialObject = iconsObject[Social];
-                console.log(socialObject);
                 return (
-                    <SocialIconLink href={socialObject.link} target="_blank">
+                    <SocialIconLink
+                        key={idx}
+                        href={socialObject.link}
+                        target="_blank"
+                    >
                         <SocialIcon key={idx} src={socialObject.icon} />
                     </SocialIconLink>
                 );

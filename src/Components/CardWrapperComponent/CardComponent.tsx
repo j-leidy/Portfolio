@@ -246,6 +246,7 @@ export const CardComponent = ({
                     {cardSkillsArr.map((skill, idx) => {
                         return (
                             <SkillIcon
+                                key={idx}
                                 src={skill}
                                 $index={idx}
                                 $inView={titleIsInView}
