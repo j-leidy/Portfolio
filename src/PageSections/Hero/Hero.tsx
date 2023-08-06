@@ -1,4 +1,4 @@
-import Portrait from "../../Images/PortraitFlip.jpg";
+import Portrait from "../../Images/CompressedPortrait.jpg";
 import TypewriterComponent from "typewriter-effect";
 import { typewriterConfig } from "./TypewriterConfig";
 import {

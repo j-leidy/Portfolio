@@ -1,5 +1,5 @@
 import { keyframes, styled, css } from "styled-components";
-import { InViewProps } from "../Reusables/CommonStyledProps";
+import { InViewProps } from "../CommonStyled/CommonStyledProps";
 
 
 const ProjectCardContainerKeyframes = keyframes`

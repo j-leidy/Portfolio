@@ -7,7 +7,7 @@ import { swapTheme } from "../../Redux/ThemeSlice/ThemeSlice";
 import {
     SocialIcon,
     SocialIconsContainer,
-} from "../Reusables/SocialIconsStyled";
+} from "../CommonStyled/SocialIconsStyled";
 
 const WelcomeContentContainer = styled.div`
     display: flex;

@@ -9,7 +9,7 @@ import {
     SkillIcon,
     SkillIconKeyframes,
     SkillsContainer,
-} from "../Reusables/SkillIconsStyled";
+} from "../CommonStyled/SkillIconsStyled";
 
 export const observerOptions: IntersectionObserverInit = {
     threshold: 0.15,

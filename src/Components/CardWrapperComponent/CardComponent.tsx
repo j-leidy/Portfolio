@@ -3,8 +3,8 @@ import {
     SkillIcon,
     SkillIconKeyframes,
     SkillsContainer,
-} from "../Reusables/SkillIconsStyled";
-import { InViewProps } from "../Reusables/CommonStyledProps";
+} from "../CommonStyled/SkillIconsStyled";
+import { InViewProps } from "../CommonStyled/CommonStyledProps";
 import { useEffect, useRef, useState } from "react";
 
 interface CardContainerProps {

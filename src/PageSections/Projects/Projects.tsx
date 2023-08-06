@@ -1,5 +1,5 @@
 import { CardComponent } from "../../Components/CardWrapperComponent/CardComponent";
-import { PageSectionContainer } from "../../Components/Reusables/PageSection";
+import { PageSectionContainer } from "../../Components/CommonStyled/PageSection";
 import { SectionTitle } from "../../Components/SectionTitleComponent/SectionTitle";
 import { ProjectsData } from "./ProjectsData";
 import { styled } from "styled-components";
@@ -21,8 +21,8 @@ export const Projects = () => {
         <PageSectionContainer>
             <SectionTitle
                 titleText="Projects"
-                useThemeColors={true}
-                includeSubText={true}
+                useThemeColors
+                includeSubText
                 subText="Click or tap a card for more information"
             />
             {Object.keys(ProjectsData).map((key, idx) => {

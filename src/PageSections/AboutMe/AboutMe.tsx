@@ -1,5 +1,5 @@
 import { SectionTitle } from "../../Components/SectionTitleComponent/SectionTitle";
-import { PageSectionContainer } from "../../Components/Reusables/PageSection";
+import { PageSectionContainer } from "../../Components/CommonStyled/PageSection";
 import { styled } from "styled-components";
 
 const AboutMeText = styled.div`
@@ -11,7 +11,7 @@ const AboutMeText = styled.div`
 export const AboutMe = () => {
     return (
         <PageSectionContainer>
-            <SectionTitle titleText="About Me" useThemeColors={true} />
+            <SectionTitle titleText="About Me" useThemeColors />
             <AboutMeText>
                 I am John Leidy II, a computer science student and developer.
                 Born in a small town, I moved twice before settling in Indiana.

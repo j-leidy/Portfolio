@@ -1,4 +1,4 @@
-import { PageSectionContainer } from "../../Components/Reusables/PageSection";
+import { PageSectionContainer } from "../../Components/CommonStyled/PageSection";
 import { SectionTitle } from "../../Components/SectionTitleComponent/SectionTitle";
 import { DegreesData } from "./DegreesData";
 import { CardComponent } from "../../Components/CardWrapperComponent/CardComponent";
@@ -7,7 +7,7 @@ import { DegreeExperienceInternal } from "../../Components/DegreeExperienceCompo
 export const Degrees = () => {
     return (
         <PageSectionContainer>
-            <SectionTitle titleText="Degrees" useThemeColors={true} />
+            <SectionTitle titleText="Degrees" useThemeColors />
             {Object.keys(DegreesData).map((key, idx) => {
                 const degreeObj = DegreesData[key as keyof typeof DegreesData];
                 return (

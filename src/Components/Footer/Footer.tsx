@@ -5,16 +5,15 @@ import { observerOptions } from "../CardWrapperComponent/CardComponent";
 import {
     SocialIcon,
     SocialIconsContainer,
-} from "../Reusables/SocialIconsStyled";
-import Portrait from "../../Images/PortraitFlip.jpg";
-import { InViewProps } from "../Reusables/CommonStyledProps";
+} from "../CommonStyled/SocialIconsStyled";
+import Portrait from "../../Images/CompressedPortrait.jpg";
+import { InViewProps } from "../CommonStyled/CommonStyledProps";
 
 const FooterContainer = styled.div<InViewProps>`
     width: 100%;
     display: flex;
-    align-items: center;
     justify-content: space-around;
-    padding: 100px 50px;
+    padding: 70px 50px;
     margin-top: 20%;
     box-shadow: 0px 0px 10px -4px ${(props) => props.theme.colors.accentMain};
     ${({ theme }) => css`
@@ -23,6 +22,7 @@ const FooterContainer = styled.div<InViewProps>`
     `}
     @media screen and (max-width: ${(props) => props.theme.breakpoint}px) {
         flex-direction: column;
+        align-items: center;
         padding: 50px 50px;
     }
 `;
@@ -30,14 +30,27 @@ const FooterContainer = styled.div<InViewProps>`
 interface FooterTextItemProps {
     $fontSize: number;
     $fontWeight: number;
+    $capitalize?: boolean;
+    $mobileFontSizeModifier?: number;
 }
 
 const FooterTextItem = styled.div<FooterTextItemProps>`
-    ${({ $fontSize, $fontWeight, theme }) => css`
+    ${({
+        $fontSize,
+        $fontWeight,
+        $mobileFontSizeModifier,
+        $capitalize,
+        theme,
+    }) => css`
         color: ${theme.colors.text};
         font-size: ${$fontSize}px;
         font-weight: ${$fontWeight};
-        text-transform: uppercase;
+        text-transform: ${$capitalize ? "uppercase" : "none"};
+        @media screen and (max-width: ${theme.breapoint}px) {
+            font-size: ${$mobileFontSizeModifier
+                ? $fontSize * $mobileFontSizeModifier
+                : $fontSize}px;
+        }
     `}
 `;
 
@@ -45,11 +58,15 @@ const FooterIconAndText = styled.div`
     display: flex;
     align-items: center;
     gap: 2rem;
+    @media screen and (max-width: ${(props) => props.theme.breakpoint}px) {
+        flex-direction: column;
+        justify-content: center;
+    }
 `;
 
 const FooterIcon = styled.img`
-    height: 70px;
-    width: 70px;
+    height: 100px;
+    width: 100px;
     border-radius: 50%;
 `;
 
@@ -84,17 +101,34 @@ export const Footer = () => {
             <FooterTextItems>
                 <FooterIconAndText>
                     <FooterIcon src={Portrait} />
-                    <FooterTextItem $fontSize={28} $fontWeight={600}>
+                    <FooterTextItem
+                        $fontSize={30}
+                        $fontWeight={600}
+                        $capitalize
+                    >
                         {footerData.name}
                     </FooterTextItem>
                 </FooterIconAndText>
+                <FooterTextItem $fontSize={14} $fontWeight={500}>
+                    Built using React
+                </FooterTextItem>
+                <FooterTextItem $fontSize={14} $fontWeight={500}>
+                    Written in Typescript
+                </FooterTextItem>
             </FooterTextItems>
             <SocialIconsContainer
                 $shadow={false}
                 $userBackground={theme.colors.accentMain}
             >
                 {[...theme.socialIcons].map((icon, idx) => {
-                    return <SocialIcon src={icon} key={idx} />;
+                    return (
+                        <SocialIcon
+                            src={icon}
+                            key={idx}
+                            $mobileModifier={0.8}
+                            $changeMobileSize
+                        />
+                    );
                 })}
             </SocialIconsContainer>
         </FooterContainer>

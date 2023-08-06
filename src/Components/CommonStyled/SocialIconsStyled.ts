@@ -5,6 +5,7 @@ interface SocialIconsContainerProps {
     $shadow?: boolean;
     $useThemeBackground?: boolean;
     $userBackground?: string;
+    $customFlexAlign?: string;
 }
 
 export const SocialIconsContainer = styled.div<SocialIconsContainerProps>`
@@ -32,7 +33,20 @@ export const SocialIconsContainer = styled.div<SocialIconsContainerProps>`
     }
 `;
 
-export const SocialIcon = styled.img`
+interface SocialIconProps {
+    $changeMobileSize?: boolean
+    $mobileModifier?: number
+}
+
+export const SocialIcon = styled.img<SocialIconProps>`
     width: 40px;
     height: 40px;
+    ${({$changeMobileSize,$mobileModifier})=>
+        $changeMobileSize ? css`
+            @media screen and (max-width: ${props=>props.theme.breakpoint}px){
+                height: ${$mobileModifier ? 40*$mobileModifier : 20}px;
+                width: ${$mobileModifier ? 40*$mobileModifier : 20}px;
+            }
+        ` : ''
+}
 `;

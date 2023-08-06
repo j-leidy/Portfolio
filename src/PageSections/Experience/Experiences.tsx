@@ -1,6 +1,6 @@
 import { DegreeExperienceInternal } from "../../Components/DegreeExperienceComponent/DegreeExperienceComponent";
 import { CardComponent } from "../../Components/CardWrapperComponent/CardComponent";
-import { PageSectionContainer } from "../../Components/Reusables/PageSection";
+import { PageSectionContainer } from "../../Components/CommonStyled/PageSection";
 import { SectionTitle } from "../../Components/SectionTitleComponent/SectionTitle";
 import { ExperiencesData } from "./ExperiencesData";
 
@@ -9,8 +9,8 @@ export const Experiences = () => {
         <PageSectionContainer>
             <SectionTitle
                 titleText="Experience"
-                useThemeColors={true}
-                includeSubText={true}
+                useThemeColors
+                includeSubText
                 subText="Click or tap a card for more information!"
             />
             {Object.keys(ExperiencesData).map((key, idx) => {
