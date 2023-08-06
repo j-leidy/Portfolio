@@ -3,18 +3,10 @@ import { CardComponent } from "../../Components/CardWrapperComponent/CardCompone
 import { PageSectionContainer } from "../../Components/CommonStyled/PageSection";
 import { SectionTitle } from "../../Components/SectionTitleComponent/SectionTitle";
 import { ExperiencesData } from "./ExperiencesData";
-import { storeSectionLocation } from "../../Functions/storeSectionLocation";
-import { useEffect, useRef } from "react";
-import { useDispatch } from "react-redux";
 
 export const Experiences = () => {
-    const ExperienceRef = useRef<HTMLDivElement>(null);
-    const dispatch = useDispatch();
-    useEffect(() => {
-        storeSectionLocation(ExperienceRef.current, dispatch);
-    }, [ExperienceRef, dispatch]);
     return (
-        <PageSectionContainer ref={ExperienceRef} id="Experiences">
+        <PageSectionContainer id="Experiences">
             <SectionTitle
                 titleText="Experience"
                 useThemeColors

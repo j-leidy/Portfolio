@@ -3,18 +3,10 @@ import { SectionTitle } from "../../Components/SectionTitleComponent/SectionTitl
 import { DegreesData } from "./DegreesData";
 import { CardComponent } from "../../Components/CardWrapperComponent/CardComponent";
 import { DegreeExperienceInternal } from "../../Components/DegreeExperienceComponent/DegreeExperienceComponent";
-import { useEffect, useRef } from "react";
-import { storeSectionLocation } from "../../Functions/storeSectionLocation";
-import { useDispatch } from "react-redux";
 
 export const Degrees = () => {
-    const DegreeRef = useRef<HTMLDivElement>(null);
-    const dispatch = useDispatch();
-    useEffect(() => {
-        storeSectionLocation(DegreeRef.current, dispatch);
-    }, [DegreeRef, dispatch]);
     return (
-        <PageSectionContainer ref={DegreeRef} id="Degrees">
+        <PageSectionContainer id="Degrees">
             <SectionTitle titleText="Degrees" useThemeColors />
             {Object.keys(DegreesData).map((key, idx) => {
                 const degreeObj = DegreesData[key as keyof typeof DegreesData];

@@ -1,11 +1,8 @@
-import { useEffect, useRef } from "react";
 import { CardComponent } from "../../Components/CardWrapperComponent/CardComponent";
 import { PageSectionContainer } from "../../Components/CommonStyled/PageSection";
 import { SectionTitle } from "../../Components/SectionTitleComponent/SectionTitle";
 import { ProjectsData } from "./ProjectsData";
 import { styled } from "styled-components";
-import { useDispatch } from "react-redux";
-import { storeSectionLocation } from "../../Functions/storeSectionLocation";
 
 const ProjectCardImage = styled.img`
     height: 500px;
@@ -20,13 +17,8 @@ const ProjectImageTest = (props: { image: string }) => {
 };
 
 export const Projects = () => {
-    const ProjectsRef = useRef<HTMLDivElement>(null);
-    const dispatch = useDispatch();
-    useEffect(() => {
-        storeSectionLocation(ProjectsRef.current, dispatch);
-    }, [ProjectsRef, dispatch]);
     return (
-        <PageSectionContainer ref={ProjectsRef} id="Projects">
+        <PageSectionContainer id="Projects">
             <SectionTitle
                 titleText="Projects"
                 useThemeColors

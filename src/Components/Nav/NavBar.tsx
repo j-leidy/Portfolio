@@ -13,26 +13,14 @@ import {
 import { useState } from "react";
 import JLICON from "../../Icons/JLICON.png";
 import { MoonIcon } from "./MoonIcon";
-import {
-    selectDegreesLocation,
-    selectExperiencesLocation,
-    selectHeroLocation,
-    selectProjectsLocation,
-} from "../../Redux/ScrollSlice/ScrollSlice";
-import { useAppSelector } from "../../Hooks/Hooks";
 
 const menuOptions = ["Home", "Projects", "Experience", "Degrees"];
+const ids = ["Hero", "Projects", "Experiences", "Degrees"];
 
 export const MobileMenu = () => {
     const [clicked, setClicked] = useState<boolean>(false);
-    const selectors = {
-        Home: useAppSelector(selectHeroLocation),
-        Projects: useAppSelector(selectProjectsLocation),
-        Experience: useAppSelector(selectExperiencesLocation),
-        Degrees: useAppSelector(selectDegreesLocation),
-    };
-    const scrollTo = (location: number) => {
-        window.scrollTo({ top: location, left: 0, behavior: "smooth" });
+    const scrollTo = (id: string) => {
+        document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
     };
     return (
         <NavContainer>
@@ -56,9 +44,7 @@ export const MobileMenu = () => {
                         <CardItem
                             key={idx}
                             onClick={() => {
-                                scrollTo(
-                                    selectors[option as keyof typeof selectors]
-                                );
+                                scrollTo(ids[idx]);
                                 setClicked(!clicked);
                             }}
                         >
