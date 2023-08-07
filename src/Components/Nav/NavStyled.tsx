@@ -40,6 +40,7 @@ export const MobileIcon = styled.img`
     width: 40px;
     height: 40px;
     border-radius: 50%;
+    background: ${(props) => props.theme.colors.text};
 `;
 
 export const MobileMenuText = styled.div`
@@ -133,4 +134,5 @@ export const CardItem = styled.div`
     color: ${(props) => props.theme.colors.textOpposite};
     font-weight: 600;
     text-transform: uppercase;
+    cursor: pointer;
 `;
