@@ -11,7 +11,7 @@ import { Degrees } from "../PageSections/Education/Degrees";
 import { Footer } from "../Components/Footer/Footer";
 
 const MainPageContainer = styled.div`
-    position: absolute;
+    position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -23,8 +23,12 @@ const MainPageContainer = styled.div`
     top: 0;
     left: 0;
     caret-color: transparent;
+    margin: 0;
+    padding: 0;
 `;
 const Darken = styled.div`
+    width: 100%;
+    overflow-x: hidden;
     background: ${(props) => props.theme.colors.background};
 `;
 

@@ -56,9 +56,7 @@ export const customOptions: CustomISourceOptions = {
         transition: `${0.5}s background-color ease`,
         zIndex: -1,
         top: "inherit",
-        width: "100%",
         position: "fixed",
-        height: "150vh"
-
+        overflow: "hidden"
     },
 };
