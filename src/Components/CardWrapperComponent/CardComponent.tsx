@@ -60,8 +60,7 @@ const InternalCardStyles = css`
     }
 `;
 
-interface InternalCardProps {
-    $inView: boolean;
+interface InternalCardProps extends InViewProps {
     $paddInternal: boolean;
     $padAmount: number;
 }

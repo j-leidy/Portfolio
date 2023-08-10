@@ -20,13 +20,14 @@ const ExperienceContentContainer = styled.div<InViewProps>`
     flex-direction: column;
     width: 100%;
     align-items: center;
-    border: 1px solid ${(props) => props.theme.colors.accentMain};
-    background: ${(props) => props.theme.colors.background};
     padding-bottom: 10px;
     border-radius: 10px;
-    transition: opacity,
-        background ${(props) => props.theme.animationTime.short}s;
-    opacity: ${(props) => (props.$inView ? 1 : 0)};
+    ${({theme, $inView})=>css`
+        border: 1px solid ${theme.colors.accentMain};
+        background: ${theme.colors.background};
+        transition: opacity, background ${theme.animationTime.short}s;
+        opacity: ${$inView ? 1 : 0};
+    `}
 `;
 const ExperienceName = styled.div`
     text-transform: uppercase;
