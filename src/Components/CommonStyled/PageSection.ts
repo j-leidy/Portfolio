@@ -1,14 +1,16 @@
-import { styled } from "styled-components";
+import { styled, css } from "styled-components";
 
 export const PageSectionContainer = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    color: ${props=>props.theme.colors.text};
     width: 70%;
-    transition: ${props=>props.theme.animationTime.short}s all ease;
-    @media screen and (max-width: ${props=>props.theme.breakpoint}px){
-        width: 90%;
-    }
+    ${({theme})=>css`
+        color: ${theme.colors.text};
+        transition: ${theme.animationTime.short}s all ease;
+        @media screen and (max-width: ${theme.breakpoint}px){
+            width: 90%;
+        }
+    `}
 `;
