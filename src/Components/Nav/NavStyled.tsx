@@ -80,13 +80,13 @@ export const SpanOne = styled.div<Props>`
     height: 4px;
     width: 30px;
     border-radius: 10px;
-    transform: rotate(${(props) => (props.$active ? "-45deg" : "0deg")});
     ${({theme, $active})=>css`
-    top: ${$active ? "-30px" : "-40px"};
-    background: ${
-        $active
-            ? theme.colors.accentMain
-            : theme.colors.backgroundOpposite};
+        top: ${$active ? "-30px" : "-40px"};
+        background: ${
+            $active
+                ? theme.colors.accentMain
+                : theme.colors.backgroundOpposite};
+         transform: rotate(${$active ? "-45deg" : "0deg"});
     `}
 `;
 
@@ -94,26 +94,32 @@ export const SpanTwo = styled.div<Props>`
     transition: 0.3s all ease;
     position: relative;
     top: -34px;
-    background: ${(props) => props.theme.colors.backgroundOpposite};
     height: 4px;
     width: 30px;
     opacity: ${(props) => (props.$active ? "0" : "1")};
     border-radius: 10px;
+    ${({theme,$active})=>css`
+        background: ${theme.colors.backgroundOpposite};
+        opacity: ${$active ? "0" : "1"};
+    `}
 `;
 
 export const SpanThree = styled.div<Props>`
     transition: 0.3s all ease;
     position: relative;
-    top: ${(props) => (props.$active ? "-38px" : "-28px")};
     z-index: 2;
-    background: ${(props) =>
-        props.$active
-            ? props.theme.colors.accentMain
-            : props.theme.colors.backgroundOpposite};
     height: 4px;
     width: 30px;
     border-radius: 10px;
-    transform: rotate(${(props) => (props.$active ? "45deg" : "0deg")});
+    ${({theme, $active})=>css`
+        top: ${$active ? "-38px" : "-28px"};
+        background: ${
+            $active
+                ? theme.colors.accentMain
+                : theme.colors.backgroundOpposite};
+         transform: rotate(${$active ? "-45deg" : "0deg"});
+    `}
+
 `;
 
 export const Card = styled.div<Props>`
