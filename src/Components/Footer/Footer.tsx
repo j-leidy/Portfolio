@@ -12,16 +12,16 @@ const FooterContainer = styled.div<InViewProps>`
     justify-content: space-around;
     padding: 70px 50px;
     margin-top: 20%;
-    box-shadow: 0px 0px 10px -4px ${(props) => props.theme.colors.UIAccent};
     ${({ theme }) => css`
         color: ${theme.colors.text};
         background: ${theme.colors.UIAccent};
+        box-shadow: 0px 0px 10px -4px ${theme.colors.UIAccent};
+        @media screen and (max-width: ${theme.breakpoint}px) {
+            flex-direction: column;
+            align-items: center;
+            padding: 50px 50px;
+        }
     `}
-    @media screen and (max-width: ${(props) => props.theme.breakpoint}px) {
-        flex-direction: column;
-        align-items: center;
-        padding: 50px 50px;
-    }
 `;
 
 interface FooterTextItemProps {
