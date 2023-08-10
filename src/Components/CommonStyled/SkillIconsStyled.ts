@@ -1,5 +1,6 @@
 import { styled, keyframes, css } from "styled-components";
 import Keyframes from "styled-components/dist/models/Keyframes";
+import { InViewProps } from "./CommonStyledProps";
 
 export interface SkillsContainerProps {
     $centerItems: boolean;
@@ -48,9 +49,8 @@ export const FooterSkillIconKeyframes = keyframes`
   } 
 `;
 
-export interface SkillIconProps {
+export interface SkillIconProps extends InViewProps {
     $index: number;
-    $inView: boolean;
     $pxSize?: number;
     $customKeyframes: Keyframes;
     $loopInfinitely: boolean;

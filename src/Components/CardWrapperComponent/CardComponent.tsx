@@ -1,4 +1,4 @@
-import { styled, css, keyframes } from "styled-components";
+import { styled, css, keyframes, IStyledComponent } from "styled-components";
 import {
     SkillIcon,
     SkillIconKeyframes,
@@ -66,33 +66,10 @@ interface InternalCardProps {
     $padAmount: number;
 }
 
-const InternalCardContainerWithLink = styled.a<InternalCardProps>`
-    ${({ $inView, theme }) =>
-        $inView
-            ? css`
-                  animation: ${CardInViewKeyframes} ${theme.animationTime.long}s;
-                  animation-iteration-count: 1;
-                  animation-fill-mode: forwards;
-                  animation-timing-function: ease-in;
-              `
-            : css`
-                  opacity: 0;
-              `}
-    ${InternalCardStyles}
-    ${({ $paddInternal, $padAmount, theme }) =>
-        $paddInternal
-            ? css`
-                  padding: ${$padAmount}px;
-                  @media screen and (max-width: ${theme.breakpoing}px) {
-                      padding: ${$padAmount / 2}px;
-                  }
-              `
-            : css`
-                  padding: 0;
-              `}
-`;
 
-const InternalWithoutLink = styled.div<InternalCardProps>`
+
+
+const InternalComponentWrapper = styled.div<InternalCardProps>`
     ${({ $inView, theme }) =>
         $inView
             ? css`
@@ -139,6 +116,8 @@ const BaseInternalElement = () => {
     );
 };
 
+const DefaultStyledExtraWrap = styled.div``
+
 const DefaultCardProps = {
     useWidthPercent: false,
     widthPercent: 100,
@@ -152,6 +131,8 @@ const DefaultCardProps = {
     internalLink: "",
     paddInternalCard: true,
     internalCardPadding: 20,
+    defaultStyledExtraWrap: DefaultStyledExtraWrap,
+    InternalCardContainerProps: {}
 };
 
 interface CardComponentProps {
@@ -163,10 +144,10 @@ interface CardComponentProps {
     cardSkillsArr?: string[];
     ComponentToWrap: (props: any) => JSX.Element;
     internalComponentProps?: {};
-    wrapInternalWithLink?: boolean;
-    internalLink?: string;
-    paddInternalCard?: boolean;
-    internalCardPadding?: number;
+    paddInternalCard?:boolean;
+    internalCardPadding?:number;
+    InternalCardContainer?: IStyledComponent<any,any>
+    InternalCardContainerProps?: {[key:string]:unknown}
 }
 
 export const observerOptions: IntersectionObserverInit = {
@@ -182,16 +163,14 @@ export const CardComponent = ({
     cardSkillsArr = DefaultCardProps.cardSkillsArr,
     ComponentToWrap = DefaultCardProps.ComponentToWrap,
     internalComponentProps = DefaultCardProps.internalComponentProps,
-    wrapInternalWithLink = DefaultCardProps.wrapInternalWithLink,
-    internalLink = DefaultCardProps.internalLink,
     paddInternalCard = DefaultCardProps.paddInternalCard,
     internalCardPadding = DefaultCardProps.internalCardPadding,
+    InternalCardContainer = DefaultCardProps.defaultStyledExtraWrap,
+    InternalCardContainerProps = DefaultCardProps.InternalCardContainerProps
 }: CardComponentProps) => {
-    const cardRef = useRef<HTMLAnchorElement>(null);
     const cardRefNoLink = useRef<HTMLDivElement>(null);
     const titleRef = useRef<HTMLDivElement>(null);
 
-    const [cardIsInView, setCardIsInView] = useState<boolean>(false);
     const [cardNoLinkInView, setCardNoLinkInView] = useState<boolean>(false);
     const [titleIsInView, setTitleIsInView] = useState<boolean>(false);
 
@@ -199,16 +178,6 @@ export const CardComponent = ({
         const observer: IntersectionObserver = new IntersectionObserver(
             (entries: IntersectionObserverEntry[]) => {
                 entries.forEach((entry: IntersectionObserverEntry) => {
-                    if (wrapInternalWithLink) {
-                        if (cardRef.current && titleRef.current) {
-                            cardRef.current.className ===
-                                entry.target.className &&
-                                setCardIsInView(entry.isIntersecting);
-                            titleRef.current.className ===
-                                entry.target.className &&
-                                setTitleIsInView(entry.isIntersecting);
-                        }
-                    } else if (!wrapInternalWithLink) {
                         if (cardRefNoLink.current && titleRef.current) {
                             cardRefNoLink.current.className ===
                                 entry.target.className &&
@@ -217,25 +186,19 @@ export const CardComponent = ({
                                 entry.target.className &&
                                 setTitleIsInView(entry.isIntersecting);
                         }
-                    }
+                    
                 });
             },
             observerOptions
         );
-        if (wrapInternalWithLink) {
-            if (cardRef.current && titleRef.current) {
-                const refs = [cardRef.current, titleRef.current];
-                refs.forEach((ref) => observer.observe(ref));
-            }
-        } else if (!wrapInternalWithLink) {
             if (cardRefNoLink.current && titleRef.current) {
                 const refs = [titleRef.current, cardRefNoLink.current];
                 refs.forEach((ref) => observer.observe(ref));
             }
-        }
+        
 
         return () => observer.disconnect();
-    }, [cardRef, titleRef, cardRefNoLink, wrapInternalWithLink]);
+    }, [cardRefNoLink, titleRef]);
     return (
         <CardContainer $width={widthPercent} $usePercent={useWidthPercent}>
             <CardTitle $inView={titleIsInView} ref={titleRef}>
@@ -261,27 +224,17 @@ export const CardComponent = ({
                     })}
                 </SkillsContainer>
             </CardTitle>
-            {wrapInternalWithLink ? (
-                <InternalCardContainerWithLink
-                    $paddInternal={paddInternalCard}
-                    $padAmount={internalCardPadding}
-                    href={internalLink}
-                    target="_blank"
-                    $inView={cardIsInView}
-                    ref={cardRef}
-                >
-                    <ComponentToWrap {...internalComponentProps} />
-                </InternalCardContainerWithLink>
-            ) : (
-                <InternalWithoutLink
+            <InternalCardContainer {...InternalCardContainerProps}>
+                <InternalComponentWrapper
                     $paddInternal={paddInternalCard}
                     $padAmount={internalCardPadding}
                     $inView={cardNoLinkInView}
                     ref={cardRefNoLink}
                 >
                     <ComponentToWrap {...internalComponentProps} />
-                </InternalWithoutLink>
-            )}
+                </InternalComponentWrapper>
+            </InternalCardContainer>
+           
         </CardContainer>
     );
 };

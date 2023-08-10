@@ -28,7 +28,6 @@ export const Experiences = () => {
                             logo: experienceObj.logo,
                         }}
                         cardSkillsArr={experienceObj.skills}
-                        wrapInternalWithLink={false}
                         widthPercent={70}
                         internalCardPadding={0}
                         key={idx}
