@@ -45,19 +45,21 @@ const CardInViewKeyframes = keyframes`
 `;
 
 const InternalCardStyles = css`
-    transition: background ${(props) => props.theme.animationTime.short}s;
     display: flex;
     flex-direction: row;
-    border: 1px solid ${(props) => props.theme.colors.accentMain};
     justify-content: space-around;
     border-radius: 10px;
-    background: ${(props) => props.theme.colors.background};
-    color: ${(props) => props.theme.colors.text};
     overflow: hidden;
-    @media screen and (max-width: ${(props) => props.theme.breakpoint}px) {
-        align-items: center;
-        flex-direction: column;
-    }
+    ${({theme})=>css`
+        transition: background ${theme.animationTime.short}s;
+        border: 1px solid ${theme.colors.accentMain};
+        background: ${theme.colors.background};
+        color: ${theme.colors.text};
+        @media screen and (max-width: ${theme.breakpoint}px) {
+            align-items: center;
+            flex-direction: column;
+        }
+    `}
 `;
 
 interface InternalCardProps extends InViewProps {
