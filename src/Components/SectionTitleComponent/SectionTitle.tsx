@@ -22,8 +22,6 @@ const SectionTitleContainer = styled.div<ContainerProps>`
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    font-size: ${(props) => props.$fontSize}px;
-    transition: ${(props) => props.theme.animationTime.short}s all ease;
     width: 80%;
     padding-bottom: 20px;
     padding-top: 200px;
@@ -46,9 +44,13 @@ const SectionTitleContainer = styled.div<ContainerProps>`
                   color: ${$textColor};
                   border-bottom: ${$borderThickness}px solid ${$borderColor};
               `}
-    @media screen and (max-width: ${(props) => props.theme.breakpoint}px) {
-        width: 90%;
-    }
+    ${({theme,$fontSize})=>css`
+        font-size: ${$fontSize}px;
+        transition: ${theme.animationTime.short}s all ease;
+        @media screen and (max-width: ${theme.breakpoint}px) {
+            width: 90%;
+        }
+    `}
 `;
 
 const defaultSectionTitleProps = {
