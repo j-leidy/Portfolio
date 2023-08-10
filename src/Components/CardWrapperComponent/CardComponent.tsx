@@ -26,12 +26,14 @@ const CardContainer = styled.div<CardContainerProps>`
 `;
 
 const CardTitle = styled.div<InViewProps>`
-    transition: opacity ${(props) => props.theme.animationTime.short}s ease-in;
-    opacity: ${(props) => (props.$inView ? "1" : "0")};
     display: flex;
     align-items: center;
     justify-content: space-between;
     font-size: 30px;
+    ${({theme, $inView})=>css`
+        transition: opacity ${theme.animationTime.short}s ease-in;
+        opacity: ${$inView ? "1" : "0"};
+    `}
 `;
 
 const CardInViewKeyframes = keyframes`
