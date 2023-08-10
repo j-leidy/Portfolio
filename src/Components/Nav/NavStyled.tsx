@@ -113,11 +113,8 @@ export const SpanThree = styled.div<Props>`
     border-radius: 10px;
     ${({theme, $active})=>css`
         top: ${$active ? "-38px" : "-28px"};
-        background: ${
-            $active
-                ? theme.colors.accentMain
-                : theme.colors.backgroundOpposite};
-         transform: rotate(${$active ? "-45deg" : "0deg"});
+        background: ${$active ? theme.colors.accentMain : theme.colors.backgroundOpposite};
+         transform: rotate(${$active ? "45deg" : "0deg"});
     `}
 
 `;
