@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 interface Props {
     $active: boolean;
@@ -12,7 +12,6 @@ export const NavContainer = styled.div`
     transition: 0.3s all ease;
     position: fixed;
     top: 0;
-    box-shadow: 0px 0px 10px -4px ${(props) => props.theme.colors.UIAccent};
     height: 52px;
     width: 100%;
     color: white;
@@ -22,7 +21,10 @@ export const NavContainer = styled.div`
     z-index: 10;
     opacity: 1;
     caret-color: transparent;
-    background: ${(props) => props.theme.colors.UIAccent};
+    ${({theme})=>css`
+        box-shadow: 0px 0px 10px -4px ${theme.colors.UIAccent};
+        background: ${theme.colors.UIAccent};
+    `}
 `;
 
 export const IconTextMoonContainer = styled.div`
@@ -74,16 +76,18 @@ export const BurgerCheckHolder = styled.div`
 export const SpanOne = styled.div<Props>`
     transition: 0.3s all ease;
     position: relative;
-    top: ${(props) => (props.$active ? "-30px" : "-40px")};
     z-index: 2;
-    background: ${(props) =>
-        props.$active
-            ? props.theme.colors.accentMain
-            : props.theme.colors.backgroundOpposite};
     height: 4px;
     width: 30px;
     border-radius: 10px;
     transform: rotate(${(props) => (props.$active ? "-45deg" : "0deg")});
+    ${({theme, $active})=>css`
+    top: ${$active ? "-30px" : "-40px"};
+    background: ${
+        $active
+            ? theme.colors.accentMain
+            : theme.colors.backgroundOpposite};
+    `}
 `;
 
 export const SpanTwo = styled.div<Props>`
