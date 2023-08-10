@@ -126,18 +126,20 @@ export const Card = styled.div<Props>`
     transition: 0.3s all ease;
     z-index: 1;
     position: absolute;
-    top: ${(props) => (props.$active ? "0" : "-2000px")};
     right: 0;
     width: 100vw;
     height: 50vh;
-    background: ${(props) => props.theme.colors.backgroundOpposite};
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-evenly;
-    @media screen and (max-width: ${(props) => props.theme.breakpoint}px) {
-        height: 100vh;
-    }
+    ${({theme, $active})=>css`
+        top: ${$active ? "0" : "-2000px"};
+        background: ${theme.colors.backgroundOpposite};
+        @media screen and (max-width: ${theme.breakpoint}px) {
+            height: 100vh;
+        }
+    `}
 `;
 
 export const CardItem = styled.div`
