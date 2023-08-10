@@ -16,6 +16,8 @@ const ProjectImageTest = (props: { image: string }) => {
     return <ProjectCardImage src={props.image} />;
 };
 
+const ImageWrapper = styled.a``
+
 export const Projects = () => {
     return (
         <PageSectionContainer id="Projects">
@@ -33,9 +35,9 @@ export const Projects = () => {
                         ComponentToWrap={ProjectImageTest}
                         cardSkillsArr={Project.skillsUsed}
                         cardTitleText={key}
-                        internalLink={Project.linkToProject}
                         key={idx}
-                        wrapInternalWithLink
+                        InternalCardContainer={ImageWrapper}
+                        InternalCardContainerProps={{href:Project.linkToProject, target:"_blank"}}
                     />
                 );
             })}
