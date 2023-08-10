@@ -99,14 +99,16 @@ interface CardTitleTextProps {
     $fontSize: number;
 }
 const CardTitleText = styled.div<CardTitleTextProps>`
-    font-size: ${(props) => props.$fontSize}px;
     text-transform: uppercase;
     font-weight: 600;
     padding-left: 10px;
-    color: ${(props) => props.theme.colors.accentOne};
-    @media screen and (max-width: ${(props) => props.theme.breakpoint}px) {
-        font-size: ${(props) => props.$fontSize * 0.7}px;
-    }
+    ${({theme, $fontSize})=>css`
+        font-size: ${$fontSize}px;
+        color: ${theme.colors.accentOne};
+        @media screen and (max-width: ${theme.breakpoint}px) {
+            font-size: ${$fontSize * 0.7}px;
+        }
+    `}
 `;
 
 const BaseInternalElement = () => {
