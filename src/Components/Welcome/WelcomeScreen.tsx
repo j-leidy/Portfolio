@@ -1,4 +1,4 @@
-import { keyframes, styled } from "styled-components";
+import { css, keyframes, styled } from "styled-components";
 import { useAppDispatch } from "../../Hooks/Hooks";
 import { setShowMainPage } from "../../Redux/PageSlice/PageSlice";
 import { MoonIcon } from "../Nav/MoonIcon";
@@ -32,12 +32,14 @@ const ClickOrTapToEnterButton = styled.div`
     border-radius: 50%;
     width: 200px;
     height: 200px;
-    background: ${(props) => props.theme.colors.backgroundOpposite};
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: ${(props) => props.theme.animationTime.short}s all ease;
-    border: 1px solid ${(props) => props.theme.colors.textOpposite};
+    ${({theme})=>css`
+        background: ${theme.colors.backgroundOpposite};
+        transition: ${theme.animationTime.short}s all ease;
+        border: 1px solid ${theme.colors.textOpposite};
+    `}
 `;
 
 const TextAnimation = keyframes`
@@ -51,13 +53,15 @@ const TextAnimation = keyframes`
 `;
 
 const ClickOrTapToEnterText = styled.div`
-    transition: ${(props) => props.theme.animationTime.short}s all ease;
-    color: ${(props) => props.theme.colors.textOpposite};
     text-transform: uppercase;
     font-weight: 600;
     font-size: 30px;
     animation: ${TextAnimation} 4s;
     animation-iteration-count: infinite;
+    ${({theme})=>css`
+        transition: ${theme.animationTime.short}s all ease;
+        color: ${theme.colors.textOpposite};
+    `}
 `;
 
 export const WelcomeScreen = () => {
