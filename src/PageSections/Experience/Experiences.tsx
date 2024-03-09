@@ -14,8 +14,7 @@ export const Experiences = () => {
                 subText="Click or tap a card for more information!"
             />
             {Object.keys(ExperiencesData).map((key, idx) => {
-                const experienceObj =
-                    ExperiencesData[key as keyof typeof ExperiencesData];
+                const experienceObj = ExperiencesData[key];
                 return (
                     <CardComponent
                         showCardTitle={false}

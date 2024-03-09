@@ -9,7 +9,18 @@ import JIRAIcon from "../../Icons/Languages/JIRAIcon.png";
 import HTMLIcon from "../../Icons/Languages/HTMLIcon.png";
 import CSSIcon from "../../Icons/Languages/CSSIcon.png";
 
-export const ExperiencesData = {
+type ExperiencesDataType = {
+    [key:string] : {
+        jobTitle:string,
+        dates:string,
+        bodyText:string[],
+        logo:string,
+        skills:string[],
+        accentText:string
+    }
+}
+
+export const ExperiencesData:ExperiencesDataType = {
     "Headstorm" : {
         jobTitle: "Software Consulting Intern",
         dates: "May 2023 - Aug. 2023",
