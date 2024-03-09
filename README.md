@@ -93,5 +93,3 @@ export const DegreeExperienceInternal = ({
 ### [Implementation](https://github.com/j-leidy/NewPortfolio/blob/main/src/Components/CardWrapperComponent/CardComponent.tsx)
 
 </details>
-
-[Live Preview](https://johnleidyii.netlify.app/)
