@@ -50,7 +50,7 @@ export const MobileMenu = () => {
             if (
                 navShowAmount.current >= 0 &&
                 navShowAmount.current -
-                    (previousScrollValue.current - window.scrollY) >
+                    (previousScrollValue.current - window.scrollY) >=
                     0
             ) {
                 navShowAmount.current -=
