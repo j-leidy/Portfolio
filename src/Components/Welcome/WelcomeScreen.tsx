@@ -35,7 +35,7 @@ const ClickOrTapToEnterButton = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-    ${({theme})=>css`
+    ${({ theme }) => css`
         background: ${theme.colors.backgroundOpposite};
         transition: ${theme.animationTime.short}s all ease;
         border: 1px solid ${theme.colors.textOpposite};
@@ -58,7 +58,7 @@ const ClickOrTapToEnterText = styled.div`
     font-size: 30px;
     animation: ${TextAnimation} 4s;
     animation-iteration-count: infinite;
-    ${({theme})=>css`
+    ${({ theme }) => css`
         transition: ${theme.animationTime.short}s all ease;
         color: ${theme.colors.textOpposite};
     `}
@@ -68,7 +68,6 @@ export const WelcomeScreen = () => {
     const dispatch = useAppDispatch();
     const handleEnterClick = () => {
         dispatch(setShowMainPage(true));
-        dispatch(swapTheme());
     };
     return (
         <WelcomeScreenContainer>
