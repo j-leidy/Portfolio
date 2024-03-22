@@ -1,4 +1,6 @@
 import styled, { css } from "styled-components";
+import { rgba } from "polished";
+import { offWhite } from "../../Theme/ColorPallete";
 
 interface Props {
     $active: boolean;
@@ -12,26 +14,29 @@ export const NavContainer = styled.div`
     transition: 0.3s all ease;
     position: fixed;
     top: 0;
-    height: 52px;
-    width: 100%;
+    height: 70px;
+    width: calc(100% - 40px);
     color: white;
     display: flex;
     flex-direction: row;
     align-items: center;
+    justify-content: space-between;
+    padding: 0px 20px;
     z-index: 10;
     opacity: 1;
     caret-color: transparent;
-    ${({theme})=>css`
-        box-shadow: 0px 0px 10px -4px ${theme.colors.UIAccent};
-        background: ${theme.colors.UIAccent};
+    ${({ theme }) => css`
+        background: ${rgba(
+            theme.colors.background,
+            theme.colors.background === offWhite ? 0.87 : 0.95
+        )};
     `}
 `;
 
 export const IconTextMoonContainer = styled.div`
     display: flex;
-    justify-content: space-evenly;
+    gap: 10px;
     align-items: center;
-    width: 10vw;
     height: 100%;
     @media screen and (max-width: ${(props) => props.theme.breakpoint}px) {
         width: 100px;
@@ -42,7 +47,15 @@ export const MobileIcon = styled.img`
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    background: ${(props) => props.theme.colors.text};
+`;
+
+export const NameText = styled.div`
+    font-weight: 700;
+    font-size: 30px;
+    padding: 0;
+    line-height: 25px;
+    text-align: center;
+    color: ${(props) => props.theme.colors.text};
 `;
 
 export const MobileMenuText = styled.div`
@@ -56,7 +69,7 @@ export const FakeCheckBox = styled.input<Props>`
     position: relative;
     top: 0;
     left: 0;
-    width: 50px;
+    width: 30px;
     height: 50px;
     z-index: ${(props) => (props.$active ? "5" : "3")};
     opacity: 0;
@@ -65,11 +78,8 @@ export const FakeCheckBox = styled.input<Props>`
 `;
 
 export const BurgerCheckHolder = styled.div`
-    margin-left: auto;
-    margin-right: 2vw;
-    margin-top: auto;
-    margin-bottom: auto;
     z-index: 2;
+    height: 50px;
     caret-color: transparent;
 `;
 
@@ -80,13 +90,12 @@ export const SpanOne = styled.div<Props>`
     height: 4px;
     width: 30px;
     border-radius: 10px;
-    ${({theme, $active})=>css`
+    ${({ theme, $active }) => css`
         top: ${$active ? "-30px" : "-40px"};
-        background: ${
-            $active
-                ? theme.colors.accentMain
-                : theme.colors.backgroundOpposite};
-         transform: rotate(${$active ? "-45deg" : "0deg"});
+        background: ${$active
+            ? theme.colors.accentMain
+            : theme.colors.backgroundOpposite};
+        transform: rotate(${$active ? "-45deg" : "0deg"});
     `}
 `;
 
@@ -98,7 +107,7 @@ export const SpanTwo = styled.div<Props>`
     width: 30px;
     opacity: ${(props) => (props.$active ? "0" : "1")};
     border-radius: 10px;
-    ${({theme,$active})=>css`
+    ${({ theme, $active }) => css`
         background: ${theme.colors.backgroundOpposite};
         opacity: ${$active ? "0" : "1"};
     `}
@@ -111,12 +120,13 @@ export const SpanThree = styled.div<Props>`
     height: 4px;
     width: 30px;
     border-radius: 10px;
-    ${({theme, $active})=>css`
+    ${({ theme, $active }) => css`
         top: ${$active ? "-38px" : "-28px"};
-        background: ${$active ? theme.colors.accentMain : theme.colors.backgroundOpposite};
-         transform: rotate(${$active ? "45deg" : "0deg"});
+        background: ${$active
+            ? theme.colors.accentMain
+            : theme.colors.backgroundOpposite};
+        transform: rotate(${$active ? "45deg" : "0deg"});
     `}
-
 `;
 
 export const Card = styled.div<Props>`
@@ -130,7 +140,7 @@ export const Card = styled.div<Props>`
     flex-direction: column;
     align-items: center;
     justify-content: space-evenly;
-    ${({theme, $active})=>css`
+    ${({ theme, $active }) => css`
         top: ${$active ? "0" : "-2000px"};
         background: ${theme.colors.backgroundOpposite};
         @media screen and (max-width: ${theme.breakpoint}px) {

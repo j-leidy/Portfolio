@@ -9,6 +9,7 @@ import {
     FakeCheckBox,
     Card,
     CardItem,
+    NameText,
 } from "./NavStyled";
 import { useState } from "react";
 import JLICON from "../../Icons/JLICON.png";
@@ -25,7 +26,7 @@ export const MobileMenu = () => {
     return (
         <NavContainer>
             <IconTextMoonContainer>
-                <MobileIcon src={JLICON} />
+                <NameText>JL</NameText>
                 <MoonIcon />
             </IconTextMoonContainer>
             <BurgerCheckHolder>

@@ -14,8 +14,7 @@ const FooterContainer = styled.div<InViewProps>`
     margin-top: 20%;
     ${({ theme }) => css`
         color: ${theme.colors.text};
-        background: ${theme.colors.UIAccent};
-        box-shadow: 0px 0px 10px -4px ${theme.colors.UIAccent};
+        background: ${theme.colors.background};
         @media screen and (max-width: ${theme.breakpoint}px) {
             flex-direction: column;
             align-items: center;
@@ -109,17 +108,14 @@ export const Footer = () => {
                         {footerData.name}
                     </FooterTextItem>
                     <FooterTextItem $fontSize={14} $fontWeight={500}>
-                        A portfolio website, built with React.
+                        Built with React.
                     </FooterTextItem>
                     <FooterTextItem $fontSize={14} $fontWeight={500}>
-                        Written in Typescript.
+                        Developed using Typescript.
                     </FooterTextItem>
                 </FooterTextItems>
             </FooterIconAndText>
-            <SocialIconsComponent
-                customBackground={theme.colors.UIAccent}
-                iconsObject={theme.socialIcons}
-            />
+            <SocialIconsComponent iconsObject={theme.socialIcons} />
         </FooterContainer>
     );
 };
