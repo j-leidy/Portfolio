@@ -115,7 +115,10 @@ export const Footer = () => {
                     </FooterTextItem>
                 </FooterTextItems>
             </FooterIconAndText>
-            <SocialIconsComponent iconsObject={theme.socialIcons} />
+            <SocialIconsComponent
+                iconsObject={theme.socialIcons}
+                useThemeBackground
+            />
         </FooterContainer>
     );
 };
