@@ -28,7 +28,7 @@ export const MobileMenu = () => {
     const handleScroll = () => {
         if (window.scrollY > previousScrollValue.current) {
             if (
-                navShowAmount.current < 140 &&
+                navShowAmount.current <= 140 &&
                 navShowAmount.current +
                     (window.scrollY - previousScrollValue.current) <=
                     140
@@ -38,7 +38,7 @@ export const MobileMenu = () => {
                 setPixelValue(-navShowAmount.current / 2);
             }
             if (
-                navShowAmount.current < 140 &&
+                navShowAmount.current <= 140 &&
                 navShowAmount.current +
                     (window.scrollY - previousScrollValue.current) >
                     140
@@ -48,7 +48,7 @@ export const MobileMenu = () => {
             }
         } else if (window.scrollY <= previousScrollValue.current) {
             if (
-                navShowAmount.current > 0 &&
+                navShowAmount.current >= 0 &&
                 navShowAmount.current -
                     (previousScrollValue.current - window.scrollY) >
                     0
@@ -58,7 +58,7 @@ export const MobileMenu = () => {
                 setPixelValue(-navShowAmount.current / 2);
             }
             if (
-                navShowAmount.current > 0 &&
+                navShowAmount.current >= 0 &&
                 navShowAmount.current -
                     (previousScrollValue.current - window.scrollY) <=
                     0
