@@ -1,7 +1,6 @@
 import {
     NavContainer,
     IconTextMoonContainer,
-    MobileIcon,
     SpanOne,
     SpanThree,
     SpanTwo,
@@ -12,7 +11,6 @@ import {
     NameText,
 } from "./NavStyled";
 import { useState } from "react";
-import JLICON from "../../Icons/JLICON.png";
 import { MoonIcon } from "./MoonIcon";
 
 const menuOptions = ["Home", "Projects", "Experience", "Degrees"];
