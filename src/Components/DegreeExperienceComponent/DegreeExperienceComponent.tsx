@@ -36,8 +36,19 @@ export const DegreeExperienceInternal = ({
     logo = DefaultExperienceProps.logo,
 }: ExperienceInternalProps) => {
     const [showMore, setShowMore] = useState<boolean>(false);
+    const [playAnimation, setPlayAnimation] = useState<boolean>(false);
+
+    const handleCardClick = () => {
+        setShowMore(!showMore);
+        setPlayAnimation(true);
+    };
+
+    const handleEndAnimation = () => {
+        setPlayAnimation(false);
+    };
+
     return (
-        <ExperienceContentContainer onClick={() => setShowMore(!showMore)}>
+        <ExperienceContentContainer onClick={() => handleCardClick()}>
             <ExperienceHeader>
                 <ExperienceTitleNameLogoContainer>
                     <ExperienceLogo src={logo} />
@@ -48,7 +59,11 @@ export const DegreeExperienceInternal = ({
                 </ExperienceTitleNameLogoContainer>
                 <ExperienceDate>{dates}</ExperienceDate>
             </ExperienceHeader>
-            <ExperienceBody $showBody={showMore}>
+            <ExperienceBody
+                $showBody={showMore}
+                $animate={playAnimation}
+                onAnimationEnd={() => handleEndAnimation()}
+            >
                 {bodyText.map((item, idx) => {
                     return (
                         <ExperienceBodyItem key={idx}>

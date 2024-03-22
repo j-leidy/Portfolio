@@ -1,5 +1,43 @@
 import { styled, keyframes,css } from "styled-components";
 
+const CardKeyframesIN = keyframes`
+    0%{
+        height: 0;
+        opacity: 0;
+    }
+    10%{
+        height: 300px;
+        opacity: 0;
+    }
+    20%{
+        height: 300px;
+        opacity: 1;
+    }
+    100%{
+        height: 300px;
+        opacity: 1;
+    }
+`;
+
+const CardKeyframesOut = keyframes`
+    0%{
+        opacity: 1;
+        height: 300px;
+    }
+    10%{
+        opacity: 0;
+        height: 300px;
+    }
+    20%{
+        height: 0px;
+        opacity: 0;
+    }
+    100%{
+        opacity: 0;
+        height: 0px;
+    }
+`;
+
 export const ExperienceContentContainer = styled.div`
     display: flex;
     flex-direction: column;
@@ -72,6 +110,7 @@ const ExperienceBodyKeyframes = keyframes`
 `;
 interface ExperienceBodyProps {
     $showBody: boolean;
+    $animate: boolean;
 }
 export const ExperienceBody = styled.div<ExperienceBodyProps>`
     width: 80%;
