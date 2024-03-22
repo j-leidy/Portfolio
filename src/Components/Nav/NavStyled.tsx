@@ -10,10 +10,14 @@ export const MobileMenuSVG = styled.svg``;
 
 export const MobileMenuPathStyled = styled.path``;
 
-export const NavContainer = styled.div`
+interface NavContainerProps {
+    $top: number;
+}
+
+export const NavContainer = styled.div<NavContainerProps>`
     transition: 0.3s all ease;
     position: fixed;
-    top: 0;
+    top: ${(props) => props.$top}px;
     height: 70px;
     width: calc(100% - 40px);
     color: white;
