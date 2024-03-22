@@ -6,14 +6,17 @@ const CardKeyframesIN = keyframes`
         opacity: 0;
     }
     10%{
+        padding-top: 10px;
         max-height: 300px;
         opacity: 0;
     }
     20%{
+        padding-top: 10px;
         max-height: 300px;
         opacity: 1;
     }
     100%{
+        padding-top: 10px;
         max-height: 300px;
         opacity: 1;
     }
@@ -22,18 +25,22 @@ const CardKeyframesIN = keyframes`
 const CardKeyframesOut = keyframes`
     0%{
         opacity: 1;
+        padding-top: 10px;
         max-height: 300px;
     }
     10%{
         opacity: 0;
+        padding-top: 10px;
         max-height: 300px;
     }
     20%{
         max-height: 0px;
+        padding-top: 0px;
         opacity: 0;
     }
     100%{
         opacity: 0;
+        padding-top: 0px;
         max-height: 0px;
     }
 `;
@@ -104,20 +111,27 @@ interface ExperienceBodyProps {
 }
 export const ExperienceBody = styled.div<ExperienceBodyProps>`
     width: 80%;
-    padding: 0;
     overflow: hidden;
-    opacity: 0;
     animation-fill-mode: forwards;
     animation-iteration-count: 1;
     ${({$animate,$showBody,theme})=>($animate&&$showBody) && css`
         animation: ${CardKeyframesIN} ${theme.animationTime.medium}s;
         max-height: 300px;
+        padding-top: 10px;
     `}
     ${({$animate,$showBody,theme})=>($animate&&!$showBody)&&css`
         animation: ${CardKeyframesOut} ${theme.animationTime.medium}s;
         max-height: 0px;
+        padding-top: 0px;
     `}
-    ${({$animate,$showBody})=>(!$animate&&!$showBody)&&css`max-height:0px;`}
+    ${({$animate,$showBody})=>(!$animate &&$showBody)&&css`
+        padding-top: 10px;
+    `}
+    ${({$animate,$showBody})=>(!$animate&&!$showBody)&&css`
+        opacity: 1;
+        padding-top: 0px;
+        max-height:0px;
+    `}
     @media screen and (max-width: ${(props) => props.theme.breakpoint}px) {
         width: 90%;
         padding: 0;
