@@ -2,19 +2,19 @@ import { styled, keyframes,css } from "styled-components";
 
 const CardKeyframesIN = keyframes`
     0%{
-        height: 0;
+        max-height: 0;
         opacity: 0;
     }
     10%{
-        height: 300px;
+        max-height: 300px;
         opacity: 0;
     }
     20%{
-        height: 300px;
+        max-height: 300px;
         opacity: 1;
     }
     100%{
-        height: 300px;
+        max-height: 300px;
         opacity: 1;
     }
 `;
@@ -22,19 +22,19 @@ const CardKeyframesIN = keyframes`
 const CardKeyframesOut = keyframes`
     0%{
         opacity: 1;
-        height: 300px;
+        max-height: 300px;
     }
     10%{
         opacity: 0;
-        height: 300px;
+        max-height: 300px;
     }
     20%{
-        height: 0px;
+        max-height: 0px;
         opacity: 0;
     }
     100%{
         opacity: 0;
-        height: 0px;
+        max-height: 0px;
     }
 `;
 
@@ -98,16 +98,6 @@ export const ExperienceHeader = styled.div`
     }
 `;
 
-const ExperienceBodyKeyframes = keyframes`
-    0%{
-        max-height: 0;
-        opacity: 0;
-    }
-    100%{
-        opacity:1;
-        max-height: 300px;
-    }
-`;
 interface ExperienceBodyProps {
     $showBody: boolean;
     $animate: boolean;
@@ -116,17 +106,18 @@ export const ExperienceBody = styled.div<ExperienceBodyProps>`
     width: 80%;
     padding: 0;
     overflow: hidden;
-    min-height: 0;
-    max-height: 0;
     opacity: 0;
-    ${({ $showBody }) =>
-        $showBody &&
-        css`
-            padding-top: 5%;
-            animation: ${ExperienceBodyKeyframes} 1s;
-            animation-fill-mode: forwards;
-            animation-iteration-count: 1;
-        `}
+    animation-fill-mode: forwards;
+    animation-iteration-count: 1;
+    ${({$animate,$showBody,theme})=>($animate&&$showBody) && css`
+        animation: ${CardKeyframesIN} ${theme.animationTime.medium}s;
+        max-height: 300px;
+    `}
+    ${({$animate,$showBody,theme})=>($animate&&!$showBody)&&css`
+        animation: ${CardKeyframesOut} ${theme.animationTime.medium}s;
+        max-height: 0px;
+    `}
+    ${({$animate,$showBody})=>(!$animate&&!$showBody)&&css`max-height:0px;`}
     @media screen and (max-width: ${(props) => props.theme.breakpoint}px) {
         width: 90%;
         padding: 0;
