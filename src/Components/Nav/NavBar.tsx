@@ -28,14 +28,9 @@ export const MobileMenu = () => {
     };
     const handleScroll = () => {
         if (window.scrollY > test.current) {
-            //hi
             setScrollShow(false);
-            console.log("hiding", window.scrollY);
-            console.log("prev", test.current);
         } else if (window.scrollY <= test.current) {
-            //sho
             setScrollShow(true);
-            console.log("showing");
         }
         test.current = window.scrollY;
     };
