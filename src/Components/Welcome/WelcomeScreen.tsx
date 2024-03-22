@@ -2,7 +2,6 @@ import { css, keyframes, styled } from "styled-components";
 import { useAppDispatch } from "../../Hooks/Hooks";
 import { setShowMainPage } from "../../Redux/PageSlice/PageSlice";
 import { MoonIcon } from "../Nav/MoonIcon";
-import { swapTheme } from "../../Redux/ThemeSlice/ThemeSlice";
 import { SocialIconsComponent } from "../SocialIcons/SocialIconsComponent";
 
 const WelcomeContentContainer = styled.div`
