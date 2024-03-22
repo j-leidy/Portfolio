@@ -28,7 +28,6 @@ export const MobileMenu = () => {
     };
     const handleScroll = () => {
         if (window.scrollY > previousScrollValue.current) {
-            //increase the amount shown until 100 percent
             if (
                 navShowAmount.current < 140 &&
                 navShowAmount.current +
