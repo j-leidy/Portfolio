@@ -10,7 +10,7 @@ import {
     CardItem,
     NameText,
 } from "./NavStyled";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { MoonIcon } from "./MoonIcon";
 
 const menuOptions = ["Home", "Projects", "Experience", "Degrees"];
@@ -18,9 +18,33 @@ const ids = ["Hero", "Projects", "Experiences", "Degrees"];
 
 export const MobileMenu = () => {
     const [clicked, setClicked] = useState<boolean>(false);
+    const [scrollShow, setScrollShow] = useState<boolean>(true);
+    const [prevScrollY, setPrevScrollY] = useState<number>(0);
+
+    const test = useRef<number>(0);
+
     const scrollTo = (id: string) => {
         document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
     };
+    const handleScroll = () => {
+        if (window.scrollY > test.current) {
+            //hi
+            setScrollShow(false);
+            console.log("hiding", window.scrollY);
+            console.log("prev", test.current);
+        } else if (window.scrollY <= test.current) {
+            //sho
+            setScrollShow(true);
+            console.log("showing");
+        }
+        test.current = window.scrollY;
+    };
+    useEffect(() => {
+        window.addEventListener("scroll", handleScroll);
+        return () => {
+            window.removeEventListener("scroll", handleScroll);
+        };
+    }, []);
     return (
         <NavContainer>
             <IconTextMoonContainer>
