@@ -24,7 +24,15 @@ export const ExperiencesData:ExperiencesDataType = {
     "Headstorm" : {
         jobTitle: "Software Consulting Intern",
         dates: "May 2023 - Aug. 2023",
-        bodyText: ["Successfully implemented features for production.", "Excelled in an Agile environment.", "Worked on a large team with version control through Git.", "Wrote tests for new features to improve code coverage by over 12%", "Worked on their open-source UI Library to improve existing components."],
+        bodyText: ["Actively engaged in an Agile Software Development cycle to meet deadlines.", 
+        "Presented to the partners for my team to update them on our progress for 3/5 sprints.",
+        "Over 3x improvement in my output per sprint over the course of the internship.",
+        "Implemented features using TypeScript to improve the overall experience of an internal web application.",
+        "Utilized GraphQL to fetch employee data and populate an interactive table.",
+        "Wrote End-To-End tests to verify UI components I created functioned properly on all browsers (Playwright).",
+        "Wrote unit tests to verify data was populated accordingly (Jest).",
+        "Gained an understanding of CI/CD and GitHub actions.",
+        "Reviewed other developers code to ensure company practices were adhered to."],
         logo: HeadstormLogo,
         skills: [TypescriptIcon,HTMLIcon,CSSIcon,ReactIcon,GraphQLIcon,GithubIcon,JIRAIcon],
         accentText: ""
