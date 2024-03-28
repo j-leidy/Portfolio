@@ -6,6 +6,7 @@ import {
 } from "../CommonStyled/SkillIconsStyled";
 import { InViewProps } from "../CommonStyled/CommonStyledProps";
 import { useEffect, useRef, useState } from "react";
+import { offWhite } from "../../Theme/ColorPallete";
 
 interface CardContainerProps {
     $width: number;
@@ -54,9 +55,9 @@ const InternalCardStyles = css`
     overflow: hidden;
     ${({ theme }) => css`
         transition: background ${theme.animationTime.short}s;
-        border: 1px solid ${theme.colors.accentMain};
         background: ${theme.colors.background};
         color: ${theme.colors.text};
+        box-shadow: 0 10px 16px -14px ${theme.colors.background === offWhite ? theme.colors.text : theme.colors.accentMain};
         @media screen and (max-width: ${theme.breakpoint}px) {
             align-items: center;
             flex-direction: column;
