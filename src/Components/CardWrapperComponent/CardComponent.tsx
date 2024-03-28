@@ -57,7 +57,7 @@ const InternalCardStyles = css`
         transition: background ${theme.animationTime.short}s;
         background: ${theme.colors.background};
         color: ${theme.colors.text};
-        box-shadow: 0 10px 16px -14px ${theme.colors.background === offWhite ? theme.colors.text : theme.colors.accentMain};
+        box-shadow: 0 8px 16px -16px ${theme.colors.background === offWhite ? theme.colors.text : theme.colors.accentMain};
         @media screen and (max-width: ${theme.breakpoint}px) {
             align-items: center;
             flex-direction: column;
