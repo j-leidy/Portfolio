@@ -18,18 +18,14 @@ const ids = ["Hero", "Projects", "Experiences", "Degrees"];
 
 export const MobileMenu = () => {
     const [clicked, setClicked] = useState<boolean>(false);
-    const [showNavBar, setShowNavBar] = useState<boolean>(true);
+    const [translateNavBar, setTranslateNavBar] = useState<boolean>(false);
     const previousScrollValue = useRef<number>(window.scrollY);
 
     const scrollTo = (id: string) => {
         document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
     };
     const handleScroll = () => {
-        if (window.scrollY > previousScrollValue.current) {
-            setShowNavBar(true);
-        } else if (window.scrollY <= previousScrollValue.current) {
-            setShowNavBar(false);
-        }
+        setTranslateNavBar(window.scrollY > previousScrollValue.current);
         previousScrollValue.current = window.scrollY;
     };
     useEffect(() => {
@@ -39,7 +35,7 @@ export const MobileMenu = () => {
         };
     }, []);
     return (
-        <NavContainer $show={showNavBar}>
+        <NavContainer $show={translateNavBar}>
             <IconTextMoonContainer>
                 <NameText>JL</NameText>
                 <MoonIcon />
