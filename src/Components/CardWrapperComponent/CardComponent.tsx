@@ -30,7 +30,7 @@ const CardTitle = styled.div<InViewProps>`
     align-items: center;
     justify-content: space-between;
     font-size: 30px;
-    ${({theme, $inView})=>css`
+    ${({ theme, $inView }) => css`
         transition: opacity ${theme.animationTime.short}s ease-in;
         opacity: ${$inView ? "1" : "0"};
     `}
@@ -52,7 +52,7 @@ const InternalCardStyles = css`
     justify-content: space-around;
     border-radius: 10px;
     overflow: hidden;
-    ${({theme})=>css`
+    ${({ theme }) => css`
         transition: background ${theme.animationTime.short}s;
         border: 1px solid ${theme.colors.accentMain};
         background: ${theme.colors.background};
@@ -69,14 +69,12 @@ interface InternalCardProps extends InViewProps {
     $padAmount: number;
 }
 
-
-
-
 const InternalComponentWrapper = styled.div<InternalCardProps>`
     ${({ $inView, theme }) =>
         $inView
             ? css`
-                  animation: ${CardInViewKeyframes} ${theme.animationTime.long}s;
+                  animation: ${CardInViewKeyframes}
+                      ${theme.animationTime.short}s;
                   animation-iteration-count: 1;
                   animation-fill-mode: forwards;
                   animation-timing-function: ease-in;
@@ -104,7 +102,7 @@ const CardTitleText = styled.div<CardTitleTextProps>`
     text-transform: uppercase;
     font-weight: 600;
     padding-left: 10px;
-    ${({theme, $fontSize})=>css`
+    ${({ theme, $fontSize }) => css`
         font-size: ${$fontSize}px;
         color: ${theme.colors.accentOne};
         @media screen and (max-width: ${theme.breakpoint}px) {
@@ -121,7 +119,7 @@ const BaseInternalElement = () => {
     );
 };
 
-const DefaultStyledExtraWrap = styled.div``
+const DefaultStyledExtraWrap = styled.div``;
 
 const DefaultCardProps = {
     useWidthPercent: false,
@@ -137,7 +135,7 @@ const DefaultCardProps = {
     paddInternalCard: true,
     internalCardPadding: 20,
     defaultStyledExtraWrap: DefaultStyledExtraWrap,
-    InternalCardContainerProps: {}
+    InternalCardContainerProps: {},
 };
 
 interface CardComponentProps {
@@ -149,10 +147,10 @@ interface CardComponentProps {
     cardSkillsArr?: string[];
     ComponentToWrap: (props: any) => JSX.Element;
     internalComponentProps?: {};
-    paddInternalCard?:boolean;
-    internalCardPadding?:number;
-    InternalCardContainer?: IStyledComponent<any,any>
-    InternalCardContainerProps?: {[key:string]:unknown}
+    paddInternalCard?: boolean;
+    internalCardPadding?: number;
+    InternalCardContainer?: IStyledComponent<any, any>;
+    InternalCardContainerProps?: { [key: string]: unknown };
 }
 
 export const observerOptions: IntersectionObserverInit = {
@@ -171,7 +169,7 @@ export const CardComponent = ({
     paddInternalCard = DefaultCardProps.paddInternalCard,
     internalCardPadding = DefaultCardProps.internalCardPadding,
     InternalCardContainer = DefaultCardProps.defaultStyledExtraWrap,
-    InternalCardContainerProps = DefaultCardProps.InternalCardContainerProps
+    InternalCardContainerProps = DefaultCardProps.InternalCardContainerProps,
 }: CardComponentProps) => {
     const cardRefNoLink = useRef<HTMLDivElement>(null);
     const titleRef = useRef<HTMLDivElement>(null);
@@ -183,24 +181,21 @@ export const CardComponent = ({
         const observer: IntersectionObserver = new IntersectionObserver(
             (entries: IntersectionObserverEntry[]) => {
                 entries.forEach((entry: IntersectionObserverEntry) => {
-                        if (cardRefNoLink.current && titleRef.current) {
-                            cardRefNoLink.current.className ===
-                                entry.target.className &&
-                                setCardNoLinkInView(entry.isIntersecting);
-                            titleRef.current.className ===
-                                entry.target.className &&
-                                setTitleIsInView(entry.isIntersecting);
-                        }
-                    
+                    if (cardRefNoLink.current && titleRef.current) {
+                        cardRefNoLink.current.className ===
+                            entry.target.className &&
+                            setCardNoLinkInView(entry.isIntersecting);
+                        titleRef.current.className === entry.target.className &&
+                            setTitleIsInView(entry.isIntersecting);
+                    }
                 });
             },
             observerOptions
         );
-            if (cardRefNoLink.current && titleRef.current) {
-                const refs = [titleRef.current, cardRefNoLink.current];
-                refs.forEach((ref) => observer.observe(ref));
-            }
-        
+        if (cardRefNoLink.current && titleRef.current) {
+            const refs = [titleRef.current, cardRefNoLink.current];
+            refs.forEach((ref) => observer.observe(ref));
+        }
 
         return () => observer.disconnect();
     }, [cardRefNoLink, titleRef]);
@@ -239,7 +234,6 @@ export const CardComponent = ({
                     <ComponentToWrap {...internalComponentProps} />
                 </InternalComponentWrapper>
             </InternalCardContainer>
-           
         </CardContainer>
     );
 };

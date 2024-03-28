@@ -1,12 +1,17 @@
 import { styled, css } from "styled-components";
 
-export const PageSectionContainer = styled.div`
+interface PageSectionContainerProps {
+    $useThemeBackground?:boolean
+}
+
+export const PageSectionContainer = styled.div<PageSectionContainerProps>`
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     width: 70%;
-    ${({theme})=>css`
+    ${({theme,$useThemeBackground})=>css`
+        background: ${$useThemeBackground ? theme.colors.background : 'transparent'};
         color: ${theme.colors.text};
         transition: ${theme.animationTime.short}s all ease;
         @media screen and (max-width: ${theme.breakpoint}px){

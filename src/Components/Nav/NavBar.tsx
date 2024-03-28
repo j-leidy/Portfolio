@@ -24,16 +24,30 @@ export const MobileMenu = () => {
     const scrollTo = (id: string) => {
         document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
     };
+
     const handleScroll = () => {
         setTranslateNavBar(window.scrollY > previousScrollValue.current);
+        if (
+            window.scrollY > previousScrollValue.current &&
+            window.scrollY - previousScrollValue.current > 20
+        ) {
+            setTranslateNavBar(true);
+        } else if (
+            window.scrollY <= previousScrollValue.current &&
+            previousScrollValue.current - window.scrollY > 20
+        ) {
+            setTranslateNavBar(false);
+        }
         previousScrollValue.current = window.scrollY;
     };
+
     useEffect(() => {
         window.addEventListener("scroll", handleScroll);
         return () => {
             window.removeEventListener("scroll", handleScroll);
         };
     }, []);
+
     return (
         <NavContainer $show={translateNavBar}>
             <IconTextMoonContainer>
