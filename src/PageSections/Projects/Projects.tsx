@@ -16,7 +16,7 @@ const ProjectImageTest = (props: { image: string }) => {
     return <ProjectCardImage src={props.image} />;
 };
 
-const ImageWrapper = styled.a``
+const ImageWrapper = styled.a``;
 
 export const Projects = () => {
     return (
@@ -25,7 +25,7 @@ export const Projects = () => {
                 titleText="Projects"
                 useThemeColors
                 includeSubText
-                subText="Click or tap a card for more information"
+                subText="Click or tap a card for more information."
             />
             {Object.keys(ProjectsData).map((key, idx) => {
                 const Project = ProjectsData[key];
@@ -37,7 +37,10 @@ export const Projects = () => {
                         cardTitleText={key}
                         key={idx}
                         InternalCardContainer={ImageWrapper}
-                        InternalCardContainerProps={{href:Project.linkToProject, target:"_blank"}}
+                        InternalCardContainerProps={{
+                            href: Project.linkToProject,
+                            target: "_blank",
+                        }}
                     />
                 );
             })}

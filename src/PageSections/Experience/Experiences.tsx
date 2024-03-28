@@ -11,7 +11,7 @@ export const Experiences = () => {
                 titleText="Experience"
                 useThemeColors
                 includeSubText
-                subText="Click or tap a card for more information!"
+                subText="Click or tap a card for more information."
             />
             {Object.keys(ExperiencesData).map((key, idx) => {
                 const experienceObj = ExperiencesData[key];

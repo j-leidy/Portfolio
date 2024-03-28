@@ -18,7 +18,6 @@ const ids = ["Hero", "Projects", "Experiences", "Degrees"];
 
 export const MobileMenu = () => {
     const [clicked, setClicked] = useState<boolean>(false);
-    const [pixelValue, setPixelValue] = useState<number>(0);
     const [showNavBar, setShowNavBar] = useState<boolean>(true);
     const previousScrollValue = useRef<number>(window.scrollY);
 

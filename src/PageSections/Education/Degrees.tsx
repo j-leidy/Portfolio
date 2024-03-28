@@ -7,7 +7,12 @@ import { DegreeExperienceInternal } from "../../Components/DegreeExperienceCompo
 export const Degrees = () => {
     return (
         <PageSectionContainer id="Degrees">
-            <SectionTitle titleText="Degrees" useThemeColors />
+            <SectionTitle
+                titleText="Degrees"
+                subText="Click or tap a card for more information."
+                includeSubText
+                useThemeColors
+            />
             {Object.keys(DegreesData).map((key, idx) => {
                 const degreeObj = DegreesData[key as keyof typeof DegreesData];
                 return (
@@ -22,7 +27,6 @@ export const Degrees = () => {
                         }}
                         cardSkillsArr={degreeObj.skills}
                         cardTitleText={degreeObj.accentText}
-
                         internalCardPadding={5}
                         widthPercent={70}
                         key={idx}
