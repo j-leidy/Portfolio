@@ -11,13 +11,14 @@ export const MobileMenuSVG = styled.svg``;
 export const MobileMenuPathStyled = styled.path``;
 
 interface NavContainerProps {
-    $top: number;
+    $show: boolean;
 }
 
 export const NavContainer = styled.div<NavContainerProps>`
     transition: 0.3s all ease;
     position: fixed;
-    top: ${(props) => props.$top}px;
+    top: 0px;
+    transform: translateY(${({ $show }) => ($show ? "-70px" : "0px")});
     height: 70px;
     width: calc(100% - 40px);
     color: white;

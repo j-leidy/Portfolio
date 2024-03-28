@@ -19,53 +19,17 @@ const ids = ["Hero", "Projects", "Experiences", "Degrees"];
 export const MobileMenu = () => {
     const [clicked, setClicked] = useState<boolean>(false);
     const [pixelValue, setPixelValue] = useState<number>(0);
+    const [showNavBar, setShowNavBar] = useState<boolean>(true);
     const previousScrollValue = useRef<number>(window.scrollY);
-    const navShowAmount = useRef<number>(140);
 
     const scrollTo = (id: string) => {
         document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
     };
     const handleScroll = () => {
         if (window.scrollY > previousScrollValue.current) {
-            if (
-                navShowAmount.current <= 140 &&
-                navShowAmount.current +
-                    (window.scrollY - previousScrollValue.current) <=
-                    140
-            ) {
-                navShowAmount.current +=
-                    window.scrollY - previousScrollValue.current;
-                setPixelValue(-navShowAmount.current / 2);
-            }
-            if (
-                navShowAmount.current <= 140 &&
-                navShowAmount.current +
-                    (window.scrollY - previousScrollValue.current) >
-                    140
-            ) {
-                navShowAmount.current = 140;
-                setPixelValue(-navShowAmount.current / 2);
-            }
+            setShowNavBar(true);
         } else if (window.scrollY <= previousScrollValue.current) {
-            if (
-                navShowAmount.current >= 0 &&
-                navShowAmount.current -
-                    (previousScrollValue.current - window.scrollY) >=
-                    0
-            ) {
-                navShowAmount.current -=
-                    previousScrollValue.current - window.scrollY;
-                setPixelValue(-navShowAmount.current / 2);
-            }
-            if (
-                navShowAmount.current >= 0 &&
-                navShowAmount.current -
-                    (previousScrollValue.current - window.scrollY) <
-                    0
-            ) {
-                navShowAmount.current = 0;
-                setPixelValue(0);
-            }
+            setShowNavBar(false);
         }
         previousScrollValue.current = window.scrollY;
     };
@@ -76,7 +40,7 @@ export const MobileMenu = () => {
         };
     }, []);
     return (
-        <NavContainer $top={pixelValue}>
+        <NavContainer $show={showNavBar}>
             <IconTextMoonContainer>
                 <NameText>JL</NameText>
                 <MoonIcon />
