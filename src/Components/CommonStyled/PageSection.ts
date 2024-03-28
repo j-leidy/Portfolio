@@ -9,6 +9,7 @@ export const PageSectionContainer = styled.div<PageSectionContainerProps>`
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    gap: 40px;
     width: 70%;
     ${({theme,$useThemeBackground})=>css`
         background: ${$useThemeBackground ? theme.colors.background : 'transparent'};

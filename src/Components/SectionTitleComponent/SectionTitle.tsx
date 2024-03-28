@@ -23,7 +23,7 @@ const SectionTitleContainer = styled.div<ContainerProps>`
     align-items: center;
     justify-content: center;
     width: 80%;
-    padding-bottom: 20px;
+    padding-bottom: 10px;
     padding-top: 200px;
     text-transform: uppercase;
     font-weight: 600;
@@ -44,7 +44,7 @@ const SectionTitleContainer = styled.div<ContainerProps>`
                   color: ${$textColor};
                   border-bottom: ${$borderThickness}px solid ${$borderColor};
               `}
-    ${({theme,$fontSize})=>css`
+    ${({ theme, $fontSize }) => css`
         font-size: ${$fontSize}px;
         transition: ${theme.animationTime.short}s all ease;
         @media screen and (max-width: ${theme.breakpoint}px) {
