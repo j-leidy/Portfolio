@@ -1,15 +1,9 @@
 import { offWhite } from "./ColorPallete";
 
-import TWITWhite from "../Icons/SetBW/TWITSETWhite.png";
-import TWITBlack from "../Icons/SetBW/TWITSETBlack.png";
-import IGWhite from "../Icons/SetBW/IGSETWhite.png";
-import IGBlack from "../Icons/SetBW/IGSETBlack.png";
 import LIWhite from "../Icons/SetBW/LISETWhite.png";
 import LIBlack from "../Icons/SetBW/LISETBlack.png";
 import GHWhite from "../Icons/SetBW/GHSETWhite.png";
 import GHBlack from "../Icons/SetBW/GHSETBlack.png";
-import FBWhite from "../Icons/SetBW/FBSETWhite.png";
-import FBBlack from "../Icons/SetBW/FBSETBlack.png";
 
 export type SocialIconsObject = {
     [key: string]: {
