@@ -14,7 +14,8 @@ interface SocialIconProps {
 }
 
 const SocialIconsContainer = styled.div<SocialIconsContainerProps>`
-    min-width: 30%;
+    min-width: 17%;
+    font-weight: 700;
     display: flex;
     align-items: center;
     justify-content: space-around;
@@ -85,6 +86,7 @@ export const SocialIconsComponent = ({
             $userBackground={customBackground}
             $useThemeBackground={useThemeBackground}
         >
+            Let's Connect
             {Object.keys(iconsObject).map((Social, idx) => {
                 const socialObject = iconsObject[Social];
                 return (

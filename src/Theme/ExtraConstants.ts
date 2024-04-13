@@ -12,61 +12,38 @@ import FBWhite from "../Icons/SetBW/FBSETWhite.png";
 import FBBlack from "../Icons/SetBW/FBSETBlack.png";
 
 export type SocialIconsObject = {
-    [key:string] : {
-        link: string,
-        icon: string
-    }
-}
+    [key: string]: {
+        link: string;
+        icon: string;
+    };
+};
 
 export const BlackSocials: SocialIconsObject = {
-    Facebook: {
-        link: 'https://www.facebook.com/',
-        icon: FBBlack
-    },
-    Instagram : {
-        link: 'https://www.instagram.com/swankdayz/',
-        icon: IGBlack
-    },
-    TwitterX : {
-        link: 'https://twitter.com/Liquiiiiid',
-        icon: TWITBlack
-    },
     GitHub: {
-        link: 'https://github.com/j-leidy',
-        icon: GHBlack
+        link: "https://github.com/j-leidy",
+        icon: GHBlack,
     },
-    LinkedIn : {
-        link: 'https://www.linkedin.com/in/jrleidyii/',
-        icon: LIBlack
-    }};
+    LinkedIn: {
+        link: "https://www.linkedin.com/in/jrleidyii/",
+        icon: LIBlack,
+    },
+};
 
-    export const WhiteSocials: SocialIconsObject = {
-        Facebook: {
-            link: 'https://www.facebook.com/',
-            icon: FBWhite
-        },
-        Instagram : {
-            link: 'https://www.instagram.com/swankdayz/',
-            icon: IGWhite
-        },
-        TwitterX : {
-            link: 'https://twitter.com/Liquiiiiid',
-            icon: TWITWhite
-        },
-        GitHub: {
-            link: 'https://github.com/j-leidy',
-            icon: GHWhite
-        },
-        LinkedIn : {
-            link: 'https://www.linkedin.com/in/jrleidyii/',
-            icon: LIWhite
-        }};
-
+export const WhiteSocials: SocialIconsObject = {
+    GitHub: {
+        link: "https://github.com/j-leidy",
+        icon: GHWhite,
+    },
+    LinkedIn: {
+        link: "https://www.linkedin.com/in/jrleidyii/",
+        icon: LIWhite,
+    },
+};
 
 export const WelcomeParticlesBackground = {
-    color: {offWhite},
+    color: { offWhite },
     image: "",
     position: "50% 50%",
     repeat: "no-repeat",
     size: "cover",
-}
+};
