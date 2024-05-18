@@ -17,40 +17,75 @@ import HTMLIcon from "../../Icons/Languages/HTMLIcon.png";
 import CSSIcon from "../../Icons/Languages/CSSIcon.png";
 
 type Projects = {
-    [key:string]: Project
-}
+    [key: string]: Project;
+};
 type Project = {
-    image: string,
-    bullets: string[],
-    skillsUsed: string[],
-    linkToProject: string
-}
+    image: string;
+    bullets: string[];
+    skillsUsed: string[];
+    linkToProject: string;
+};
 
-
-export const allProjectImages : string[] = [LiquiDashImage,LiquiBotImage,LiquiBotWebsiteImage,CPPDBExplorerImage];
-export const ProjectsData : Projects = {
-    "LiquiDash" : {
-        image: LiquiDashImage,
-        bullets: ['Utilizes a custom REST API shared with Liquibot', 'Performs ETL operations to display useful data', 'Uses live data stored on MongoDB from Liquibot', 'Proprietary analytic charts', 'User leaderboards','Redux for state storage'],
-        skillsUsed: [TypescriptIcon,HTMLIcon,CSSIcon,FlaskIcon,MongoDBIcon,ReactIcon, GithubIcon],
-        linkToProject: "https://liquidash.netlify.app/"
-    },
-    "LiquiBot" : {
+export const allProjectImages: string[] = [
+    LiquiDashImage,
+    LiquiBotImage,
+    LiquiBotWebsiteImage,
+    CPPDBExplorerImage,
+];
+export const ProjectsData: Projects = {
+    LiquiBot: {
         image: LiquiBotImage,
-        bullets: ['Utilizes the Discord.py framework.', "Over 20 commands", "verified active developer badge"],
-        skillsUsed: [PythonIcon,FlaskIcon,ActiveDeveloperBadge,DiscordIcon,MongoDBIcon,LinuxIcon, GithubIcon],
-        linkToProject: "https://discord.com/oauth2/authorize?client_id=1074436572172259500&permissions=8&scope=bot"
+        bullets: [
+            "Utilizes the Discord.py framework.",
+            "Over 20 commands",
+            "verified active developer badge",
+        ],
+        skillsUsed: [
+            PythonIcon,
+            FlaskIcon,
+            ActiveDeveloperBadge,
+            DiscordIcon,
+            MongoDBIcon,
+            LinuxIcon,
+            GithubIcon,
+        ],
+        linkToProject:
+            "https://discord.com/oauth2/authorize?client_id=1074436572172259500&permissions=8&scope=bot",
     },
-    "LiquiBot Website" : {
+    LiquiDash: {
+        image: LiquiDashImage,
+        bullets: [
+            "Utilizes a custom REST API shared with Liquibot",
+            "Performs ETL operations to display useful data",
+            "Uses live data stored on MongoDB from Liquibot",
+            "Proprietary analytic charts",
+            "User leaderboards",
+            "Redux for state storage",
+        ],
+        skillsUsed: [
+            TypescriptIcon,
+            HTMLIcon,
+            CSSIcon,
+            FlaskIcon,
+            MongoDBIcon,
+            ReactIcon,
+            GithubIcon,
+        ],
+        linkToProject: "https://liquidash.netlify.app/",
+    },
+    "LiquiBot Website": {
         image: LiquiBotWebsiteImage,
-        bullets: ['Built with react'],
-        skillsUsed: [TypescriptIcon,HTMLIcon,CSSIcon,ReactIcon, GithubIcon],
-        linkToProject: "https://liquibot.netlify.app/"
+        bullets: ["Built with react"],
+        skillsUsed: [TypescriptIcon, HTMLIcon, CSSIcon, ReactIcon, GithubIcon],
+        linkToProject: "https://liquibot.netlify.app/",
     },
-    "C++ DB Explorer" : {
+    "C++ DB Explorer": {
         image: CPPDBExplorerImage,
-        bullets: ["Allows execution of sql commands from the command line.", "Commands are simplified to provide ease of use for users."],
-        skillsUsed: [CPPIcon,SQLIcon,GithubIcon],
-        linkToProject: "https://github.com/j-leidy"
-    }
-}
+        bullets: [
+            "Allows execution of sql commands from the command line.",
+            "Commands are simplified to provide ease of use for users.",
+        ],
+        skillsUsed: [CPPIcon, SQLIcon, GithubIcon],
+        linkToProject: "https://github.com/j-leidy",
+    },
+};

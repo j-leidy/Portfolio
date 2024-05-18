@@ -1,6 +1,6 @@
 import { BlackSocials, SocialIconsObject } from "../../Theme/ExtraConstants";
 import { styled, css } from "styled-components";
-import { offWhite } from "../../Theme/ColorPallete";
+import { blackAccent, offWhite } from "../../Theme/ColorPallete";
 
 interface SocialIconsContainerProps {
     $shadow?: boolean;
@@ -12,6 +12,12 @@ interface SocialIconProps {
     $changeMobileSize?: boolean;
     $mobileModifier?: number;
 }
+
+const SocialIconsText = styled.div`
+    ${({ theme }) => css`
+        color: ${blackAccent};
+    `}
+`;
 
 const SocialIconsContainer = styled.div<SocialIconsContainerProps>`
     min-width: 17%;
@@ -86,7 +92,7 @@ export const SocialIconsComponent = ({
             $userBackground={customBackground}
             $useThemeBackground={useThemeBackground}
         >
-            Let's Connect
+            <SocialIconsText>Let's Connect</SocialIconsText>
             {Object.keys(iconsObject).map((Social, idx) => {
                 const socialObject = iconsObject[Social];
                 return (
