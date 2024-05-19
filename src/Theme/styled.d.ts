@@ -51,8 +51,5 @@ type ThemeType = {
 
 declare module "styled-components" {
     export interface LightTheme extends ThemeType, ThemeType {}
-}
-
-declare module "styled-components" {
     export interface DarkTheme extends ThemeType, ThemeType {}
 }
