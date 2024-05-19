@@ -1,6 +1,6 @@
-import 'styled-components'
-import { CustomISourceOptions } from '../Components/Particles/config/ParticlesConfig';
-import { SocialIconsObject } from './ExtraConstants';
+import "styled-components";
+import { CustomISourceOptions } from "../Components/Particles/config/ParticlesConfig";
+import { SocialIconsObject } from "./ExtraConstants";
 
 interface IBackground {
     color: string;
@@ -11,73 +11,48 @@ interface IBackground {
     size?: string;
 }
 
-declare module 'styled-components' {
-    export interface LightTheme {
-        colors : {
-            text : string,
-            background: string
-            backgroundOpposite:string
-            textOpposite:string
-            accentMain:string
-            accentOne: string
-            accentTwo: string
-            accentThree: string
-            navBackground: string
-            navBackgroundOpposite: string,
-            UIAccent: string
-        }
-        gradient : {
-            default : string
-            secondary: string
-            purpleGreen: string
-            gradientStart: string
-            gradientEnd:string
-            defaultVerticle: string
-        }
-        animationTime : {
-            short: number
-            medium: number
-            long: number
-        }
-        breakpoint: number,
-        particlesOptions: CustomISourceOptions,
-        socialIcons: SocialIconsObject
-    }
+interface Colors {
+    text: string;
+    background: string;
+    backgroundOpposite: string;
+    textOpposite: string;
+    accentMain: string;
+    accentOne: string;
+    accentTwo: string;
+    accentThree: string;
+    navBackground: string;
+    navBackgroundOpposite: string;
+    UIAccent: string;
 }
 
-declare module 'styled-components' {
-    export interface DarkTheme {
-        colors : {
-            text : string,
-            background : string
-            backgroundOpposite:string
-            textOpposite:string
-            accentMain:string
-            accentOne: string
-            accentTwo: string
-            accentThree: string
-            navBackground: string
-            navBackgroundOpposite: string
-            UIAccent: string
-        }
-        gradient : {
-            default : string
-            secondary: string
-            purpleGreen: string
-            gradientStart: string
-            gradientEnd:string
-            defaultVerticle: string
-        }
-        animationTime : {
-            short: number
-            medium: number
-            long: number
-        }
-        breakpoint: number,
-        particlesOptions: CustomISourceOptions
-        socialIcons: SocialIconsObject
-
-    }
+interface Gradients {
+    default: string;
+    secondary: string;
+    purpleGreen: string;
+    gradientStart: string;
+    gradientEnd: string;
+    defaultVerticle: string;
 }
 
+interface AnimationTimes {
+    short: number;
+    medium: number;
+    long: number;
+}
 
+type ThemeType = {
+    colors: Colors;
+    gradient: Gradients;
+    animationTime: AnimationTimes;
+    breakpoint: number;
+    particlesOptions: CustomISourceOptions;
+    socialIcons: SocialIconsObject;
+};
+
+declare module "styled-components" {
+    export interface LightTheme extends ThemeType, ThemeType {}
+}
+
+declare module "styled-components" {
+    export interface DarkTheme extends ThemeType, ThemeType {}
+}
