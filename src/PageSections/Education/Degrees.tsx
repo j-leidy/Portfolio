@@ -14,7 +14,7 @@ export const Degrees = () => {
                 useThemeColors
             />
             {Object.keys(DegreesData).map((key, idx) => {
-                const degreeObj = DegreesData[key as keyof typeof DegreesData];
+                const degreeObj = DegreesData[key];
                 return (
                     <CardComponent
                         ComponentToWrap={DegreeExperienceInternal}
