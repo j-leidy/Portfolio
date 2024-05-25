@@ -13,8 +13,12 @@ interface SocialIconProps {
     $mobileModifier?: number;
 }
 
-const SocialIconsText = styled.div`
-    ${({ theme }) => css`
+interface SocialIconsTextProps {
+    $useThemeBackground?: boolean;
+}
+
+const SocialIconsText = styled.div<SocialIconsTextProps>`
+    ${({ theme, $useThemeBackground }) => css`
         color: ${blackAccent};
     `}
 `;

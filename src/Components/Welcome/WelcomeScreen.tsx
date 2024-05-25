@@ -27,18 +27,25 @@ const WelcomeScreenContainer = styled.div`
     caret-color: transparent;
 `;
 
-const ClickOrTapToEnterButton = styled.div`
+const ClickOrTapToEnterButton = styled.button`
     border-radius: 50%;
+    outline: none;
+    padding: 0;
+    margin: 0;
     width: 200px;
     height: 200px;
     display: flex;
     align-items: center;
     justify-content: center;
+    font-family: inherit;
     ${({ theme }) => css`
         background: ${theme.colors.backgroundOpposite};
         transition: ${theme.animationTime.short}s all ease;
         border: 1px solid ${theme.colors.textOpposite};
     `}
+    &:hover {
+        cursor: pointer;
+    }
 `;
 
 const TextAnimation = keyframes`
@@ -72,10 +79,8 @@ export const WelcomeScreen = () => {
         <WelcomeScreenContainer>
             <WelcomeContentContainer>
                 <MoonIcon />
-                <ClickOrTapToEnterButton>
-                    <ClickOrTapToEnterText onClick={() => handleEnterClick()}>
-                        Enter
-                    </ClickOrTapToEnterText>
+                <ClickOrTapToEnterButton onClick={() => handleEnterClick()}>
+                    <ClickOrTapToEnterText>Enter</ClickOrTapToEnterText>
                 </ClickOrTapToEnterButton>
 
                 <SocialIconsComponent giveShadow />
