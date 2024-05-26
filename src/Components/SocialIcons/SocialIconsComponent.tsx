@@ -14,12 +14,12 @@ interface SocialIconProps {
 }
 
 interface SocialIconsTextProps {
-    $useThemeBackground?: boolean;
+    $useThemeBackground: boolean;
 }
 
 const SocialIconsText = styled.div<SocialIconsTextProps>`
     ${({ theme, $useThemeBackground }) => css`
-        color: ${blackAccent};
+        color: ${$useThemeBackground ? theme.colors.text : blackAccent};
     `}
 `;
 
@@ -96,7 +96,9 @@ export const SocialIconsComponent = ({
             $userBackground={customBackground}
             $useThemeBackground={useThemeBackground}
         >
-            <SocialIconsText>Let's Connect</SocialIconsText>
+            <SocialIconsText $useThemeBackground={useThemeBackground}>
+                Let's Connect
+            </SocialIconsText>
             {Object.keys(iconsObject).map((Social, idx) => {
                 const socialObject = iconsObject[Social];
                 return (
