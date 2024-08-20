@@ -96,10 +96,10 @@ export const Footer = () => {
                         {footerData.name}
                     </FooterTextItem>
                     <FooterTextItem $fontSize={14} $fontWeight={500}>
-                        Built with React.
+                        Built with React and Typescript.
                     </FooterTextItem>
                     <FooterTextItem $fontSize={14} $fontWeight={500}>
-                        Developed using Typescript.
+                        Optimized with Vite.
                     </FooterTextItem>
                 </FooterTextItems>
             </FooterIconAndText>
