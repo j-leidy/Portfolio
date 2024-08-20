@@ -27,7 +27,7 @@ type ExperiencesDataType = {
 export const ExperiencesData: ExperiencesDataType = {
     "Indiana Farm Bureau Insurance": {
         jobTitle: "Software Developer Intern",
-        dates: "May 2024 - Aug. 2024",
+        dates: "May 2024 - Present",
         bodyText: ["Coming soon!"],
         logo: INFBILogo,
         skills: [
@@ -57,15 +57,7 @@ export const ExperiencesData: ExperiencesDataType = {
             "Reviewed other developers code to ensure company practices were adhered to.",
         ],
         logo: HeadstormLogo,
-        skills: [
-            TypescriptIcon,
-            HTMLIcon,
-            CSSIcon,
-            ReactIcon,
-            GraphQLIcon,
-            GithubIcon,
-            JIRAIcon,
-        ],
+        skills: [TypescriptIcon, HTMLIcon, CSSIcon, ReactIcon, GraphQLIcon, GithubIcon, JIRAIcon],
         accentText: "",
     },
     "Jimmy Johns": {
