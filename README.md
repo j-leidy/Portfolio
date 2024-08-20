@@ -11,7 +11,7 @@ This portfolio was a complete overhaul of my previous portfolio. The previous po
 
 <details>
 <summary>The CardComponent</summary>
-All portfolio works are encapsulated with a card component. The goal with this design was to make adding a new piece to my portfolio simple. Every portfolio piece generally has the same elements: styling, information or image and skills. This component was created to allow me to use the same wrapper but with a different React element. Meaning I can have the same animations and interactions, while giving the wrapper any React element I want to be displayed. This dramatically reduces the amount of code needed to create this portfolio as well as expand on it.
+All portfolio works and experiences are encapsulated with a card component. The goal with this design was to make adding a new piece to my portfolio simple. Every portfolio piece generally has the same elements: styling, information or image and skills. This component was created to allow me to use the same wrapper but with a different React element. Meaning I can have the same animations and interactions, while passing the wrapper any React Component as a prop to display. This dramatically reduces the amount of effort needed to create this portfolio as well as expand on it.
 
 <details>
 <summary>Example of utilizing the CardComponent</summary>
