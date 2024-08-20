@@ -1,5 +1,6 @@
 # Portfolio [Link](https://johnleidyii.netlify.app/)
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/5101ad4f-65f2-40f7-83a0-fc223642ec00/deploy-status)](https://app.netlify.com/sites/johnleidyii/deploys)
 Please see the license for proper use.
 
 <details>
@@ -78,11 +79,7 @@ export const DegreeExperienceInternal = ({
             </ExperienceHeader>
             <ExperienceBody $showBody={showMore}>
                 {bodyText.map((item, idx) => {
-                    return (
-                        <ExperienceBodyItem key={idx}>
-                            ◦ {item}
-                        </ExperienceBodyItem>
-                    );
+                    return <ExperienceBodyItem key={idx}>◦ {item}</ExperienceBodyItem>;
                 })}
             </ExperienceBody>
         </ExperienceContentContainer>
