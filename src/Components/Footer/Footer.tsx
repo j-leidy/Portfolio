@@ -31,21 +31,13 @@ interface FooterTextItemProps {
 }
 
 const FooterTextItem = styled.div<FooterTextItemProps>`
-    ${({
-        $fontSize,
-        $fontWeight,
-        $mobileFontSizeModifier,
-        $capitalize,
-        theme,
-    }) => css`
+    ${({ $fontSize, $fontWeight, $mobileFontSizeModifier, $capitalize, theme }) => css`
         color: ${theme.colors.text};
         font-size: ${$fontSize}px;
         font-weight: ${$fontWeight};
         text-transform: ${$capitalize ? "uppercase" : "none"};
         @media screen and (max-width: ${theme.breakpoint}px) {
-            font-size: ${$mobileFontSizeModifier
-                ? $fontSize * $mobileFontSizeModifier
-                : $fontSize}px;
+            font-size: ${$mobileFontSizeModifier ? $fontSize * $mobileFontSizeModifier : $fontSize}px;
             text-align: center;
         }
     `}
@@ -100,11 +92,7 @@ export const Footer = () => {
             <FooterIconAndText>
                 <FooterIcon src={Portrait} />
                 <FooterTextItems>
-                    <FooterTextItem
-                        $fontSize={30}
-                        $fontWeight={600}
-                        $capitalize
-                    >
+                    <FooterTextItem $fontSize={30} $fontWeight={600} $capitalize>
                         {footerData.name}
                     </FooterTextItem>
                     <FooterTextItem $fontSize={14} $fontWeight={500}>
@@ -115,10 +103,7 @@ export const Footer = () => {
                     </FooterTextItem>
                 </FooterTextItems>
             </FooterIconAndText>
-            <SocialIconsComponent
-                iconsObject={theme.socialIcons}
-                useThemeBackground
-            />
+            <SocialIconsComponent iconsObject={theme.socialIcons} useThemeBackground />
         </FooterContainer>
     );
 };
