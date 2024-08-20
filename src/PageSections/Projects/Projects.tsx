@@ -12,7 +12,7 @@ const ProjectCardImage = styled.img`
     }
 `;
 
-const ProjectImageTest = (props: { image: string }) => {
+const ProjectImage = (props: { image: string }) => {
     return <ProjectCardImage src={props.image} />;
 };
 
@@ -32,7 +32,7 @@ export const Projects = () => {
                 return (
                     <CardComponent
                         internalComponentProps={{ image: Project.image }}
-                        ComponentToWrap={ProjectImageTest}
+                        ComponentToWrap={ProjectImage}
                         cardSkillsArr={Project.skillsUsed}
                         cardTitleText={key}
                         key={idx}

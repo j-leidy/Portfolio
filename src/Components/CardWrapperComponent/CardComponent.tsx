@@ -1,9 +1,5 @@
 import { styled, css, keyframes, IStyledComponent } from "styled-components";
-import {
-    SkillIcon,
-    SkillIconKeyframes,
-    SkillsContainer,
-} from "../CommonStyled/SkillIconsStyled";
+import { SkillIcon, SkillIconKeyframes, SkillsContainer } from "../CommonStyled/SkillIconsStyled";
 import { InViewProps } from "../CommonStyled/CommonStyledProps";
 import { useEffect, useRef, useState } from "react";
 import { offWhite } from "../../Theme/ColorPallete";
@@ -74,8 +70,7 @@ const InternalComponentWrapper = styled.div<InternalCardProps>`
     ${({ $inView, theme }) =>
         $inView
             ? css`
-                  animation: ${CardInViewKeyframes}
-                      ${theme.animationTime.short}s;
+                  animation: ${CardInViewKeyframes} ${theme.animationTime.short}s;
                   animation-iteration-count: 1;
                   animation-fill-mode: forwards;
                   animation-timing-function: ease-in;
@@ -147,7 +142,7 @@ interface CardComponentProps {
     cardTitleSize?: number;
     cardSkillsArr?: string[];
     ComponentToWrap: (props: any) => JSX.Element;
-    internalComponentProps?: {};
+    internalComponentProps?: { [key: string]: unknown };
     paddInternalCard?: boolean;
     internalCardPadding?: number;
     InternalCardContainer?: IStyledComponent<any, any>;
@@ -183,8 +178,7 @@ export const CardComponent = ({
             (entries: IntersectionObserverEntry[]) => {
                 entries.forEach((entry: IntersectionObserverEntry) => {
                     if (cardRefNoLink.current && titleRef.current) {
-                        cardRefNoLink.current.className ===
-                            entry.target.className &&
+                        cardRefNoLink.current.className === entry.target.className &&
                             setCardNoLinkInView(entry.isIntersecting);
                         titleRef.current.className === entry.target.className &&
                             setTitleIsInView(entry.isIntersecting);
@@ -203,9 +197,7 @@ export const CardComponent = ({
     return (
         <CardContainer $width={widthPercent} $usePercent={useWidthPercent}>
             <CardTitle $inView={titleIsInView} ref={titleRef}>
-                <CardTitleText $fontSize={cardTitleSize}>
-                    {showCardTitle && cardTitleText}
-                </CardTitleText>
+                <CardTitleText $fontSize={cardTitleSize}>{showCardTitle && cardTitleText}</CardTitleText>
                 <SkillsContainer>
                     {cardSkillsArr.map((skill, idx) => {
                         return (
