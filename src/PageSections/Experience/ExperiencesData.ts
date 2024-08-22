@@ -12,6 +12,7 @@ import CSSIcon from "../../Icons/Languages/CSSIcon.png";
 import BitBucketIcon from "../../Icons/Languages/BitBucketIcon.png";
 import AngularIcon from "../../Icons/Languages/AngularIcon.png";
 import JavascriptIcon from "../../Icons/Languages/JavascriptIcon.png";
+import JavaIcon from "../../Icons/Languages/JavaIcon.png";
 
 type ExperiencesDataType = {
     [key: string]: {
@@ -28,12 +29,20 @@ export const ExperiencesData: ExperiencesDataType = {
     "Indiana Farm Bureau Insurance": {
         jobTitle: "Software Developer Intern",
         dates: "May 2024 - Present",
-        bodyText: ["Coming soon!"],
+        bodyText: [
+            "Actively engaged in an Agile Software Development cycle to meet deadlines.",
+            "Balanced workload of stories with a POC ensuring progress and completion of both.",
+            "Improved unit testing patterns by introducing parameterized testing patterns.",
+            "Wrote unit tests on the FE and BE to ensure implementation quality.",
+            "Implemented secure transmission for text from a rich text editor without obfuscation.",
+            "Developed a method to perform integration tests on shadow doms.",
+        ],
         logo: INFBILogo,
         skills: [
             AngularIcon,
             TypescriptIcon,
             JavascriptIcon,
+            JavaIcon,
             HTMLIcon,
             CSSIcon,
             JIRAIcon,

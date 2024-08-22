@@ -7,6 +7,7 @@ import CPPIcon from "../../Icons/Languages/CPPIcon.png";
 import BinaryIcon from "../../Icons/Languages/BinaryIcon.png";
 import DatabasesIcon from "../../Icons/Languages/DatabasesIcon.png";
 import RISCV from "../../Icons/Languages/RiscV.png";
+import TypescriptIcon from "../../Icons/Languages/TypescriptIcon.png";
 
 export type DegreesDataType = {
     [key: string]: {
@@ -25,6 +26,9 @@ export const DegreesData: DegreesDataType = {
         dates: "June 2022 - Dec. 2024",
         bodyText: [
             "Theory of Computation",
+            "Principles of Software Engineering",
+            "Principles of Computer Networking",
+            "Databse Systems",
             "Architecture of Computers",
             "Operating Systems",
             "Client-side Web Development",
@@ -34,7 +38,7 @@ export const DegreesData: DegreesDataType = {
             "Statistics",
         ],
         logo: IUPUILogo,
-        skills: [BinaryIcon, CPPIcon, RISCV],
+        skills: [BinaryIcon, CPPIcon, RISCV, TypescriptIcon],
         accentText: "3.97 GPA",
     },
     "IVY Tech": {
